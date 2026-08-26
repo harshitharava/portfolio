@@ -1,0 +1,471 @@
+/* ============================================================
+   Infosys Gen AI Web Application — case study page
+   ------------------------------------------------------------
+   Shorter source material than the other case studies (a 4-page
+   deck: hero, About/Brief/Challenge, two user-journey flowcharts,
+   a web-screens gallery) — no research writeup, no persona cards,
+   no "My Contribution" or "Reflection" section exists in the
+   source, and none is invented here per direction.
+
+   No dark-mode exports exist for this project at all (confirmed —
+   the supplied asset set has no "-dark" files), so every image is
+   used as-is in both themes, same as the "light asset, no dark
+   equivalent" convention already used elsewhere on the site.
+
+   Colours sampled directly from the supplied screens, not guessed:
+     page bg      #e5f2fb  (light blue-tinted, matches the app's own)
+     ink          #1c1c1c
+     ink-soft     #5c5c5c
+     infosys blue #007cc2  (sampled from the sidebar/header — exact)
+     ai purple    #963596  (sampled from the AI Chat/Nudges panel header)
+     success      #1a9c4b  (positive metric indicators)
+     danger       #d32f2f  (negative metric indicators)
+   ============================================================ */
+
+.ig {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --ig-bg: #f5f9fc;
+  --ig-panel-bg: #e5f2fb;
+  --ig-ink: #1c1c1c;
+  --ig-ink-soft: #5c5c5c;
+  --ig-blue: #007cc2;
+  --ig-blue-deep: #005a8f;
+  --ig-purple: #963596;
+  --ig-success: #1a9c4b;
+  --ig-danger: #d32f2f;
+  --ig-card: #eef4f8;
+  --ig-rule: #d7e3ea;
+  --ig-quote: #007cc2;
+
+  background: var(--ig-bg);
+  color: var(--ig-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.ig :where(section) {
+  padding-block: 0;
+}
+
+.ig-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.ig-section {
+  padding-block: calc(80 * var(--u));
+}
+
+.ig-section--tight {
+  padding-top: 0;
+}
+
+.ig p {
+  margin: 0 0 1em;
+}
+
+.ig p:last-child {
+  margin-bottom: 0;
+}
+
+.ig h1,
+.ig h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* h3 is every subheading and card heading: body face at a bold weight,
+   matching the convention already established across the other case
+   studies (Talos Care's own h3, and the corrected h3 on CityLoop / PlayPal
+   / MyTown) — the display face doesn't hold up at these smaller sizes. */
+.ig h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.ig h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.ig h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.ig img {
+  display: block;
+  max-width: 100%;
+}
+
+.ig a {
+  color: inherit;
+}
+
+/* ---------- Hero ---------- */
+
+.ig-hero {
+  padding-top: 0;
+}
+
+.ig-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+  padding-top: calc(150 * var(--u));
+}
+
+.ig-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--ig-ink);
+  background: #fff;
+  border: 1px solid var(--ig-rule);
+  border-radius: 999px;
+  height: calc(56 * var(--u));
+  padding-inline: calc(26 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ig-hero-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: calc(48 * var(--u));
+  align-items: center;
+  margin-top: calc(56 * var(--u));
+}
+
+.ig h1.ig-hero-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ig-blue);
+}
+
+.ig-hero-figure {
+  margin: 0;
+}
+
+.ig-hero-figure img {
+  width: 100%;
+  height: auto;
+}
+
+.ig-hero-sub {
+  max-width: none;
+  margin: calc(48 * var(--u)) 0 0;
+  text-align: left;
+  color: var(--ig-ink-soft);
+  font-size: 1.05em;
+}
+
+/* ---------- Meta row ---------- */
+
+.ig-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(24 * var(--u));
+  border-top: 1px solid var(--ig-rule);
+  border-bottom: 1px solid var(--ig-rule);
+  padding-block: calc(32 * var(--u));
+  margin-top: calc(64 * var(--u));
+}
+
+.ig-meta h4 {
+  font-weight: 400;
+  color: var(--ig-ink-soft);
+  margin-bottom: calc(8 * var(--u));
+  font-size: 0.9em;
+}
+
+.ig-meta p {
+  font-weight: 700;
+  font-size: 1.15em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- About / Brief / Challenge ---------- */
+/* label-left, copy-right rows, matching the PDF's own layout exactly
+   rather than the two-column card pattern used elsewhere */
+
+.ig-info-row {
+  padding-block: calc(28 * var(--u));
+}
+
+.ig-info-row:first-child {
+  padding-top: 0;
+}
+
+.ig-info-row h3 {
+  margin: 0 0 calc(12 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+}
+
+.ig-info-row p {
+  color: var(--ig-ink-soft);
+  margin: 0;
+  max-width: 74ch;
+}
+
+.ig-info-row strong {
+  color: var(--ig-ink);
+  font-weight: 700;
+}
+
+/* ---------- Flowcharts ---------- */
+/* rebuilt in HTML/CSS since no diagram asset was supplied for either
+   journey — every box and branch below matches the PDF's own labels
+   and sequence exactly. */
+
+.ig-flow-title {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ig-blue);
+  margin: 0 0 calc(4 * var(--u));
+}
+
+.ig-flow-title:not(:first-child) {
+  margin-top: calc(72 * var(--u));
+}
+
+.ig-flow {
+  background: #fff;
+  border: 1px solid var(--ig-rule);
+  border-radius: 24px;
+  padding: calc(40 * var(--u));
+  margin-top: calc(32 * var(--u));
+}
+
+.ig-flow + .ig-flow {
+  margin-top: calc(64 * var(--u));
+}
+
+.ig-flow-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+}
+
+.ig-flow-row + .ig-flow-row {
+  margin-top: calc(32 * var(--u));
+}
+
+.ig-flow-box {
+  background: var(--ig-card);
+  border: 1px solid var(--ig-rule);
+  border-radius: 10px;
+  padding: calc(16 * var(--u)) calc(18 * var(--u));
+  font-size: 0.92em;
+  font-weight: 600;
+  text-align: center;
+  flex: 1 1 200px;
+  min-width: 170px;
+}
+
+.ig-flow-box.start {
+  background: #e3f6ea;
+  border-color: #b7e4c7;
+}
+
+.ig-flow-box.end {
+  background: #fbe6e6;
+  border-color: #f0bcbc;
+}
+
+.ig-flow-box.highlight {
+  background: #dff1fb;
+  border-color: #a9d9f2;
+}
+
+.ig-flow-arrow {
+  color: var(--ig-ink-soft);
+  font-size: 1.1em;
+  flex: 0 0 auto;
+}
+
+.ig-flow-branch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: calc(24 * var(--u));
+  margin-top: calc(20 * var(--u));
+  padding-left: calc(60 * var(--u));
+  border-left: 2px dashed var(--ig-rule);
+  margin-left: calc(90 * var(--u));
+}
+
+.ig-flow-branch-col {
+  display: flex;
+  flex-direction: column;
+  gap: calc(12 * var(--u));
+}
+
+/* inside a branch column the boxes should size to their own content,
+   not stretch to fill — .ig-flow-box's flex:1 is meant for horizontal
+   rows; left unset here, the shorter "non pre-configured" branch
+   (a single box) previously grew to match the taller branch's full
+   height, leaving it stretched with a large empty-feeling interior
+   instead of just sitting at its natural size */
+.ig-flow-branch-col .ig-flow-box {
+  flex: 0 0 auto;
+}
+
+.ig-flow-branch-label {
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ig-blue);
+  margin-bottom: calc(4 * var(--u));
+}
+
+/* ---------- Web Screens ---------- */
+
+.ig-screens-hero {
+  margin: calc(40 * var(--u)) 0 0;
+}
+
+.ig-screens-hero img {
+  width: 100%;
+  height: auto;
+}
+
+.ig-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(24 * var(--u));
+  margin-top: calc(48 * var(--u));
+}
+
+.ig-screens-grid figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ig-rule);
+}
+
+.ig-screens-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   Dark mode
+   ------------------------------------------------------------
+   No dark exports exist for any Infosys asset, so every image
+   stays exactly as-is in both themes (per the established
+   "light asset, no dark equivalent" convention) — only the page
+   chrome (background, ink, card fills) follows the site's normal
+   dark palette.
+   ============================================================ */
+
+[data-theme="dark"] .ig {
+  --ig-bg: var(--bg);
+  --ig-ink: var(--ink);
+  --ig-ink-soft: #a89f8e;
+  --ig-card: #262019;
+  --ig-rule: #3d3624;
+  --ig-panel-bg: #1b2530;
+}
+
+[data-theme="dark"] .ig-hero-tags > span {
+  background: #201a13;
+  border-color: var(--ig-rule);
+}
+
+[data-theme="dark"] .ig-flow {
+  background: #1b1610;
+}
+
+[data-theme="dark"] .ig-flow-box.start {
+  background: #163524;
+  border-color: #235c3c;
+}
+
+[data-theme="dark"] .ig-flow-box.end {
+  background: #3a1f1f;
+  border-color: #6b3232;
+}
+
+[data-theme="dark"] .ig-flow-box.highlight {
+  background: #17293a;
+  border-color: #2c5878;
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .ig {
+    --u: 0.62px;
+  }
+
+  .ig-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .ig-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ig-screens-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ig-flow-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* .ig-flow-box's flex: 1 1 200px is meant for the horizontal desktop
+     rows, where it lets boxes share row width evenly. In a column
+     direction that same flex-basis becomes a *height* basis, and
+     flex-grow:1 then stretches every box to fill the row's full
+     height rather than sizing to its own text — the huge boxes with a
+     lot of empty space seen on mobile. Sizing to content instead. */
+  .ig-flow-box {
+    flex: 0 0 auto;
+  }
+
+  .ig-flow-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+
+  /* the branch column's own arrows are already "↓" characters (correct
+     for a vertical stack even before any rotation) — the rule above is
+     meant only for the horizontal rows' "→" characters. Applying it
+     here too double-rotates a down arrow into a left arrow. */
+  .ig-flow-branch-col .ig-flow-arrow {
+    transform: none;
+  }
+
+  .ig-flow-branch {
+    grid-template-columns: 1fr;
+    margin-left: calc(20 * var(--u));
+    padding-left: calc(24 * var(--u));
+  }
+}

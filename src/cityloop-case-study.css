@@ -1,0 +1,798 @@
+/* ============================================================
+   CityLoop — case study page
+   ------------------------------------------------------------
+   Same measured approach as the Talos Care page: the artboard is
+   1728pt wide with a 1540pt content column at a 94pt margin, and
+   `--u` is one artboard point in CSS pixels. The column is locked
+   to the site's `.wrap` width so the page aligns with the nav.
+
+   CityLoop keeps its own identity: its dark/warm palette with the
+   orange accent, and Kanit + DM Sans rather than the portfolio's
+   typefaces.
+   ============================================================ */
+
+.cl {
+  --u: min(0.766px, calc((100vw - 48px) / 1540));
+
+  /* measured from the artboard */
+  --cl-bg: #f2eee3;
+  --cl-ink: #1c1c1c;
+  --cl-ink-soft: #676767;
+  --cl-accent: #d95f30;
+  --cl-peach: #efd9c8;
+  --cl-peach-light: #ffd7c1;
+  --cl-stroke: #939393;
+  --cl-rule: #b6b6b6;
+
+  background: var(--cl-bg);
+  color: var(--cl-ink);
+  font-family: "DM Sans", var(--font-body), sans-serif;
+  font-size: calc(28 * var(--u));
+  line-height: 1.4;
+}
+
+.cl :where(section) {
+  padding-block: 0;
+}
+
+.cl-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.cl-section {
+  padding-block: calc(56 * var(--u));
+}
+
+.cl p {
+  margin: 0 0 1em;
+}
+
+.cl p:last-child {
+  margin-bottom: 0;
+}
+
+.cl h2 {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(59 * var(--u));
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 calc(48 * var(--u));
+}
+
+.cl h3 {
+  /* body face at a bold weight, matching Talos Care's h3 — Kanit/Clash
+     Display doesn't hold up at this size for card and bracket headings */
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: calc(34 * var(--u));
+  line-height: 1.3;
+  margin: 0 0 calc(20 * var(--u));
+}
+
+.cl h4 {
+  font-weight: 700;
+  font-size: calc(28 * var(--u));
+  line-height: 1.4;
+  margin: 0 0 calc(12 * var(--u));
+}
+
+.cl ul {
+  margin: 0;
+  padding-left: 1.15em;
+}
+
+.cl li {
+  margin-bottom: 0.45em;
+}
+
+.cl li:last-child {
+  margin-bottom: 0;
+}
+
+.cl img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Hero ---------- */
+
+.cl-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.cl-hero-media > img {
+  width: 100%;
+  aspect-ratio: 1728 / 1087;
+  object-fit: cover;
+}
+
+/* wordmark: artboard 140pt, x94, centred at 44% of the hero height */
+.cl-hero-title-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cl-hero-title-rail {
+  position: relative;
+  height: 100%;
+}
+
+.cl p.cl-hero-title {
+  position: absolute;
+  left: 0;
+  top: 44%;
+  transform: translateY(-50%);
+  margin: 0;
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(140 * var(--u));
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--cl-accent);
+  text-shadow: calc(14 * var(--u)) calc(12 * var(--u)) 0 var(--cl-ink);
+}
+
+.cl-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  top: 8%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(22 * var(--u));
+}
+
+.cl-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  line-height: 1;
+  color: var(--cl-ink);
+  border: 1px solid rgba(28, 28, 28, 0.55);
+  border-radius: 999px;
+  height: calc(62 * var(--u));
+  padding-inline: calc(30 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* ---------- Intro + meta ---------- */
+
+.cl-intro {
+  display: grid;
+  grid-template-columns: calc(700 * var(--u)) 1fr;
+  gap: calc(64 * var(--u));
+  padding-top: calc(110 * var(--u));
+  padding-bottom: calc(90 * var(--u));
+}
+
+.cl-intro h1 {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(80 * var(--u));
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cl-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(56 * var(--u));
+  border-top: 1px solid var(--cl-rule);
+  border-bottom: 1px solid var(--cl-rule);
+  padding-block: calc(46 * var(--u)) calc(52 * var(--u));
+}
+
+.cl-meta h4 {
+  font-weight: 400;
+  color: var(--cl-ink-soft);
+  margin-bottom: calc(12 * var(--u));
+}
+
+.cl-meta p {
+  font-weight: 700;
+  font-size: calc(32 * var(--u));
+  line-height: 1.3;
+}
+
+/* ---------- Contribution (artwork bleeds left, as on the artboard) ---------- */
+
+.cl-contribution {
+  display: grid;
+  grid-template-columns: calc(700 * var(--u)) 1fr;
+  gap: calc(60 * var(--u));
+  align-items: center;
+}
+
+.cl-contribution-media {
+  position: relative;
+}
+
+.cl-contribution-media::before {
+  content: "";
+  position: absolute;
+  left: calc(-200 * var(--u));
+  right: calc(120 * var(--u));
+  top: 8%;
+  bottom: 4%;
+  background: var(--cl-peach);
+  border-radius: 999px 0 0 999px;
+}
+
+.cl-contribution-media img {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Pull quote ---------- */
+
+.cl-lede {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(34 * var(--u));
+  line-height: 1.32;
+  border-left: calc(4 * var(--u)) solid var(--cl-accent);
+  padding-left: calc(30 * var(--u));
+  margin: 0 0 calc(40 * var(--u));
+}
+
+.cl-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+}
+
+.cl-band {
+  border-top: 1px solid var(--cl-rule);
+  border-bottom: 1px solid var(--cl-rule);
+  padding-block: calc(52 * var(--u));
+  margin-block: calc(56 * var(--u));
+}
+
+.cl-band p {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(38 * var(--u));
+  line-height: 1.34;
+  margin: 0;
+}
+
+/* ---------- Cards ---------- */
+
+.cl-grid {
+  display: grid;
+  gap: calc(32 * var(--u));
+  margin-top: calc(44 * var(--u));
+}
+
+.cl-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.cl-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.cl-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.cl-card {
+  background: var(--cl-peach);
+  border: 1px solid var(--cl-rule);
+  border-radius: calc(39 * var(--u));
+  padding: calc(36 * var(--u));
+}
+
+/* Design Outcome sits in its own #ffd7c1 box on the artboard */
+.cl-outcome {
+  background: var(--cl-peach-light);
+  border: 1px solid var(--cl-rule);
+  border-radius: calc(40 * var(--u));
+  padding: calc(44 * var(--u));
+  margin-top: calc(44 * var(--u));
+}
+
+.cl-card-outline {
+  border: 1px solid var(--cl-stroke);
+  border-radius: calc(28 * var(--u));
+  padding: calc(36 * var(--u));
+}
+
+/* ---------- Method table ---------- */
+
+.cl-table {
+  background: var(--cl-peach);
+  border: 1px solid var(--cl-rule);
+  border-radius: calc(60 * var(--u));
+  margin-top: calc(44 * var(--u));
+  overflow: hidden;
+}
+
+.cl-table-scroll {
+  overflow-x: auto;
+  padding: calc(44 * var(--u)) calc(48 * var(--u));
+}
+
+.cl-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: calc(900 * var(--u));
+}
+
+.cl-table th,
+.cl-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: calc(24 * var(--u)) calc(28 * var(--u));
+}
+
+.cl-table thead th {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(30 * var(--u));
+  border-bottom: 1px solid var(--cl-rule);
+}
+
+.cl-table tbody th {
+  font-weight: 700;
+  width: 30%;
+}
+
+.cl-table tbody tr + tr th,
+.cl-table tbody tr + tr td {
+  border-top: 1px solid var(--cl-rule);
+}
+
+/* ---------- Personas ---------- */
+
+.cl-section-label {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(30 * var(--u));
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: calc(10 * var(--u));
+  margin: calc(50 * var(--u)) 0 calc(34 * var(--u));
+}
+
+.cl-personas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: calc(58 * var(--u));
+  row-gap: calc(24 * var(--u));
+  margin-top: calc(44 * var(--u));
+}
+
+.cl-persona-col {
+  display: contents;
+}
+
+.cl-persona-col > .cl-persona { grid-row: 1; }
+.cl-persona-col > .cl-persona-impact { grid-row: 2; }
+.cl-persona-col-1 > * { grid-column: 1; }
+.cl-persona-col-2 > * { grid-column: 2; }
+
+.cl-persona {
+  background: var(--cl-peach);
+  border: 1px solid var(--cl-rule);
+  border-radius: calc(60 * var(--u));
+  padding: calc(44 * var(--u));
+}
+
+.cl-persona-name {
+  font-family: "Kanit", var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: calc(32 * var(--u));
+  text-align: center;
+  margin: 0 0 calc(8 * var(--u));
+}
+
+.cl-persona-meta {
+  text-align: center;
+  color: var(--cl-ink-soft);
+  margin-bottom: calc(28 * var(--u));
+}
+
+.cl-persona-impact {
+  background: var(--cl-peach);
+  border: 1px solid var(--cl-rule);
+  border-radius: calc(79 * var(--u));
+  padding: calc(44 * var(--u));
+}
+
+/* ---------- User journey ---------- */
+
+.cl-figure-journey {
+  margin-top: calc(40 * var(--u));
+}
+
+/* ---------- Figures:/* ---------- Figures: finished artwork, shown whole ---------- */
+
+.cl-figure {
+  margin: calc(40 * var(--u)) 0 0;
+}
+
+.cl-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.cl-figure figcaption {
+  text-align: center;
+  color: var(--cl-ink-soft);
+  margin-top: calc(25 * var(--u));
+}
+
+/* The Experience: each subsection is one finished export — phone, pointers and
+   annotation bubbles are inside the PNG, so nothing is rebuilt around it */
+.cl h3.cl-exp-heading {
+  /* matches the transition Low Fidelity Exploration already established for
+     the same kind of jump (content block end -> new h3 subsection) */
+  margin-top: calc(57 * var(--u));
+}
+
+.cl-figure-exp {
+  margin-top: calc(40 * var(--u));
+}
+
+.cl-figure-exp img {
+  width: 100%;
+  height: auto;
+}
+
+/* light/dark asset pair: exactly one is ever in the render tree's visible
+   flow, for every ThemedImage on this page (Experience, Primary Persona,
+   User Journey, User Flow). display:none (not opacity/visibility) removes
+   the hidden one from layout entirely, so there is no double space,
+   overlap, or crossfade, and switching theme causes no layout shift since
+   both images share the same intrinsic dimensions as their sibling. */
+.cl figure .cl-exp-dark {
+  display: none;
+}
+
+[data-theme="dark"] .cl figure .cl-exp-light {
+  display: none;
+}
+
+[data-theme="dark"] .cl figure .cl-exp-dark {
+  display: block;
+}
+
+/* Every Experience composition embeds the same phone mockup component at a
+   fixed 456px, regardless of the composition's own canvas size or how much
+   annotation whitespace surrounds it (measured directly from the source
+   PNGs). Each cap below scales its whole composition — never cropped, never
+   distorted — so that embedded phone renders at the same width used in Low
+   Fidelity Exploration (335u ≈ 257px at desktop), which is this page's
+   agreed reference scale for every phone on it. */
+@media (min-width: 761px) {
+  /* Seamless Booking Experience 1 (3 phones, canvas 1665px) */
+  .cl-figure-exp-compact img {
+    width: auto;
+    max-width: 79.4%;
+    margin-inline: auto;
+  }
+
+  /* Context Aware Discovery (1 phone, canvas 1700px) */
+  .cl-figure-exp-cap-a img {
+    width: auto;
+    max-width: 81%;
+    margin-inline: auto;
+  }
+
+  /* Category Based Discovery (2 phones, canvas 2306px) is the one
+     composition that cannot reach the reference scale without exceeding
+     the column: matching 257px would need a 1297px-wide render against a
+     1180px column. Left at 100% width — its practical ceiling — which
+     lands its phones at ~233px, the closest achievable without cropping
+     or overflowing the layout. */
+}
+
+/* Key Explorations: 355 × 355 brackets, radius 40, alternating open side —
+   measured from the artboard, matching its literature-review treatment */
+.cl-brackets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(42 * var(--u));
+  margin-top: calc(40 * var(--u));
+  /* dominates the following label's margin-top via collapsing: 74u to the
+     next .cl-section-label, matching the artboard */
+  margin-bottom: calc(74 * var(--u));
+}
+
+.cl-bracket {
+  position: relative;
+  min-height: calc(355 * var(--u));
+  padding: calc(66 * var(--u)) calc(43 * var(--u)) calc(43 * var(--u));
+  border-left: 1px solid var(--cl-ink);
+  border-right: 1px solid var(--cl-ink);
+}
+
+.cl-bracket-down {
+  border-bottom: 1px solid var(--cl-ink);
+  border-bottom-left-radius: calc(40 * var(--u));
+  border-bottom-right-radius: calc(40 * var(--u));
+}
+
+.cl-bracket-up {
+  border-top: 1px solid var(--cl-ink);
+  border-top-left-radius: calc(40 * var(--u));
+  border-top-right-radius: calc(40 * var(--u));
+}
+
+.cl-bracket::before {
+  content: "";
+  position: absolute;
+  left: calc(-6 * var(--u));
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+  border-radius: 50%;
+  background: var(--cl-ink);
+}
+
+.cl-bracket-down::before { top: calc(-6 * var(--u)); }
+.cl-bracket-up::before { bottom: calc(-6 * var(--u)); }
+
+/* one phone scale for the whole case study: the artboard places every mobile
+   mockup at 335 units wide, whatever whitespace its export carries */
+.cl-phones {
+  justify-items: center;
+}
+
+.cl-phones figure img {
+  width: calc(335 * var(--u));
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.cl-figure-personas {
+  margin-top: calc(40 * var(--u));
+  margin-bottom: calc(80 * var(--u));
+}
+
+/* the user flow is one composition — it scrolls rather than reflowing */
+.cl-figure-scroll {
+  overflow-x: auto;
+}
+
+.cl-figure-scroll img {
+  min-width: calc(1100 * var(--u));
+}
+
+.cl-screens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  /* artboard: phones sit 50u apart as a tight centred group, not distributed
+     across equal grid columns spanning the full content width */
+  column-gap: calc(50 * var(--u));
+  row-gap: calc(56 * var(--u));
+  margin-top: calc(40 * var(--u));
+}
+
+/* margin-bottom on the two phone rows dominates the following label's own
+   margin-top via collapsing, giving each transition its measured artboard
+   gap: 87u after the Discovery Experience row, a deliberately larger 138u
+   after the Detail Experience row (confirmed against the PDF — Responsive
+   Exploration gets more breathing room as the section's closing element). */
+.cl-screens-3 {
+  margin-bottom: calc(87 * var(--u));
+}
+
+.cl-screens-2 {
+  margin-bottom: calc(138 * var(--u));
+}
+
+.cl-screens figure {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.cl-screens img {
+  width: 100%;
+  height: auto;
+}
+
+.cl-screens figcaption {
+  text-align: center;
+  color: var(--cl-ink-soft);
+  margin-top: calc(32 * var(--u));
+}
+
+/* ---------- Design system ---------- */
+
+.cl-system {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(36 * var(--u));
+  margin-top: calc(44 * var(--u));
+}
+
+.cl-swatches {
+  display: grid;
+  grid-template-columns: repeat(7, max-content);
+  gap: calc(16 * var(--u));
+  margin-top: calc(20 * var(--u));
+}
+
+.cl-swatch {
+  width: calc(76 * var(--u));
+  height: calc(76 * var(--u));
+  border-radius: calc(12 * var(--u));
+  border: 1px solid #b6b6b6;
+}
+
+/* the artboard sets the icon library out eight per row */
+.cl-icons {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  justify-items: start;
+  gap: calc(26 * var(--u));
+  margin-top: calc(20 * var(--u));
+}
+
+.cl-icons img {
+  width: calc(52 * var(--u));
+  height: calc(52 * var(--u));
+}
+
+.cl-buttons img {
+  width: 100%;
+  max-width: calc(420 * var(--u));
+  height: auto;
+  margin-top: calc(16 * var(--u));
+}
+
+.cl-logos {
+  display: flex;
+  gap: calc(32 * var(--u));
+  flex-wrap: wrap;
+  margin-top: calc(20 * var(--u));
+}
+
+.cl-logos img {
+  height: calc(64 * var(--u));
+  width: auto;
+}
+
+/* the light-background logo sample sits on its own light plate, as on the
+   artboard, so it reads in either theme */
+.cl-logo-plate {
+  background: #f2eee3;
+  border-radius: calc(16 * var(--u));
+  padding: calc(20 * var(--u)) calc(28 * var(--u));
+  display: inline-block;
+}
+
+.cl-logo-dark {
+  background: #1c1c1c;
+  border-radius: calc(16 * var(--u));
+  padding: calc(20 * var(--u)) calc(28 * var(--u));
+}
+
+.cl-type-sample-kanit {
+  font-family: "Kanit", var(--font-display), sans-serif;
+}
+
+/* ---------- Reflection ---------- */
+
+.cl-reflection p {
+  margin-bottom: 1.3em;
+}
+
+/* ============================================================
+   Dark mode — CityLoop's own dark register, keeping the orange
+   accent. Artwork is left untouched.
+   ============================================================ */
+
+[data-theme="dark"] .cl {
+  --cl-bg: var(--bg);
+  --cl-ink: var(--ink);
+  --cl-ink-soft: #a49a8d;
+  --cl-peach: #2b2119;
+  --cl-peach-light: #33261c;
+  --cl-stroke: #5b5348;
+  --cl-rule: #4a443c;
+}
+
+[data-theme="dark"] .cl-hero-tags > span {
+  color: #f4f1ea;
+  border-color: rgba(244, 241, 234, 0.6);
+}
+
+[data-theme="dark"] .cl-persona-impact {
+  border-top-color: rgba(244, 241, 234, 0.2);
+}
+
+/* ============================================================
+   Reflow — layout only; artwork is never rebuilt or cropped.
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .cl {
+    --u: 0.62px;
+  }
+
+  .cl-grid-4,
+  .cl-brackets {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cl-bracket {
+    min-height: 0;
+  }
+
+  .cl-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cl-system {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  /* the icon library and palette ramps halve rather than overflowing */
+  .cl-icons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cl-swatches {
+    grid-template-columns: repeat(4, max-content);
+  }
+
+  .cl-intro,
+  .cl-contribution,
+  .cl-cols,
+  .cl-grid-2,
+  .cl-grid-4,
+  .cl-brackets {
+    grid-template-columns: 1fr;
+  }
+
+  /* flex row wraps to one phone per line at this width on its own; explicit
+     column gap narrows to match the tighter mobile rhythm */
+  .cl-screens {
+    column-gap: calc(50 * var(--u));
+  }
+
+  .cl-meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(36 * var(--u));
+  }
+
+  .cl-contribution-media::before {
+    left: -24px;
+    right: calc(60 * var(--u));
+  }
+
+  /* wordmark: artboard x94, width 667, centred at 44% of the hero height */
+.cl-hero-tags {
+    position: static;
+    padding-top: calc(26 * var(--u));
+    gap: calc(14 * var(--u));
+  }
+
+  .cl-personas {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: calc(24 * var(--u));
+  }
+
+  .cl-persona-col > .cl-persona,
+  .cl-persona-col > .cl-persona-impact {
+    grid-row: auto;
+  }
+
+  .cl-persona-col-1 > *,
+  .cl-persona-col-2 > * {
+    grid-column: 1;
+  }
+
+  .cl-persona-col-2 > .cl-persona {
+    margin-top: calc(40 * var(--u));
+  }
+}

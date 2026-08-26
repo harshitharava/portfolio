@@ -1,0 +1,820 @@
+/* ============================================================
+   MyTown — case study page
+   ------------------------------------------------------------
+   Same structural conventions as the other case studies (1180px
+   content column matching the shared nav, `--u` as one artboard
+   point, scoped class prefix, ThemedImage light/dark swapping),
+   but MyTown's own visual identity: the softer blue-grey sky and
+   warm cream ground from the supplied hero plate, an orange/navy
+   brand pair taken from the logo, and the peach/sage card tints
+   used throughout the PDF's own diagrams.
+
+   Colours sampled directly from the supplied artwork and the PDF
+   render rather than reused from another case study:
+
+     page bg        #f2ece2   (cream — every section below the hero)
+     hero sky       #bbd2e1   (top of the supplied hero plate)
+     ink            #1c1c1c
+     ink-soft       #5c574c
+     orange         #ff844b   (logo mark, primary buttons)
+     orange-deep    #d95f27
+     navy           #2b5b85   (logo wordmark, secondary)
+     peach          #fbdcc9   (callout bubbles, problem-diagram cards)
+     card           #e8e6e0   (Problem / Design Response panels)
+
+   Headings use the portfolio's own Clash Display / Satoshi, as on
+   every other case study. Nunito Round is MyTown's *product*
+   typeface and appears only inside the supplied Design System
+   artwork — it is not loaded or used for page furniture here.
+   ============================================================ */
+
+.mt {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --mt-bg: #f2ece2;
+  --mt-ink: #1c1c1c;
+  --mt-ink-soft: #5c574c;
+  --mt-orange: #ff844b;
+  --mt-orange-deep: #d95f27;
+  --mt-navy: #2b5b85;
+  --mt-peach: #fbdcc9;
+  --mt-card: #e8e6e0;
+  --mt-rule: #d8d0c2;
+  --mt-stroke: #cfc6b6;
+
+  background: var(--mt-bg);
+  color: var(--mt-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.mt :where(section) {
+  padding-block: 0;
+}
+
+.mt-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.mt-section {
+  padding-block: calc(80 * var(--u));
+}
+
+.mt p {
+  margin: 0 0 1em;
+}
+
+.mt p:last-child {
+  margin-bottom: 0;
+}
+
+.mt h1,
+.mt h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* h3 covers every subheading and card heading; body face at bold,
+   matching Talos Care's and (post-fix) CityLoop's convention —
+   the display face doesn't hold up at these smaller sizes. */
+.mt h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.mt h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.mt h3 {
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.65rem);
+  line-height: 1.2;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.mt h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05em;
+  line-height: 1.4;
+  margin: 0 0 calc(10 * var(--u));
+}
+
+.mt ul {
+  margin: 0;
+  padding-left: 1.15em;
+}
+
+.mt li {
+  margin-bottom: 0.5em;
+}
+
+.mt li:last-child {
+  margin-bottom: 0;
+}
+
+.mt img {
+  display: block;
+  max-width: 100%;
+}
+
+.mt a {
+  color: inherit;
+}
+
+/* ---------- Hero ---------- */
+/* The supplied hero plate is a background scene (gradient sky +
+   flat skyline) with no text or product in it; the logo, headline
+   and phone row are separate assets layered over it, exactly as
+   composed in the PDF. Full-bleed like every other case-study hero
+   on the site, rounded only at the bottom. */
+
+.mt-hero {
+  padding-top: 0;
+}
+
+/* the supplied artwork is one continuous image — sky, skyline, the four
+   phones and the stage captions are all baked in at their final
+   positions, so this section just displays it and overlays the tags,
+   logo and headline on the empty sky at the top. No separate CSS sky
+   gradient is needed behind it: the image already carries its own sky
+   from row 0, and the transparent area below the phones lets the page's
+   real background (cream in light mode, near-black in dark) show
+   through, which is why only the dark export's caption text changes. */
+.mt-hero-photo {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+/* direct-child combinator, not a plain descendant selector: ThemedImage
+   renders its two <img> tags via a fragment, so they sit as direct
+   children of whichever element calls it — here, .mt-hero-photo. The
+   logo further down (.mt-hero-photo .mt-hero-overlay ... .mt-img-light)
+   also matches the *class* .mt-img-light, but is nested several levels
+   deeper, not a direct child, so it's correctly excluded. A plain
+   descendant selector here previously matched the logo too, silently
+   overriding its own width rule (forcing it to its native 416px — the
+   "extremely big" logo) and applying this same shadow-fade mask to it
+   (the blurred/ghosted bottom half of the wordmark). */
+.mt-hero-photo > img.mt-img-light,
+.mt-hero-photo > img.mt-img-dark {
+  width: 100%;
+  height: auto;
+  /* display is intentionally not set here — the light/dark toggle rules
+     further down own that property. A `display: block` here previously
+     had *higher* specificity than the toggle rule's `display: none`
+     (two classes + a tag beats two classes alone), which silently
+     defeated the toggle and stacked both images on top of each other
+     in normal flow, most visible on mobile as a duplicated hero. */
+  /* the shadow baked in under each phone fades to opaque near-white
+     rather than true transparency (confirmed by sampling), so on this
+     image's transparent background — and especially against the dark
+     theme's near-black page background — that tail would show as a
+     pale smudge instead of disappearing. Fading the whole shadow band
+     to transparent removes it cleanly; the caption text starts again
+     right after, on its own fully-opaque row, so it's unaffected. */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 85.3%,
+    transparent 87.9%,
+    transparent 87.9%,
+    black 88.6%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 85.3%,
+    transparent 87.9%,
+    transparent 87.9%,
+    black 88.6%,
+    black 100%
+  );
+}
+
+.mt-hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* top padding has to clear the sticky nav, which overlays the top of the
+   hero — the tag row previously sat underneath it */
+.mt-hero-tags-row {
+  /* top padding clears the sticky nav — this row carries it now, since
+     it's the first thing in the overlay's flow */
+  padding-top: calc(150 * var(--u));
+}
+
+.mt-hero-rail {
+  position: relative;
+  /* only the logo/headline/sub are centered as a group, in their own
+     narrower block below the tags — capped narrower than the full
+     .mt-wrap column so the centering actually reads as centered rather
+     than just "not touching the edges" at wide viewports. The tags
+     stay in the page's normal-width .mt-wrap, one row, at their
+     original position — reverted after the tags row got swept into
+     this centered block along with the logo/headline, which wrapped
+     it to 2–3 lines and visibly moved it from where it used to sit. */
+  width: min(720px, calc(100% - 48px));
+  margin-inline: auto;
+  text-align: center;
+  margin-top: calc(64 * var(--u));
+}
+
+.mt-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(14 * var(--u));
+}
+
+.mt-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--mt-ink);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(28, 28, 28, 0.32);
+  border-radius: 999px;
+  height: calc(62 * var(--u));
+  padding-inline: calc(30 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+}
+
+.mt-hero-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(20 * var(--u));
+  margin-top: calc(52 * var(--u));
+}
+
+.mt-hero-logo-wrap {
+  margin: 0;
+}
+
+.mt-hero-logo-wrap img {
+  /* sized so the logo's height sits at ~1.19× the two-line headline's
+     height, matching the ratio measured directly off the PDF (logo
+     357px tall next to a 299px-tall two-line headline at the same
+     render scale) — not a guess. The main cause of the previous
+     oversized logo was the CSS bug above forcing it to its native
+     416px regardless of this rule; this value is a secondary,
+     smaller correction on top of that fix. */
+  width: calc(216 * var(--u));
+  max-width: 100%;
+  height: auto;
+}
+
+.mt h1.mt-hero-title {
+  margin: 0 0 calc(16 * var(--u));
+  font-size: clamp(1.7rem, 1.15rem + 2.1vw, 2.8rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+}
+
+.mt-hero-sub {
+  margin: 0;
+  font-size: clamp(0.92rem, 0.8rem + 0.4vw, 1.1rem);
+  color: #33414d;
+}
+
+/* ---------- Meta row ---------- */
+
+.mt-meta {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(24 * var(--u));
+  border-top: 1px solid var(--mt-rule);
+  border-bottom: 1px solid var(--mt-rule);
+  padding-block: calc(32 * var(--u));
+  margin-top: calc(56 * var(--u));
+}
+
+.mt-meta h4 {
+  font-weight: 400;
+  color: var(--mt-ink-soft);
+  margin-bottom: calc(8 * var(--u));
+  font-size: 0.9em;
+}
+
+.mt-meta p {
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- Shared building blocks ---------- */
+
+.mt-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+}
+
+/* the PDF's recurring pull-quote: an orange rule on the left,
+   bold statement, no fill */
+.mt-lede {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.02rem + 0.7vw, 1.55rem);
+  line-height: 1.3;
+  border-left: 3px solid var(--mt-orange);
+  padding-left: calc(24 * var(--u));
+  margin: 0 0 calc(32 * var(--u));
+}
+
+/* the big standalone "The challenge wasn't the lack of
+   information…" statement, same device at display scale */
+.mt-problem-intro {
+  max-width: calc(760 * var(--u));
+}
+
+.mt-statement {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.3rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  border-left: 4px solid var(--mt-orange);
+  padding-left: calc(28 * var(--u));
+  margin: 0;
+}
+
+/* the "How might we…" framing question, between two rules */
+.mt-hmw {
+  border-top: 1px solid var(--mt-rule);
+  border-bottom: 1px solid var(--mt-rule);
+  padding-block: calc(36 * var(--u));
+  margin-top: calc(56 * var(--u));
+}
+
+.mt-hmw p {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.9rem);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- Figures ---------- */
+
+.mt-figure {
+  margin: calc(40 * var(--u)) 0 0;
+}
+
+.mt-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mt-figure figcaption {
+  text-align: center;
+  color: var(--mt-ink-soft);
+  margin-top: calc(20 * var(--u));
+  font-size: 0.95em;
+}
+
+/* light/dark asset pair: exactly one is ever in the visible flow.
+   display:none removes the hidden one from layout entirely, so
+   switching theme causes no layout shift. Assets with no supplied
+   dark export simply render a single <img> and are left alone in
+   both themes — never filtered or inverted. Scoped to any ThemedImage
+   usage, not just ones wrapped in <figure> — the hero uses the same
+   component directly inside .mt-hero-photo. */
+.mt figure .mt-img-light,
+.mt-hero-photo .mt-img-light {
+  display: block;
+}
+
+.mt figure .mt-img-dark,
+.mt-hero-photo .mt-img-dark {
+  display: none;
+}
+
+[data-theme="dark"] .mt figure .mt-img-light,
+[data-theme="dark"] .mt-hero-photo .mt-img-light {
+  display: none;
+}
+
+[data-theme="dark"] .mt figure .mt-img-dark,
+[data-theme="dark"] .mt-hero-photo .mt-img-dark {
+  display: block;
+}
+
+/* very tall diagrams (journey map, research methods) stay legible
+   by scrolling rather than shrinking past readability on narrow
+   screens */
+.mt-figure-scroll {
+  overflow-x: auto;
+}
+
+.mt-figure-scroll img {
+  min-width: calc(760 * var(--u));
+}
+
+/* ---------- Cards ---------- */
+
+.mt-grid {
+  display: grid;
+  gap: calc(24 * var(--u));
+  margin-top: calc(40 * var(--u));
+}
+
+.mt-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.mt-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.mt-card {
+  background: var(--mt-card);
+  border-radius: 24px;
+  padding: calc(30 * var(--u)) calc(28 * var(--u));
+}
+
+.mt-card h3 {
+  font-size: 1.15em;
+  margin-bottom: calc(10 * var(--u));
+}
+
+.mt-card p {
+  color: var(--mt-ink-soft);
+  margin: 0;
+  font-size: 0.96em;
+}
+
+.mt-card-peach {
+  background: var(--mt-peach);
+}
+
+/* ---------- Research ethics: quiet inline note ---------- */
+
+.mt-ethics {
+  border-left: 3px solid var(--mt-rule);
+  padding-left: calc(24 * var(--u));
+  margin-top: calc(48 * var(--u));
+  color: var(--mt-ink-soft);
+  font-size: 0.96em;
+}
+
+.mt-ethics h3 {
+  color: var(--mt-ink);
+  font-size: 1.05em;
+  margin-bottom: calc(8 * var(--u));
+}
+
+/* ---------- From Research to Solution ---------- */
+/* insight on the left, arrow, design response on the right —
+   the PDF's own two-column mapping table */
+
+.mt-map {
+  margin-top: calc(40 * var(--u));
+  border-top: 1px solid var(--mt-rule);
+}
+
+.mt-map-head {
+  display: grid;
+  grid-template-columns: 1fr auto 1.25fr;
+  gap: calc(28 * var(--u));
+  padding-block: calc(18 * var(--u));
+  border-bottom: 1px solid var(--mt-rule);
+}
+
+.mt-map-head span {
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mt-ink-soft);
+}
+
+.mt-map-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1.25fr;
+  gap: calc(28 * var(--u));
+  align-items: center;
+  padding-block: calc(24 * var(--u));
+  border-bottom: 1px solid var(--mt-rule);
+}
+
+.mt-map-row p {
+  margin: 0;
+}
+
+.mt-map-insight {
+  color: var(--mt-ink-soft);
+}
+
+.mt-map-arrow {
+  color: var(--mt-orange);
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.mt-map-response strong {
+  display: block;
+  font-weight: 700;
+  color: var(--mt-ink);
+  margin-bottom: calc(4 * var(--u));
+}
+
+/* ---------- Information Architecture ---------- */
+
+.mt-ia {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: calc(64 * var(--u));
+  align-items: center;
+}
+
+.mt-ia-goals {
+  margin-top: calc(20 * var(--u));
+  padding-left: 1.2em;
+}
+
+.mt-ia-goals li {
+  color: var(--mt-ink-soft);
+}
+
+.mt-ia figure {
+  margin: 0;
+}
+
+/* ---------- Design System ---------- */
+
+.mt-ds-intro {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: calc(64 * var(--u));
+  align-items: center;
+}
+
+.mt-ds-intro figure {
+  margin: 0;
+}
+
+.mt-ds-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(56 * var(--u));
+  margin-top: calc(56 * var(--u));
+  align-items: start;
+}
+
+.mt-ds-col > * + * {
+  margin-top: calc(44 * var(--u));
+}
+
+.mt-swatches {
+  display: flex;
+  gap: calc(14 * var(--u));
+  margin-top: calc(14 * var(--u));
+  flex-wrap: wrap;
+}
+
+.mt-swatch {
+  width: calc(64 * var(--u));
+  height: calc(64 * var(--u));
+  border-radius: 14px;
+  border: 1px solid rgba(28, 28, 28, 0.12);
+}
+
+.mt-swatch-label {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--mt-ink-soft);
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.mt-swatch-group + .mt-swatch-group {
+  margin-top: calc(24 * var(--u));
+}
+
+.mt-type-sample {
+  display: flex;
+  align-items: center;
+  gap: calc(24 * var(--u));
+  margin-top: calc(16 * var(--u));
+}
+
+.mt-type-sample .mt-aa {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 2rem + 2vw, 4rem);
+  line-height: 1;
+}
+
+/* ---------- The Experience ---------- */
+/* the supplied compositions already carry their callout bubbles
+   and pointers, so each block is: centred underlined feature
+   title, the artwork at full column width, then the PDF's own
+   Problem / Design Response pair of panels beneath it. */
+
+.mt h3.mt-exp-heading {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin-top: calc(72 * var(--u));
+  margin-bottom: 0;
+  font-size: clamp(1.35rem, 1.15rem + 0.7vw, 1.75rem);
+}
+
+.mt-figure-exp {
+  margin-top: calc(28 * var(--u));
+}
+
+.mt-figure-exp img {
+  width: 100%;
+  height: auto;
+}
+
+/* the four Experience compositions aren't at the same scale: "Getting
+   Started" and "Building Community" show 3 phones on a 1701px-wide
+   canvas, while "Finding Reliable Support" and "Exploring the City" show
+   4 phones on a 2301px canvas — but the phone mockup itself is close to
+   the same absolute size in both (measured ~567px vs ~575px within the
+   source files). Displaying every image at a flat 100% width scales
+   each canvas by a different factor, so the 4-phone images' phones
+   render ~25% smaller than the 3-phone images' — the inconsistency
+   reported. Matches CityLoop's own approach for the same problem: cap
+   the narrower-canvas images to the ratio between the two canvas widths
+   (1701 / 2301 ≈ 73.9%) so every image is scaled by the same factor,
+   putting every phone at a consistent rendered size regardless of which
+   composition it's in. */
+.mt-figure-exp-narrow img {
+  width: auto;
+  max-width: 73.9%;
+  margin-inline: auto;
+}
+
+.mt-exp-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(28 * var(--u));
+  margin-top: calc(32 * var(--u));
+}
+
+.mt-exp-panel {
+  background: var(--mt-card);
+  border-radius: 20px;
+  padding: calc(28 * var(--u));
+}
+
+.mt-exp-panel h4 {
+  font-size: 1.1em;
+  margin-bottom: calc(10 * var(--u));
+}
+
+.mt-exp-panel p {
+  color: var(--mt-ink-soft);
+  margin: 0;
+  font-size: 0.96em;
+}
+
+/* ---------- Reflection ---------- */
+
+.mt-reflection p {
+  margin-bottom: 1.3em;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .mt {
+  --mt-bg: var(--bg);
+  --mt-ink: var(--ink);
+  --mt-ink-soft: #a49b8d;
+  --mt-card: #262220;
+  --mt-peach: #3a2a20;
+  --mt-rule: #3a342c;
+  --mt-stroke: #4a4238;
+}
+
+/* the hero plate is a fixed daylight illustration with no dark
+   export supplied, so the sky behind it stays as-is in both
+   themes (same treatment CityLoop and Talos Care already give
+   their own hero photography). Tag pills darken so they stay
+   legible against it. */
+/* Unlike CityLoop's and Talos Care's hero photography, this artwork is
+   genuinely semi-transparent throughout (confirmed by sampling — the sky
+   sits at ~30% alpha everywhere, not just the caption strip below the
+   phones), so it blends with whatever page background sits behind it:
+   pale blue over the light theme's cream page, a deeper muted blue over
+   the dark theme's near-black one. That's the asset's own built-in dark
+   mode for the sky — no separate dark sky export was needed. Which means
+   forcing the headline/tags to stay dark-ink here (an earlier fix, back
+   when the sky was assumed to stay a fixed light colour) is now wrong:
+   the sky really is darker in this theme, so dark text loses contrast
+   against it. Both switch to the theme's own light ink instead. */
+[data-theme="dark"] .mt-hero,
+[data-theme="dark"] .mt h1.mt-hero-title {
+  color: var(--mt-ink);
+}
+
+[data-theme="dark"] .mt-hero-tags > span {
+  color: var(--mt-ink);
+  background: rgba(23, 19, 14, 0.45);
+  border-color: rgba(244, 238, 227, 0.32);
+}
+
+[data-theme="dark"] .mt-hero-sub {
+  color: var(--mt-ink-soft);
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .mt {
+    --u: 0.62px;
+  }
+
+  .mt-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mt-hero-head {
+    gap: calc(44 * var(--u));
+  }
+}
+
+@media (max-width: 760px) {
+  .mt-cols,
+  .mt-grid-2,
+  .mt-grid-3,
+  .mt-ia,
+  .mt-ds-intro,
+  .mt-ds-grid,
+  .mt-exp-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .mt-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* at this width the tag row wraps to 2–3 lines and, combined with the
+     logo/headline block, needs more vertical room than the image's own
+     sky region reliably provides once text wraps — absolute-positioning
+     it over the image (as desktop does) let it spill down over the
+     phones. Below this breakpoint the overlay drops out of the image
+     and becomes a normal-flow block sitting above it instead, so it can
+     never overlap no matter how much the tags wrap. Its background
+     reuses the image's own sky colour at the same ~30% alpha the image
+     itself uses, so it blends into the page the same way the image does
+     in both themes rather than needing two separately tuned colours. */
+  .mt-hero-photo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mt-hero-overlay {
+    position: static;
+    order: -1;
+    background: rgba(57, 148, 225, 0.3);
+    padding-bottom: calc(28 * var(--u));
+  }
+
+
+  .mt-hero-head {
+    gap: calc(20 * var(--u));
+    margin-top: calc(32 * var(--u));
+  }
+
+  .mt-hero-logo-wrap img {
+    width: calc(166 * var(--u));
+  }
+
+  .mt-map-head {
+    display: none;
+  }
+
+  .mt-map-row {
+    grid-template-columns: 1fr;
+    gap: calc(10 * var(--u));
+  }
+
+  .mt-map-arrow {
+    display: none;
+  }
+
+  .mt-type-sample {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(10 * var(--u));
+  }
+}

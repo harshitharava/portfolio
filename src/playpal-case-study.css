@@ -1,0 +1,827 @@
+/* ============================================================
+   PlayPal — case study page
+   ------------------------------------------------------------
+   Rebuilt to match the supplied PlayPal case-study PDF directly
+   (Figma export, 1728pt artboard, 1440pt content column at a
+   144pt margin). Colours and type sampled straight from the
+   PDF's own artwork rather than reused from another case study:
+
+     page bg        #f1ece1
+     ink             #171512
+     ink-soft        #5c574c
+     blue (primary)  #2877fe
+     yellow (cta)    #ffc107
+     yellow soft     #fed766
+     card yellow     #ffebaf   (Research Method / Design Principles)
+     card tan        #f5ebcb   (Key Research Insights)
+     quote accent    #ff3b1f   (the red-orange rule on every pull-quote)
+
+   Headings use the portfolio's own Clash Display (weight 600, its
+   heaviest available cut); body copy uses Satoshi — matching every
+   other case study on the site rather than the PDF's own Zalando
+   Sans. The one deliberate exception is the Design Foundations
+   section, where the Zalando Sans specimen documents PlayPal's own
+   product typeface and stays literal.
+   ============================================================ */
+
+.pp {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --pp-bg: #f1ece1;
+  --pp-ink: #171512;
+  --pp-ink-soft: #5c574c;
+  --pp-blue: #2877fe;
+  --pp-blue-deep: #0150d7;
+  --pp-yellow: #ffc107;
+  --pp-yellow-soft: #fed766;
+  --pp-card-yellow: #ffebaf;
+  --pp-card-tan: #f5ebcb;
+  --pp-quote: #ff3b1f;
+  --pp-rule: #d8d0bd;
+  --pp-stroke: #3a3630;
+
+  background: var(--pp-bg);
+  color: var(--pp-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.pp :where(section) {
+  padding-block: 0;
+}
+
+.pp-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.pp-section {
+  padding-block: calc(80 * var(--u));
+}
+
+.pp p {
+  margin: 0 0 1em;
+}
+
+.pp p:last-child {
+  margin-bottom: 0;
+}
+
+.pp h1,
+.pp h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* h3 is used for every subheading and card/bracket heading on this page;
+   matching Talos Care's convention (and correcting CityLoop's, which
+   incorrectly uses the display face here too), it's set in the body face
+   at a bold weight rather than Clash Display — display type doesn't hold
+   up at these smaller sizes the way it does for full section headings. */
+.pp h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.pp h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.pp h3 {
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.65rem);
+  line-height: 1.2;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.pp h4 {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 calc(8 * var(--u));
+}
+
+.pp ul {
+  margin: 0;
+  padding-left: 1.15em;
+}
+
+.pp li {
+  margin-bottom: 0.5em;
+}
+
+.pp li:last-child {
+  margin-bottom: 0;
+}
+
+.pp img {
+  display: block;
+  max-width: 100%;
+}
+
+.pp a {
+  color: inherit;
+}
+
+/* ---------- Hero ---------- */
+/* full-bleed, edge-to-edge, matching CityLoop/Talos Care: the photo
+   spans the full viewport width with only the bottom corners
+   rounded. Tags and wordmark sit in an absolutely-positioned overlay
+   that itself is capped to the site's content column, so they align
+   with the rest of the page even though the photo bleeds past it. */
+
+.pp-hero {
+  padding-top: 0;
+}
+
+.pp-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.pp-hero-media > img {
+  width: 100%;
+  aspect-ratio: 1728 / 1160;
+  object-fit: cover;
+  display: block;
+}
+
+.pp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pp-hero-overlay-rail {
+  position: relative;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pp-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  top: 8%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(14 * var(--u));
+  pointer-events: auto;
+}
+
+.pp-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--pp-ink);
+  background: rgba(241, 236, 225, 0.72);
+  border: 1px solid rgba(23, 21, 18, 0.35);
+  border-radius: 999px;
+  height: calc(62 * var(--u));
+  padding-inline: calc(30 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+}
+
+.pp-hero-wordmark {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-30%);
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: calc(140 * var(--u));
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--pp-blue);
+  text-shadow: calc(14 * var(--u)) calc(12 * var(--u)) 0 var(--pp-yellow);
+}
+
+/* ---------- Intro + meta ---------- */
+
+.pp-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+  padding-top: calc(72 * var(--u));
+  padding-bottom: calc(56 * var(--u));
+}
+
+.pp h1.pp-hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.7rem + 3vw, 4.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.pp-intro-copy {
+  padding-top: calc(4 * var(--u));
+  color: var(--pp-ink-soft);
+}
+
+.pp-meta {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(24 * var(--u));
+  border-top: 1px solid var(--pp-rule);
+  border-bottom: 1px solid var(--pp-rule);
+  padding-block: calc(32 * var(--u));
+}
+
+.pp-meta h4 {
+  font-weight: 400;
+  color: var(--pp-ink-soft);
+  margin-bottom: calc(8 * var(--u));
+  font-size: 0.9rem;
+}
+
+.pp-meta p {
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- Contribution ---------- */
+
+.pp-contribution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+  align-items: center;
+}
+
+.pp-contribution-media img {
+  width: 100%;
+  height: auto;
+}
+
+.pp-contribution-copy ul {
+  list-style: none;
+  padding: 0;
+  margin: calc(20 * var(--u)) 0 0;
+  display: grid;
+  gap: calc(10 * var(--u));
+}
+
+.pp-contribution-copy li {
+  position: relative;
+  padding-left: 1.5em;
+  margin: 0;
+  color: var(--pp-ink-soft);
+}
+
+.pp-contribution-copy li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pp-ink);
+}
+
+/* ---------- Pull quotes ---------- */
+
+.pp-lede {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.02rem + 0.7vw, 1.55rem);
+  line-height: 1.3;
+  border-left: 3px solid var(--pp-quote);
+  padding-left: calc(24 * var(--u));
+  margin: 0 0 calc(32 * var(--u));
+}
+
+.pp-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+}
+
+.pp-question {
+  border-top: 1px solid var(--pp-rule);
+  border-bottom: 1px solid var(--pp-rule);
+  padding-block: calc(36 * var(--u));
+  margin-block: calc(48 * var(--u));
+}
+
+.pp-question p {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.9rem);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- Literature review: alternating brackets ---------- */
+
+.pp-brackets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(40 * var(--u));
+  margin-top: calc(48 * var(--u));
+}
+
+.pp-bracket {
+  position: relative;
+  padding: calc(64 * var(--u)) calc(36 * var(--u)) calc(36 * var(--u));
+  border-left: 1px solid var(--pp-stroke);
+  border-right: 1px solid var(--pp-stroke);
+  min-height: calc(300 * var(--u));
+}
+
+.pp-bracket-down {
+  border-bottom: 1px solid var(--pp-stroke);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.pp-bracket-up {
+  border-top: 1px solid var(--pp-stroke);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding-top: calc(36 * var(--u));
+  padding-bottom: calc(64 * var(--u));
+}
+
+.pp-bracket::before {
+  content: "";
+  position: absolute;
+  left: calc(-4 * var(--u));
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pp-stroke);
+}
+
+.pp-bracket-down::before {
+  top: calc(-4 * var(--u));
+}
+
+.pp-bracket-up::before {
+  bottom: calc(-4 * var(--u));
+}
+
+.pp-bracket h3 {
+  font-size: 1.2em;
+}
+
+.pp-bracket p {
+  color: var(--pp-ink-soft);
+  margin: 0;
+}
+
+/* ---------- Research Method: one card, key/value rows ---------- */
+
+.pp-method-card {
+  background: var(--pp-card-yellow);
+  border-radius: 32px;
+  padding: calc(36 * var(--u)) calc(44 * var(--u));
+  margin-top: calc(40 * var(--u));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pp-method-cell {
+  padding: calc(20 * var(--u)) calc(28 * var(--u)) calc(20 * var(--u)) 0;
+}
+
+.pp-method-cell:nth-child(odd) {
+  border-right: 1px solid rgba(23, 21, 18, 0.14);
+}
+
+.pp-method-cell:nth-child(1),
+.pp-method-cell:nth-child(2) {
+  padding-top: 0;
+}
+
+.pp-method-cell:nth-child(3),
+.pp-method-cell:nth-child(4) {
+  padding-bottom: 0;
+  border-top: 1px solid rgba(23, 21, 18, 0.14);
+}
+
+.pp-method-cell:nth-child(even) {
+  padding-left: calc(28 * var(--u));
+}
+
+.pp-method-cell h4 {
+  font-weight: 700;
+  color: var(--pp-ink);
+  font-size: 1.05em;
+  margin: 0 0 calc(8 * var(--u));
+}
+
+.pp-method-cell p {
+  margin: 0;
+  font-size: 1.05em;
+}
+
+/* ---------- Key Research Insights ---------- */
+
+.pp-insights {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(20 * var(--u));
+  margin-top: calc(44 * var(--u));
+  align-items: stretch;
+}
+
+.pp-insight {
+  background: var(--pp-card-tan);
+  border: 1px solid var(--pp-stroke);
+  border-radius: 28px;
+  padding: calc(28 * var(--u)) calc(24 * var(--u));
+}
+
+.pp-insight h3 {
+  font-size: 1.15em;
+  margin-bottom: calc(14 * var(--u));
+}
+
+.pp-insight p {
+  color: var(--pp-ink-soft);
+  font-size: 0.95em;
+  margin: 0;
+}
+
+/* ---------- Personas / finished artwork ---------- */
+
+.pp-section-label {
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin: calc(48 * var(--u)) 0 calc(28 * var(--u));
+}
+
+/* ---------- Figures ---------- */
+
+.pp-figure {
+  margin: calc(40 * var(--u)) 0 0;
+}
+
+.pp-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.pp-figure figcaption {
+  text-align: center;
+  color: var(--pp-ink-soft);
+  margin-top: calc(20 * var(--u));
+}
+
+.pp figure .pp-img-dark {
+  display: none;
+}
+
+[data-theme="dark"] .pp figure .pp-img-light {
+  display: none;
+}
+
+[data-theme="dark"] .pp figure .pp-img-dark {
+  display: block;
+}
+
+.pp-figure-scroll {
+  overflow-x: auto;
+}
+
+.pp-figure-scroll img {
+  min-width: calc(880 * var(--u));
+}
+
+/* ---------- Application Structure ---------- */
+
+.pp-structure {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+  align-items: start;
+}
+
+.pp-structure-copy p:last-child {
+  margin-top: calc(20 * var(--u));
+  color: var(--pp-ink-soft);
+}
+
+.pp-structure-media {
+  background: var(--pp-card-yellow);
+  border-radius: 32px;
+  padding: calc(28 * var(--u));
+}
+
+.pp-structure-media img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Design Foundations ---------- */
+
+.pp-foundations-intro {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: calc(64 * var(--u));
+  align-items: center;
+}
+
+.pp-foundations-intro h2 {
+  margin-bottom: calc(28 * var(--u));
+}
+
+.pp-foundations-hero {
+  margin-top: 0;
+}
+
+.pp-foundations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+  margin-top: calc(56 * var(--u));
+}
+
+.pp-foundations-col > * + * {
+  margin-top: calc(48 * var(--u));
+}
+
+.pp-foundations-col img {
+  border-radius: 8px;
+}
+
+.pp-swatch-group + .pp-swatch-group {
+  margin-top: calc(32 * var(--u));
+}
+
+.pp-type-specimen-label {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--pp-ink-soft);
+  margin: 0;
+}
+
+.pp-swatches {
+  display: flex;
+  gap: calc(14 * var(--u));
+  margin-top: calc(16 * var(--u));
+  flex-wrap: wrap;
+}
+
+.pp-swatch {
+  width: calc(64 * var(--u));
+  height: calc(64 * var(--u));
+  border-radius: 14px;
+  border: 1px solid rgba(23, 21, 18, 0.12);
+}
+
+.pp-type-sample {
+  margin-top: calc(20 * var(--u));
+  display: flex;
+  align-items: center;
+  gap: calc(24 * var(--u));
+}
+
+.pp-type-sample .pp-aa {
+  font-family: "Zalando Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 2.4rem + 2vw, 4.5rem);
+  line-height: 1;
+}
+
+.pp-type-specimen {
+  margin-top: calc(24 * var(--u));
+}
+
+.pp-type-specimen h4 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 400;
+  color: var(--pp-ink-soft);
+  margin-bottom: calc(10 * var(--u));
+}
+
+.pp-type-specimen p {
+  margin: 0 0 0.4em;
+  font-family: "Zalando Sans", sans-serif;
+}
+
+.pp-type-specimen .pp-type-semibold { font-weight: 600; font-size: 1.3rem; }
+.pp-type-specimen .pp-type-light { font-weight: 300; font-size: 1.3rem; }
+.pp-type-specimen .pp-type-bold { font-weight: 700; font-size: 1.15rem; }
+.pp-type-specimen .pp-type-medium { font-weight: 500; font-size: 1.15rem; }
+.pp-type-specimen .pp-type-regular { font-weight: 400; font-size: 0.85rem; }
+
+.pp-foundations-logo img {
+  width: 96px;
+  height: auto;
+  margin-top: calc(16 * var(--u));
+}
+
+/* ---------- Design Principles ---------- */
+
+.pp-grid {
+  display: grid;
+  gap: calc(24 * var(--u));
+  margin-top: calc(40 * var(--u));
+}
+
+.pp-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.pp-card {
+  background: var(--pp-card-yellow);
+  border-radius: 28px;
+  padding: calc(32 * var(--u)) calc(28 * var(--u));
+}
+
+.pp-card h3 {
+  font-size: 1.2em;
+  margin-bottom: calc(12 * var(--u));
+}
+
+.pp-card p {
+  color: var(--pp-ink-soft);
+  margin: 0;
+}
+
+.pp-card-tan {
+  background: var(--pp-card-tan);
+  border: 1px solid var(--pp-stroke);
+}
+
+/* ---------- The Experience ---------- */
+/* each composition is now a single supplied artwork with the callout
+   bubbles and explanatory paragraphs baked directly into the canvas
+   (matching the PDF exactly, pointer-for-pointer) — displayed at full
+   column width with no separate HTML captions needed. */
+
+.pp h3.pp-exp-heading {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin-top: calc(64 * var(--u));
+  margin-bottom: 0;
+}
+
+.pp-exp-subhead {
+  color: var(--pp-ink-soft);
+  text-align: center;
+  max-width: 640px;
+  margin: calc(20 * var(--u)) auto 0;
+}
+
+.pp-figure.pp-figure-exp {
+  margin-top: calc(28 * var(--u));
+}
+
+.pp-figure-exp img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Reflection ---------- */
+
+.pp-reflection-media {
+  margin-top: calc(40 * var(--u));
+  margin-bottom: calc(48 * var(--u));
+}
+
+.pp-reflection p {
+  margin-bottom: 1.3em;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .pp {
+  --pp-bg: var(--bg);
+  --pp-ink: var(--ink);
+  --pp-ink-soft: #a89f8e;
+  --pp-card-yellow: #3a2f1a;
+  --pp-card-tan: #2c2517;
+  --pp-stroke: #6b6255;
+  --pp-rule: #3d3624;
+}
+
+[data-theme="dark"] .pp-hero-tags > span {
+  color: #f4f1ea;
+  background: rgba(23, 21, 18, 0.55);
+  border-color: rgba(244, 241, 234, 0.3);
+}
+
+[data-theme="dark"] .pp-structure-media,
+[data-theme="dark"] .pp-method-card {
+  background: #3a2f1a;
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .pp {
+    --u: 0.62px;
+  }
+
+  .pp-grid-4,
+  .pp-brackets,
+  .pp-foundations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pp-insights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pp-hero-wordmark {
+    font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .pp-intro,
+  .pp-contribution,
+  .pp-cols,
+  .pp-grid-4,
+  .pp-brackets,
+  .pp-structure,
+  .pp-foundations-grid,
+  .pp-foundations-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-insights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pp-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pp-method-card {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-method-cell {
+    padding: calc(18 * var(--u)) 0 !important;
+    border-right: none !important;
+  }
+
+  .pp-method-cell + .pp-method-cell {
+    border-top: 1px solid rgba(23, 21, 18, 0.14) !important;
+  }
+
+  .pp-hero-tags {
+    position: static;
+    padding: calc(20 * var(--u)) 0 0;
+  }
+
+  .pp-bracket,
+  .pp-bracket-down,
+  .pp-bracket-up {
+    border-radius: 28px;
+    padding: calc(32 * var(--u));
+    min-height: 0;
+  }
+
+  .pp-bracket::before {
+    display: none;
+  }
+
+  .pp-hero-wordmark {
+    position: static;
+    transform: none;
+    margin-top: calc(20 * var(--u));
+    text-align: center;
+  }
+
+  .pp-hero-media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pp-type-sample {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(8 * var(--u));
+  }
+}
+
+@media (max-width: 480px) {
+  .pp-insights {
+    grid-template-columns: 1fr 1fr;
+  }
+}
