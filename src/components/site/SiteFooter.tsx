@@ -18,7 +18,7 @@ export function SiteFooter() {
           </a>
           <a
             className="fpill"
-            href="/harshith-arava-resume.pdf"
+            href={`${import.meta.env.BASE_URL}harshith-arava-resume.pdf`}
             download="Harshith-Arava-Resume.pdf"
           >
             Download resume <span aria-hidden="true">↓</span>

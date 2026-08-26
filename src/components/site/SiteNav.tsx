@@ -43,7 +43,7 @@ export function SiteNav() {
         About
       </Link>
       <a
-        href="/harshith-arava-resume.pdf"
+        href={`${import.meta.env.BASE_URL}harshith-arava-resume.pdf`}
         download="Harshith-Arava-Resume.pdf"
         onClick={() => setOpen(false)}
       >
@@ -79,7 +79,7 @@ export function SiteNav() {
               </li>
               <li>
                 <a
-                  href="/harshith-arava-resume.pdf"
+                  href={`${import.meta.env.BASE_URL}harshith-arava-resume.pdf`}
                   download="Harshith-Arava-Resume.pdf"
                 >
                   Resume
