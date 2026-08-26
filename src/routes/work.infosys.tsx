@@ -60,17 +60,16 @@ function InfosysPage() {
                 <br />
                 Web Application
               </h1>
+              <p className="ig-hero-sub">
+                The Infosys Generative AI Application is an analytics-driven
+                platform that enhances user engagement through personalized
+                recommendations and interactive AI insights.
+              </p>
             </div>
           </div>
         </div>
 
         <div className="ig-wrap">
-          <p className="ig-hero-sub">
-            The Infosys Generative AI Application is an analytics-driven
-            platform that enhances user engagement through personalized
-            recommendations and interactive AI insights.
-          </p>
-
           <div className="ig-meta">
             <div>
               <h4>Role</h4>

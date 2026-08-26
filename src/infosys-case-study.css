@@ -167,17 +167,27 @@
   pointer-events: none;
 }
 
+/* Title + sub now sit together as a centered-as-a-group flex column,
+   same on-photo technique MyTown uses for its logo/headline/sub block —
+   capped to the fade's own width so the paragraph wraps inside the light
+   area instead of spilling onto the busy photo beside it. */
 .ig-hero-title-rail {
   position: relative;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
+/* max-width lives on the two text elements themselves, not on the rail —
+   the rail still needs its full .ig-wrap width (1180px, centered in the
+   full-bleed photo) so its left edge lands at the same x as the tags row
+   above it; capping the rail itself would re-center a narrower box and
+   drag the whole title block away from that shared left edge. */
 .ig h1.ig-hero-title {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
   margin: 0;
+  max-width: calc(460 * var(--u));
   font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.7rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -189,11 +199,16 @@
   text-shadow: calc(10 * var(--u)) calc(9 * var(--u)) 0 #1c1c1c;
 }
 
-.ig-hero-sub {
-  max-width: none;
-  margin: calc(56 * var(--u)) 0 0;
+/* .ig p (0,1,1) outranks a bare .ig-hero-sub (0,1,0) and was silently
+   zeroing this margin-top out — .ig .ig-hero-sub (0,2,0) beats it. */
+.ig .ig-hero-sub {
+  max-width: calc(420 * var(--u));
+  margin: calc(28 * var(--u)) 0 0;
   text-align: left;
-  color: var(--ig-ink-soft);
+  /* Plain dark ink, no shadow — unlike the branded blue title, this text
+     is already dark enough against the fade for good contrast on its own,
+     and a shadow at body-text size reads as muddy rather than sculpted. */
+  color: #2b2b2b;
   font-size: 1.05em;
 }
 
@@ -254,7 +269,10 @@
 .ig-info-row p {
   color: var(--ig-ink-soft);
   margin: 0;
-  max-width: 74ch;
+  /* No ch cap — at this row's full ~1180px width a 74ch cap left the
+     paragraph stopping hundreds of pixels short of the row's right edge,
+     reading as an unstyled/cut-off block instead of a deliberate column. */
+  max-width: none;
 }
 
 .ig-info-row strong {
@@ -477,6 +495,29 @@
     position: static;
     padding: calc(20 * var(--u)) 0;
     gap: calc(10 * var(--u));
+  }
+
+  /* Title + sub move off the photo the same way the tags do — at this
+     width there's no readable fade left to sit on, and without this
+     override (missing until now) the text stayed absolutely positioned
+     over the full-height stack and overlapped the photo itself. */
+  .ig-hero-title-layer {
+    position: static;
+  }
+
+  .ig-hero-title-rail {
+    height: auto;
+    padding: calc(24 * var(--u)) 0 0;
+  }
+
+  .ig h1.ig-hero-title {
+    position: static;
+    transform: none;
+    max-width: none;
+  }
+
+  .ig .ig-hero-sub {
+    max-width: none;
   }
 
   .ig-meta {
