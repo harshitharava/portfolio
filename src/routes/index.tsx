@@ -6,7 +6,7 @@ import cityLoopCard from "@/assets/cards/cityloop-card.webp";
 import myTownCard from "@/assets/cards/mytown-card.webp";
 import phytivesCard from "@/assets/cards/phytives-card.webp";
 import homeBakeryCard from "@/assets/cards/home-bakery-card.webp";
-import infosysCard from "@/assets/infosys/screens/infosys-dashboard-base.webp";
+import infosysCard from "@/assets/cards/infosys-card.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -831,7 +831,7 @@ function Index() {
                 <div className={"mini-thumb"}>
                   <img
                     src={infosysCard}
-                    alt="Infosys Gen AI Web Application dashboard visual"
+                    alt="Infosys Gen AI Web Application sign-in screen, displayed on an iMac"
                   />
                 </div>
                 <div className={"mini-body"}>
