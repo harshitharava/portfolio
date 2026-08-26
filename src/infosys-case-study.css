@@ -25,7 +25,10 @@
 .ig {
   --u: min(0.833px, calc((100vw - 48px) / 1440));
 
-  --ig-bg: #f5f9fc;
+  /* Page bg matches the cream/beige used across every other case study
+     (CityLoop and Talos Care's own #f2eee3 exactly) instead of sampling
+     the Infosys app's own blue branding, for site-wide consistency. */
+  --ig-bg: #f2eee3;
   --ig-panel-bg: #e5f2fb;
   --ig-ink: #1c1c1c;
   --ig-ink-soft: #5c5c5c;
@@ -34,7 +37,7 @@
   --ig-purple: #963596;
   --ig-success: #1a9c4b;
   --ig-danger: #d32f2f;
-  --ig-card: #eef4f8;
+  --ig-card: #ffffff;
   --ig-rule: #d7e3ea;
   --ig-quote: #007cc2;
 
@@ -54,16 +57,10 @@
   margin-inline: auto;
 }
 
+/* Plain, symmetric section padding — matching every other case study
+   page, none of which zero out the top padding between sections. */
 .ig-section {
   padding-block: calc(80 * var(--u));
-}
-
-.ig-section--tight {
-  padding-top: 0;
-  /* Every section on this page is tight, so this bottom padding doubles as
-     the section-to-section gap — the full 80u base felt loose next to the
-     now-larger .ig-info-row headings and the zero-gap rows above it. */
-  padding-bottom: calc(48 * var(--u));
 }
 
 .ig p {
@@ -190,12 +187,15 @@
   font-weight: 400;
   color: var(--ig-ink-soft);
   margin-bottom: calc(8 * var(--u));
-  font-size: 0.9em;
+  /* rem, not em — matches PlayPal's meta row exactly. .ig's own font-size
+     is already --u-scaled, so em here was compounding on top of that and
+     rendering noticeably larger than every sibling case study's meta row. */
+  font-size: 0.9rem;
 }
 
 .ig-meta p {
   font-weight: 700;
-  font-size: 1.15em;
+  font-size: 1.15rem;
   line-height: 1.3;
   margin: 0;
 }
@@ -212,15 +212,10 @@
   padding-top: 0;
 }
 
-.ig-info-row h3 {
-  margin: 0 0 calc(20 * var(--u));
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  /* Matches .ig h2 ("User Journeys" etc.) — these row labels are the same
-     headline weight, just inside a tighter label/copy row layout. */
-  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
-}
+/* No override needed here — these row headings use the general .ig h3
+   style below (body face, ~24-26px), matching every sibling case study's
+   h3 convention (CityLoop/Talos Care's own h3 comments call this out
+   explicitly: the display face doesn't hold up at heading-3 sizes). */
 
 .ig-info-row p {
   color: var(--ig-ink-soft);

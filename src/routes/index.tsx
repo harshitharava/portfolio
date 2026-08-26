@@ -747,98 +747,189 @@ function Index() {
               A few more things I’ve made
             </p>
           </div>
+          {/* Free-running marquee: the track below renders this same set of
+              four cards twice back-to-back and loops via CSS transform, so
+              it always scrolls on its own instead of needing a manual drag.
+              Only the first copy is reachable by keyboard/screen reader —
+              the second exists purely for the seamless visual loop. */}
           <div className={"more-work"}>
-            <Link
-              className={"mini-card reveal"}
-              to={"/work/mytown"}
-              aria-label={"MyTown case study"}
-            >
-              <div className={"mini-thumb"}>
-                <img src={myTownCard} alt="MyTown project visual" />
-              </div>
-              <div className={"mini-body"}>
-                <span className={"cat"}>
-                  UX Research · UX Design · Interaction Design
-                </span>
-                <h3>MyTown</h3>
-                <p>
-                  Rethinking how people discover and connect with their local
-                  community.
-                </p>
-                {/* the whole card is already the link (wrapped in <Link>
-                    above); nesting a second <Link>/<a> here is invalid
-                    HTML — browsers auto-correct by closing the outer tag
-                    early, which was visually splitting the thumbnail and
-                    body into two separate boxes. A plain span keeps the
-                    same "Read the case study →" affordance text without
-                    creating a second, illegally-nested link. */}
-                <span className={"text-link"} aria-hidden={"true"}>
-                  Read the case study <span aria-hidden={"true"}>→</span>
-                </span>
-              </div>
-            </Link>
+            <div className={"more-work-track"}>
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/mytown"}
+                aria-label={"MyTown case study"}
+              >
+                <div className={"mini-thumb"}>
+                  <img src={myTownCard} alt="MyTown project visual" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UX Research · UX Design · Interaction Design
+                  </span>
+                  <h3>MyTown</h3>
+                  <p>
+                    Rethinking how people discover and connect with their
+                    local community.
+                  </p>
+                  {/* the whole card is already the link (wrapped in <Link>
+                      above); nesting a second <Link>/<a> here is invalid
+                      HTML — browsers auto-correct by closing the outer tag
+                      early, which was visually splitting the thumbnail and
+                      body into two separate boxes. A plain span keeps the
+                      same "Read the case study →" affordance text without
+                      creating a second, illegally-nested link. */}
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
 
-            <article className={"mini-card reveal"} data-delay={"1"}>
-              <div className={"mini-thumb"}>
-                <img src={phytivesCard} alt="Phytives brand identity visual" />
-              </div>
-              <div className={"mini-body"}>
-                <span className={"cat"}>
-                  Brand Identity · Branding · Visual Design
-                </span>
-                <h3>Phytives</h3>
-                <p>
-                  A visual identity built to give a growing brand a clearer
-                  personality.
-                </p>
-              </div>
-            </article>
+              <article className={"mini-card reveal"} data-delay={"1"}>
+                <div className={"mini-thumb"}>
+                  <img
+                    src={phytivesCard}
+                    alt="Phytives brand identity visual"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Brand Identity · Branding · Visual Design
+                  </span>
+                  <h3>Phytives</h3>
+                  <p>
+                    A visual identity built to give a growing brand a clearer
+                    personality.
+                  </p>
+                </div>
+              </article>
 
-            <article className={"mini-card reveal"} data-delay={"2"}>
-              <div className={"mini-thumb"}>
-                <img
-                  src={homeBakeryCard}
-                  alt="The Home Bakery brand identity visual"
-                />
-              </div>
-              <div className={"mini-body"}>
-                <span className={"cat"}>
-                  Brand Identity · Branding · Packaging
-                </span>
-                <h3>The Home Bakery</h3>
-                <p>
-                  A warmer, more distinctive identity for a homegrown bakery
-                  brand.
-                </p>
-              </div>
-            </article>
+              <article className={"mini-card reveal"} data-delay={"2"}>
+                <div className={"mini-thumb"}>
+                  <img
+                    src={homeBakeryCard}
+                    alt="The Home Bakery brand identity visual"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Brand Identity · Branding · Packaging
+                  </span>
+                  <h3>The Home Bakery</h3>
+                  <p>
+                    A warmer, more distinctive identity for a homegrown
+                    bakery brand.
+                  </p>
+                </div>
+              </article>
 
-            <Link
-              className={"mini-card reveal"}
-              to={"/work/infosys"}
-              aria-label={"Infosys Gen AI Web Application case study"}
-              data-delay={"3"}
-            >
-              <div className={"mini-thumb"}>
-                <img
-                  src={infosysCard}
-                  alt="Infosys Gen AI Web Application dashboard visual"
-                />
-              </div>
-              <div className={"mini-body"}>
-                <span className={"cat"}>
-                  UI / UX Design · Design Systems · UX Research
-                </span>
-                <h3>Infosys Gen AI</h3>
-                <p>
-                  An analytics-driven platform for personalized recommendations
-                  and interactive AI insights.
-                </p>
-                <span className={"text-link"} aria-hidden={"true"}>
-                  Read the case study <span aria-hidden={"true"}>→</span>
-                </span>
-              </div>
-            </Link>
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/infosys"}
+                aria-label={"Infosys Gen AI Web Application case study"}
+                data-delay={"3"}
+              >
+                <div className={"mini-thumb"}>
+                  <img
+                    src={infosysCard}
+                    alt="Infosys Gen AI Web Application dashboard visual"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UI / UX Design · Design Systems · UX Research
+                  </span>
+                  <h3>Infosys Gen AI</h3>
+                  <p>
+                    An analytics-driven platform for personalized
+                    recommendations and interactive AI insights.
+                  </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
+              {/* ---- duplicate copy, decorative only ---- */}
+              <Link
+                className={"mini-card"}
+                to={"/work/mytown"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
+                <div className={"mini-thumb"}>
+                  <img src={myTownCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UX Research · UX Design · Interaction Design
+                  </span>
+                  <h3>MyTown</h3>
+                  <p>
+                    Rethinking how people discover and connect with their
+                    local community.
+                  </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
+              <article className={"mini-card"} aria-hidden={"true"}>
+                <div className={"mini-thumb"}>
+                  <img src={phytivesCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Brand Identity · Branding · Visual Design
+                  </span>
+                  <h3>Phytives</h3>
+                  <p>
+                    A visual identity built to give a growing brand a clearer
+                    personality.
+                  </p>
+                </div>
+              </article>
+
+              <article className={"mini-card"} aria-hidden={"true"}>
+                <div className={"mini-thumb"}>
+                  <img src={homeBakeryCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Brand Identity · Branding · Packaging
+                  </span>
+                  <h3>The Home Bakery</h3>
+                  <p>
+                    A warmer, more distinctive identity for a homegrown
+                    bakery brand.
+                  </p>
+                </div>
+              </article>
+
+              <Link
+                className={"mini-card"}
+                to={"/work/infosys"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
+                <div className={"mini-thumb"}>
+                  <img src={infosysCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UI / UX Design · Design Systems · UX Research
+                  </span>
+                  <h3>Infosys Gen AI</h3>
+                  <p>
+                    An analytics-driven platform for personalized
+                    recommendations and interactive AI insights.
+                  </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

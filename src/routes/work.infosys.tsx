@@ -86,7 +86,7 @@ function InfosysPage() {
       </section>
 
       {/* ---------- About / Brief / Challenge ---------- */}
-      <section className="ig-section ig-section--tight">
+      <section className="ig-section">
         <div className="ig-wrap">
           <div className="ig-info-row">
             <h3>About the project</h3>
@@ -129,7 +129,7 @@ function InfosysPage() {
       </section>
 
       {/* ---------- Nudge User Journey ---------- */}
-      <section className="ig-section ig-section--tight">
+      <section className="ig-section">
         <div className="ig-wrap">
           <h2>User Journeys</h2>
 
@@ -266,7 +266,7 @@ function InfosysPage() {
       </section>
 
       {/* ---------- Web Screens ---------- */}
-      <section className="ig-section ig-section--tight">
+      <section className="ig-section">
         <div className="ig-wrap">
           <h2>Web Screens</h2>
 

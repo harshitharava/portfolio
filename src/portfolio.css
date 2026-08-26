@@ -814,36 +814,46 @@ section {
   color: var(--ink-3);
 }
 
-/* compact "more work" grid */
+/* "more work" — free-running marquee, same technique as the skills
+   marquee above: the track holds the card set twice back-to-back and
+   loops via translateX(-50%), so it always appears to scroll rather
+   than needing a manual drag/scroll gesture. */
 .more-work {
+  overflow: hidden;
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.more-work-track {
   display: flex;
   gap: 24px;
-  margin-top: clamp(36px, 5vw, 56px);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 4px;
-  padding-bottom: 12px;
-  /* thin, unobtrusive scrollbar rather than the browser's chunky
-     default — kept visible (not hidden entirely) since this is the
-     primary way to reach the 4th+ card at desktop widths, not just a
-     mobile affordance */
-  scrollbar-width: thin;
-  scrollbar-color: var(--line-strong) transparent;
+  width: max-content;
+  animation: more-work-marquee 48s linear infinite;
 }
 
-.more-work::-webkit-scrollbar {
-  height: 6px;
+.more-work:hover .more-work-track,
+.more-work:focus-within .more-work-track {
+  animation-play-state: paused;
 }
 
-.more-work::-webkit-scrollbar-thumb {
-  background: var(--line-strong);
-  border-radius: 999px;
+@keyframes more-work-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .more-work-track {
+    animation: none;
+  }
+
+  .more-work {
+    overflow-x: auto;
+  }
 }
 
 .mini-card {
   display: block;
   flex: 0 0 clamp(260px, 30vw, 340px);
-  scroll-snap-align: start;
   background: var(--surface);
   border: 1.5px solid var(--line);
   border-radius: var(--pf-radius);

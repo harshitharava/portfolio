@@ -149,22 +149,14 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-// Routes that supply their own ending and must not inherit the site footer.
-const ROUTES_WITHOUT_SITE_FOOTER = [
-  "/work/talos-care",
-  "/work/cityloop",
-  "/work/playpal",
-  "/work/mytown",
-];
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
-  const showSiteFooter = !ROUTES_WITHOUT_SITE_FOOTER.includes(
-    pathname.replace(/\/$/, ""),
-  );
+  // The site footer belongs to the home page only — every other route
+  // (about, and every case study) supplies its own ending.
+  const showSiteFooter = (pathname.replace(/\/$/, "") || "/") === "/";
 
   return (
     <QueryClientProvider client={queryClient}>
