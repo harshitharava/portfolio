@@ -679,10 +679,19 @@
   width: auto;
 }
 
-/* the light-background logo sample sits on its own light plate, as on the
-   artboard, so it reads in either theme */
+/* Both plates carry a fixed color regardless of theme, on purpose — the
+   whole point is showing the mark on the specific background it's made
+   for. But each one's fixed color is nearly identical to the page's own
+   background in one of the two themes (the light plate #f2eee3 against
+   this page's own light bg; the dark plate #1c1c1c against the dark
+   theme's near-black #17130e), which made that plate's edge disappear
+   in that theme — its caption below still lined up with the true (now
+   invisible) edge, but visually read as misaligned against the logo
+   artwork, the only part left visible. A border keeps the box legible
+   in both themes regardless of which plate happens to match the page. */
 .cl-logo-plate {
   background: #f2eee3;
+  border: 1px solid var(--cl-stroke);
   border-radius: calc(16 * var(--u));
   padding: calc(20 * var(--u)) calc(28 * var(--u));
   display: inline-block;
@@ -690,6 +699,7 @@
 
 .cl-logo-dark {
   background: #1c1c1c;
+  border: 1px solid var(--cl-stroke);
   border-radius: calc(16 * var(--u));
   padding: calc(20 * var(--u)) calc(28 * var(--u));
 }
