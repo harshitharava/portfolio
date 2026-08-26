@@ -60,6 +60,10 @@
 
 .ig-section--tight {
   padding-top: 0;
+  /* Every section on this page is tight, so this bottom padding doubles as
+     the section-to-section gap — the full 80u base felt loose next to the
+     now-larger .ig-info-row headings and the zero-gap rows above it. */
+  padding-bottom: calc(48 * var(--u));
 }
 
 .ig p {
@@ -209,11 +213,13 @@
 }
 
 .ig-info-row h3 {
-  margin: 0 0 calc(12 * var(--u));
+  margin: 0 0 calc(20 * var(--u));
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.01em;
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  /* Matches .ig h2 ("User Journeys" etc.) — these row labels are the same
+     headline weight, just inside a tighter label/copy row layout. */
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
 }
 
 .ig-info-row p {
