@@ -1,45 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
-import heroImage from "@/assets/cityloop/hero/cityloop-hero.png";
-import contributionImage from "@/assets/cityloop/contribution/cityloop-contribution.png";
-import iaImage from "@/assets/cityloop/information architecture/cityloop-information architecture.png";
-import primaryPersona from "@/assets/cityloop/personas/cityloop-primary_persona.png";
-import primaryPersonaDark from "@/assets/cityloop/personas dark/cityloop-primary persona-dark.png";
-import userJourney from "@/assets/cityloop/user journey/cityloop-user-journey.png";
-import userJourneyDark from "@/assets/cityloop/User journey dark/cityloop-user-journey-dark.png";
-import userFlowImage from "@/assets/cityloop/user flow/cityloop-user-flow.png";
-import userFlowImageDark from "@/assets/cityloop/user flow dark/cityloop-user-flow-dark.png";
+import heroImage from "@/assets/cityloop/hero/cityloop-hero.webp";
+import contributionImage from "@/assets/cityloop/contribution/cityloop-contribution.webp";
+import iaImage from "@/assets/cityloop/information-architecture/cityloop-information-architecture.webp";
+import primaryPersona from "@/assets/cityloop/personas/cityloop-primary-persona.webp";
+import primaryPersonaDark from "@/assets/cityloop/personas/cityloop-primary-persona-dark.webp";
+import userJourney from "@/assets/cityloop/user-journey/cityloop-user-journey.webp";
+import userJourneyDark from "@/assets/cityloop/user-journey/cityloop-user-journey-dark.webp";
+import userFlowImage from "@/assets/cityloop/user-flow/cityloop-user-flow.webp";
+import userFlowImageDark from "@/assets/cityloop/user-flow/cityloop-user-flow-dark.webp";
 
-import lofiMoodcast from "@/assets/cityloop/low fidelity screens/cityloop-moodcast.png";
-import lofiDining from "@/assets/cityloop/low fidelity screens/cityloop-dining.png";
-import lofiEvents from "@/assets/cityloop/low fidelity screens/cityloop-events.png";
-import lofiMuseum from "@/assets/cityloop/low fidelity screens/cityloop-museum detail.png";
-import lofiRestaurant from "@/assets/cityloop/low fidelity screens/cityloop-restaurant detail.png";
-import lofiDesktop from "@/assets/cityloop/low fidelity screens/cityloop-desktop page.png";
+import lofiMoodcast from "@/assets/cityloop/low-fidelity-screens/cityloop-moodcast.webp";
+import lofiDining from "@/assets/cityloop/low-fidelity-screens/cityloop-dining.webp";
+import lofiEvents from "@/assets/cityloop/low-fidelity-screens/cityloop-events.webp";
+import lofiMuseum from "@/assets/cityloop/low-fidelity-screens/cityloop-museum-detail.webp";
+import lofiRestaurant from "@/assets/cityloop/low-fidelity-screens/cityloop-restaurant-detail.webp";
+import lofiDesktop from "@/assets/cityloop/low-fidelity-screens/cityloop-desktop-page.webp";
 
-import contextAware from "@/assets/cityloop/experience/cityloop-Context-Aware Discovery.png";
-import categoryDiscovery from "@/assets/cityloop/experience/cityloop-Category-Based Discovery.png";
-import booking1 from "@/assets/cityloop/experience/cityloop-Seamless Booking Experience 1.png";
-import booking2 from "@/assets/cityloop/experience/cityloop-Seamless Booking Experience 2.png";
-import responsiveExperience from "@/assets/cityloop/experience/cityloop-Responsive Experience.png";
+import contextAware from "@/assets/cityloop/experience/cityloop-context-aware-discovery.webp";
+import categoryDiscovery from "@/assets/cityloop/experience/cityloop-category-based-discovery.webp";
+import booking1 from "@/assets/cityloop/experience/cityloop-seamless-booking-experience-1.webp";
+import booking2 from "@/assets/cityloop/experience/cityloop-seamless-booking-experience-2.webp";
+import responsiveExperience from "@/assets/cityloop/experience/cityloop-responsive-experience.webp";
 
 // Dark-mode counterparts: same compositions, re-exported with annotation arrows
 // and labels that stay legible against a dark page. Swapped in purely by CSS
 // visibility, never both rendered visible at once.
-import contextAwareDark from "@/assets/cityloop/experience-dark/cityloop-Context-Aware Discovery-dark.png";
-import categoryDiscoveryDark from "@/assets/cityloop/experience-dark/cityloop-Category-Based Discovery-dark.png";
-import booking1Dark from "@/assets/cityloop/experience-dark/cityloop-Seamless Booking Experience 1-dark.png";
+import contextAwareDark from "@/assets/cityloop/experience/cityloop-context-aware-discovery-dark.webp";
+import categoryDiscoveryDark from "@/assets/cityloop/experience/cityloop-category-based-discovery-dark.webp";
+import booking1Dark from "@/assets/cityloop/experience/cityloop-seamless-booking-experience-1-dark.webp";
 // NOTE: supplied as "...Experience 3-dark.png" — no light-mode "3" exists, and this
 // file's pixel dimensions (2164x1059) match "Seamless Booking Experience 2.png"
 // exactly, so it is used as booking2's dark counterpart. Flagged in README.
-import booking2Dark from "@/assets/cityloop/experience-dark/cityloop-Seamless Booking Experience 3-dark.png";
-import responsiveExperienceDark from "@/assets/cityloop/experience-dark/cityloop-Responsive Experience-dark.png";
+import booking2Dark from "@/assets/cityloop/experience/cityloop-seamless-booking-experience-3-dark.webp";
+import responsiveExperienceDark from "@/assets/cityloop/experience/cityloop-responsive-experience-dark.webp";
 
-import logoOrange from "@/assets/cityloop/logos/logo-orange color.svg";
-import logoLight from "@/assets/cityloop/logos/logo-light color.svg";
-import primaryButton from "@/assets/cityloop/buttons/primary button.svg";
-import secondaryButton from "@/assets/cityloop/buttons/secondary button.svg";
+import logoOrange from "@/assets/cityloop/logos/cityloop-logo-orange-color.svg";
+import logoLight from "@/assets/cityloop/logos/cityloop-logo-light-color.svg";
+import primaryButton from "@/assets/cityloop/buttons/cityloop-primary-button.svg";
+import secondaryButton from "@/assets/cityloop/buttons/cityloop-secondary-button.svg";
 
 const ICONS = import.meta.glob("@/assets/cityloop/icons/*.svg", {
   eager: true,

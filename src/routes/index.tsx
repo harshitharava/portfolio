@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
-import talosCareCard from "@/assets/talos card.png";
-import playPalCard from "@/assets/playpal.png";
-import cityLoopCard from "@/assets/cityloop png.png";
-import myTownCard from "@/assets/my town.png";
-import phytivesCard from "@/assets/phytives.png";
-import homeBakeryCard from "@/assets/home bakery.png";
-import infosysCard from "@/assets/infosys/screens/infosys-dashboard-base.jpg";
+import talosCareCard from "@/assets/cards/talos-card.webp";
+import playPalCard from "@/assets/cards/playpal-card.webp";
+import cityLoopCard from "@/assets/cards/cityloop-card.webp";
+import myTownCard from "@/assets/cards/mytown-card.webp";
+import phytivesCard from "@/assets/cards/phytives-card.webp";
+import homeBakeryCard from "@/assets/cards/home-bakery-card.webp";
+import infosysCard from "@/assets/infosys/screens/infosys-dashboard-base.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({

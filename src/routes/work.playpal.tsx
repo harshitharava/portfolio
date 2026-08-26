@@ -1,39 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
-import heroImage from "@/assets/playpal/hero/playpal-hero.png";
-import contributionImage from "@/assets/playpal/contribution/playpal-contribution.png";
+import heroImage from "@/assets/playpal/hero/playpal-hero.webp";
+import contributionImage from "@/assets/playpal/contribution/playpal-contribution.webp";
 
-import primaryPersona from "@/assets/playpal/personas/playpal-primary-persona.png";
-import primaryPersonaDark from "@/assets/playpal/personas/playpal-primary-persona-dark.png";
+import primaryPersona from "@/assets/playpal/personas/playpal-primary-persona.webp";
+import primaryPersonaDark from "@/assets/playpal/personas/playpal-primary-persona-dark.webp";
 
-import userJourney from "@/assets/playpal/user-journey/playpal-user-journey.png";
-import userJourneyDark from "@/assets/playpal/user-journey/playpal-user-journey-dark.png";
+import userJourney from "@/assets/playpal/user-journey/playpal-user-journey.webp";
+import userJourneyDark from "@/assets/playpal/user-journey/playpal-user-journey-dark.webp";
 
-import appStructure from "@/assets/playpal/application-structure/playpal-application-structure.png";
+import appStructure from "@/assets/playpal/application-structure/playpal-application-structure.webp";
 
-import earlyExploration from "@/assets/playpal/early-design-exploration/playpal-early-design-exploration.png";
-import earlyExplorationDark from "@/assets/playpal/early-design-exploration/playpal-early-design-exploration-dark.png";
+import earlyExploration from "@/assets/playpal/early-design-exploration/playpal-early-design-exploration.webp";
+import earlyExplorationDark from "@/assets/playpal/early-design-exploration/playpal-early-design-exploration-dark.webp";
 
-import foundationsHero from "@/assets/playpal/design-foundations/playpal-design-foundations.png";
-import foundationsHeroDark from "@/assets/playpal/design-foundations/playpal-design-foundations-dark.png";
-import buttonsImage from "@/assets/playpal/design-foundations/playpal-buttons.png";
-import componentsImage from "@/assets/playpal/design-foundations/playpal-components.png";
-import logoImage from "@/assets/playpal/design-foundations/playpal-logo.png";
+import foundationsHero from "@/assets/playpal/design-foundations/playpal-design-foundations.webp";
+import foundationsHeroDark from "@/assets/playpal/design-foundations/playpal-design-foundations-dark.webp";
+import buttonsImage from "@/assets/playpal/design-foundations/playpal-buttons.webp";
+import componentsImage from "@/assets/playpal/design-foundations/playpal-components.webp";
+import logoImage from "@/assets/playpal/design-foundations/playpal-logo.webp";
 
-import expHome from "@/assets/playpal/experience/playpal-experience-01.png";
-import expHomeDark from "@/assets/playpal/experience/playpal-experience-01-dark.png";
-import expPlay from "@/assets/playpal/experience/playpal-experience-02.png";
-import expPlayDark from "@/assets/playpal/experience/playpal-experience-02-dark.png";
-import expCreate from "@/assets/playpal/experience/playpal-experience-03.png";
-import expCreateDark from "@/assets/playpal/experience/playpal-experience-03-dark.png";
-import expManage from "@/assets/playpal/experience/playpal-experience-04.png";
-import expManageDark from "@/assets/playpal/experience/playpal-experience-04-dark.png";
-import expProfile from "@/assets/playpal/experience/playpal-experience-05.png";
-import expProfileDark from "@/assets/playpal/experience/playpal-experience-05-dark.png";
+import expHome from "@/assets/playpal/experience/playpal-experience-01.webp";
+import expHomeDark from "@/assets/playpal/experience/playpal-experience-01-dark.webp";
+import expPlay from "@/assets/playpal/experience/playpal-experience-02.webp";
+import expPlayDark from "@/assets/playpal/experience/playpal-experience-02-dark.webp";
+import expCreate from "@/assets/playpal/experience/playpal-experience-03.webp";
+import expCreateDark from "@/assets/playpal/experience/playpal-experience-03-dark.webp";
+import expManage from "@/assets/playpal/experience/playpal-experience-04.webp";
+import expManageDark from "@/assets/playpal/experience/playpal-experience-04-dark.webp";
+import expProfile from "@/assets/playpal/experience/playpal-experience-05.webp";
+import expProfileDark from "@/assets/playpal/experience/playpal-experience-05-dark.webp";
 
-import reflectionImage from "@/assets/playpal/reflection/playpal-reflection.png";
-import reflectionImageDark from "@/assets/playpal/reflection/playpal-reflection-dark.png";
+import reflectionImage from "@/assets/playpal/reflection/playpal-reflection.webp";
+import reflectionImageDark from "@/assets/playpal/reflection/playpal-reflection-dark.webp";
 
 const DESCRIPTION =
   "UX case study: PlayPal, a mobile app that simplifies how people find teammates, join games, and book venues for recreational sports.";

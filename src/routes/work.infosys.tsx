@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
-import heroSignin from "@/assets/infosys/hero/infosys-hero-signin.png";
-import dashboardMonitor from "@/assets/infosys/hero/infosys-dashboard-monitor.png";
+import heroSignin from "@/assets/infosys/hero/infosys-hero-signin.webp";
+import dashboardMonitor from "@/assets/infosys/hero/infosys-dashboard-monitor.webp";
 
-import screenSignin from "@/assets/infosys/screens/infosys-signin.jpg";
-import screenSignup from "@/assets/infosys/screens/infosys-signup.jpg";
-import screenBase from "@/assets/infosys/screens/infosys-dashboard-base.jpg";
-import screenNudgeDropdown from "@/assets/infosys/screens/infosys-dashboard-nudge-dropdown.jpg";
-import screenChat01 from "@/assets/infosys/screens/infosys-dashboard-aichat-01.jpg";
-import screenChat02 from "@/assets/infosys/screens/infosys-dashboard-aichat-02.jpg";
-import screenNudges01 from "@/assets/infosys/screens/infosys-dashboard-ainudges-01.jpg";
-import screenNudges02 from "@/assets/infosys/screens/infosys-dashboard-ainudges-02.jpg";
-import screenNudges03 from "@/assets/infosys/screens/infosys-dashboard-ainudges-03.jpg";
+import screenSignin from "@/assets/infosys/screens/infosys-signin.webp";
+import screenSignup from "@/assets/infosys/screens/infosys-signup.webp";
+import screenBase from "@/assets/infosys/screens/infosys-dashboard-base.webp";
+import screenNudgeDropdown from "@/assets/infosys/screens/infosys-dashboard-nudge-dropdown.webp";
+import screenChat01 from "@/assets/infosys/screens/infosys-dashboard-aichat-01.webp";
+import screenChat02 from "@/assets/infosys/screens/infosys-dashboard-aichat-02.webp";
+import screenNudges01 from "@/assets/infosys/screens/infosys-dashboard-ainudges-01.webp";
+import screenNudges02 from "@/assets/infosys/screens/infosys-dashboard-ainudges-02.webp";
+import screenNudges03 from "@/assets/infosys/screens/infosys-dashboard-ainudges-03.webp";
 
 export const Route = createFileRoute("/work/infosys")({
   head: () => ({

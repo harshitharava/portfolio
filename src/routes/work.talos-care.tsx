@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
-import heroImage from "@/assets/talos/hero/talos-hero-2x.jpg";
-import contributionImage from "@/assets/talos/contribution/talos-contribution.png";
-import trustImage from "@/assets/talos/trust/talos-trust.png";
-import welcomeShot from "@/assets/talos/experience/talos-welcome.png";
-import concernsShot1 from "@/assets/talos/experience/talos-concerns-01.png";
-import concernsShot2 from "@/assets/talos/experience/talos-concerns-02.png";
-import followupShot1 from "@/assets/talos/experience/talos-followup-01.png";
-import followupShot2 from "@/assets/talos/experience/talos-followup-02.png";
-import reviewShot from "@/assets/talos/experience/talos-review.png";
+import heroImage from "@/assets/talos/hero/talos-hero.webp";
+import contributionImage from "@/assets/talos/contribution/talos-contribution.webp";
+import trustImage from "@/assets/talos/trust/talos-trust.webp";
+import welcomeShot from "@/assets/talos/experience/talos-welcome.webp";
+import concernsShot1 from "@/assets/talos/experience/talos-concerns-01.webp";
+import concernsShot2 from "@/assets/talos/experience/talos-concerns-02.webp";
+import followupShot1 from "@/assets/talos/experience/talos-followup-01.webp";
+import followupShot2 from "@/assets/talos/experience/talos-followup-02.webp";
+import reviewShot from "@/assets/talos/experience/talos-review.webp";
 
 const DESCRIPTION =
   "UX case study: Talos Care, a conversational AI assistant that helps patients disclose sensitive health information before meeting a healthcare professional.";

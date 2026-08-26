@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
-import heroFullLight from "@/assets/mytown/hero/mytown-hero-full.png";
-import heroFullDark from "@/assets/mytown/hero/mytown-hero-full-dark.png";
-import logoLight from "@/assets/mytown/hero/mytown-logo.png";
-import logoDark from "@/assets/mytown/hero/mytown-logo-dark.png";
+import heroFullLight from "@/assets/mytown/hero/mytown-hero-full.webp";
+import heroFullDark from "@/assets/mytown/hero/mytown-hero-full-dark.webp";
+import logoLight from "@/assets/mytown/hero/mytown-logo.webp";
+import logoDark from "@/assets/mytown/hero/mytown-logo-dark.webp";
 /* the hero photo's sky is genuinely semi-transparent (confirmed by
    sampling — not a fixed light colour), so it blends with the page's own
    background and really does read darker in dark mode, the same way the
@@ -12,32 +12,32 @@ import logoDark from "@/assets/mytown/hero/mytown-logo-dark.png";
    sky loses almost all contrast against the darker one, so it swaps to
    the supplied light-blue wordmark in dark mode, same as the headline. */
 
-import problemLight from "@/assets/mytown/problem/mytown-problem.png";
-import problemDark from "@/assets/mytown/problem/mytown-problem-dark.png";
+import problemLight from "@/assets/mytown/problem/mytown-problem.webp";
+import problemDark from "@/assets/mytown/problem/mytown-problem-dark.webp";
 
-import researchJourneyLight from "@/assets/mytown/research/mytown-research-journey.png";
-import researchJourneyDark from "@/assets/mytown/research/mytown-research-journey-dark.png";
-import researchMethodsLight from "@/assets/mytown/research/mytown-research-methods.png";
-import researchMethodsDark from "@/assets/mytown/research/mytown-research-methods-dark.png";
+import researchJourneyLight from "@/assets/mytown/research/mytown-research-journey.webp";
+import researchJourneyDark from "@/assets/mytown/research/mytown-research-journey-dark.webp";
+import researchMethodsLight from "@/assets/mytown/research/mytown-research-methods.webp";
+import researchMethodsDark from "@/assets/mytown/research/mytown-research-methods-dark.webp";
 
-import userJourneyLight from "@/assets/mytown/journey-mapping/mytown-user-journey.png";
-import userJourneyDark from "@/assets/mytown/journey-mapping/mytown-user-journey-dark.png";
+import userJourneyLight from "@/assets/mytown/journey-mapping/mytown-user-journey.webp";
+import userJourneyDark from "@/assets/mytown/journey-mapping/mytown-user-journey-dark.webp";
 
-import informationArchitecture from "@/assets/mytown/information-architecture/mytown-information-architecture.png";
+import informationArchitecture from "@/assets/mytown/information-architecture/mytown-information-architecture.webp";
 
-import designSystemLight from "@/assets/mytown/design-system/mytown-design-system.png";
-import designSystemDark from "@/assets/mytown/design-system/mytown-design-system-dark.png";
-import buttonsImage from "@/assets/mytown/design-system/mytown-buttons.png";
-import formControlsImage from "@/assets/mytown/design-system/mytown-form-controls.png";
+import designSystemLight from "@/assets/mytown/design-system/mytown-design-system.webp";
+import designSystemDark from "@/assets/mytown/design-system/mytown-design-system-dark.webp";
+import buttonsImage from "@/assets/mytown/design-system/mytown-buttons.webp";
+import formControlsImage from "@/assets/mytown/design-system/mytown-form-controls.webp";
 
-import exp01Light from "@/assets/mytown/experience/mytown-experience-01.png";
-import exp01Dark from "@/assets/mytown/experience/mytown-experience-01-dark.png";
-import exp02Light from "@/assets/mytown/experience/mytown-experience-02.png";
-import exp02Dark from "@/assets/mytown/experience/mytown-experience-02-dark.png";
-import exp03Light from "@/assets/mytown/experience/mytown-experience-03.png";
-import exp03Dark from "@/assets/mytown/experience/mytown-experience-03-dark.png";
-import exp04Light from "@/assets/mytown/experience/mytown-experience-04.png";
-import exp04Dark from "@/assets/mytown/experience/mytown-experience-04-dark.png";
+import exp01Light from "@/assets/mytown/experience/mytown-experience-01.webp";
+import exp01Dark from "@/assets/mytown/experience/mytown-experience-01-dark.webp";
+import exp02Light from "@/assets/mytown/experience/mytown-experience-02.webp";
+import exp02Dark from "@/assets/mytown/experience/mytown-experience-02-dark.webp";
+import exp03Light from "@/assets/mytown/experience/mytown-experience-03.webp";
+import exp03Dark from "@/assets/mytown/experience/mytown-experience-03-dark.webp";
+import exp04Light from "@/assets/mytown/experience/mytown-experience-04.webp";
+import exp04Dark from "@/assets/mytown/experience/mytown-experience-04-dark.webp";
 
 const DESCRIPTION =
   "UX case study: MyTown, a service concept helping international students settle into a new city — guided first-week tasks, consolidated support, local discovery, and community.";

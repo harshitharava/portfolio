@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
-import aboutPhoto1 from "@/assets/about-harshith-pier.png";
-import aboutPhoto2 from "@/assets/about-harshith-alley.png";
+import aboutPhoto1 from "@/assets/about/about-harshith-pier.webp";
+import aboutPhoto2 from "@/assets/about/about-harshith-alley.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
