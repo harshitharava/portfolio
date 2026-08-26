@@ -53,7 +53,7 @@ function InfosysPage() {
             <figure className="ig-hero-figure">
               <img
                 src={heroSignin}
-                alt="Infosys Gen AI Application sign-in screen, displayed on a desktop monitor"
+                alt="Infosys Gen AI Application sign-in screen, displayed on a laptop resting on a wooden table"
               />
             </figure>
           </div>
