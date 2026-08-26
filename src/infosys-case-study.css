@@ -347,6 +347,15 @@
   margin-left: calc(90 * var(--u));
 }
 
+/* .ig-flow-row + .ig-flow-row only matches when a row follows another
+   row — the closing row after a branch (row -> branch -> row) fell
+   through that selector entirely and got no top margin at all, sitting
+   flush against the branch above it while every other gap in the same
+   flow got 20-32u. */
+.ig-flow-branch + .ig-flow-row {
+  margin-top: calc(32 * var(--u));
+}
+
 .ig-flow-branch-col {
   display: flex;
   flex-direction: column;
