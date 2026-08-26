@@ -763,7 +763,7 @@ function CityLoopPage() {
                 Kanit Medium - 20px
               </p>
               <h4 style={{ marginTop: "calc(20 * var(--u))" }}>Body</h4>
-              <p>
+              <p className="cl-type-sample-dm">
                 DM Sans Regular - 14px
                 <br />
                 DM Sans Medium - 14px

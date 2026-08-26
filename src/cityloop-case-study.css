@@ -7,8 +7,12 @@
    to the site's `.wrap` width so the page aligns with the nav.
 
    CityLoop keeps its own identity: its dark/warm palette with the
-   orange accent, and Kanit + DM Sans rather than the portfolio's
-   typefaces.
+   orange accent, and Kanit for its big display headings (h2, the hero
+   wordmark, the intro h1) instead of Clash Display. Body copy —
+   paragraphs, pull-quotes, table headers, labels, everything read
+   rather than glanced at as a heading — is Satoshi, same as every
+   other case study; DM Sans appears only as the literal specimen font
+   in the Typography card's own "Body" sample.
    ============================================================ */
 
 .cl {
@@ -26,7 +30,15 @@
 
   background: var(--cl-bg);
   color: var(--cl-ink);
-  font-family: "DM Sans", var(--font-body), sans-serif;
+  /* Body copy is Satoshi like every other case study — DM Sans is only
+     the literal specimen font shown in the Typography card's own "Body"
+     sample (.cl-type-sample-dm), not the page's actual reading font.
+     Setting it here on the root previously made the whole page (every
+     paragraph, meta label, card) render in DM Sans on any visitor whose
+     system happens to have it installed, silently falling back to
+     Satoshi for everyone else — inconsistent and font-dependent instead
+     of deliberate. */
+  font-family: var(--font-body);
   font-size: calc(28 * var(--u));
   line-height: 1.4;
 }
@@ -233,9 +245,13 @@
 
 /* ---------- Pull quote ---------- */
 
+/* Bold body face (inherited Satoshi), not Kanit — matches Talos Care's
+   and PlayPal's own pull-quotes, both of which are bold body copy rather
+   than a display-face callout. Also drops font-weight:600, a weight
+   Satoshi isn't loaded in (only 400/500/700 are fetched from Fontshare),
+   which the browser was faking with a synthetic bold. */
 .cl-lede {
-  font-family: "Kanit", var(--font-display), sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: calc(34 * var(--u));
   line-height: 1.32;
   border-left: calc(4 * var(--u)) solid var(--cl-accent);
@@ -256,9 +272,10 @@
   margin-block: calc(56 * var(--u));
 }
 
+/* Bold body face, same reasoning as .cl-lede just above — this is
+   another big pull-statement, not a heading. */
 .cl-band p {
-  font-family: "Kanit", var(--font-display), sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: calc(38 * var(--u));
   line-height: 1.34;
   margin: 0;
@@ -326,9 +343,11 @@
   padding: calc(24 * var(--u)) calc(28 * var(--u));
 }
 
+/* Bold body face, matching Talos Care's own table header exactly (no
+   font-family override there either) rather than Kanit, which — per
+   .cl h3 above — doesn't hold up at sizes this close to body text. */
 .cl-table thead th {
-  font-family: "Kanit", var(--font-display), sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: calc(30 * var(--u));
   border-bottom: 1px solid var(--cl-rule);
 }
@@ -345,9 +364,10 @@
 
 /* ---------- Personas ---------- */
 
+/* Bold body face — same 30u size as the table header above, the same
+   size .cl h3's own comment says Kanit doesn't hold up at. */
 .cl-section-label {
-  font-family: "Kanit", var(--font-display), sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: calc(30 * var(--u));
   text-align: center;
   text-decoration: underline;
@@ -380,9 +400,10 @@
   padding: calc(44 * var(--u));
 }
 
+/* Bold body face — same 30-34u range .cl h3's own comment flags as too
+   small for Kanit to hold up. */
 .cl-persona-name {
-  font-family: "Kanit", var(--font-display), sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: calc(32 * var(--u));
   text-align: center;
   margin: 0 0 calc(8 * var(--u));
@@ -675,6 +696,13 @@
 
 .cl-type-sample-kanit {
   font-family: "Kanit", var(--font-display), sans-serif;
+}
+
+/* literal specimen for the card's "Body" row — the one deliberate spot
+   DM Sans should still render, same scoping PlayPal uses for its own
+   Zalando Sans specimen paragraph */
+.cl-type-sample-dm {
+  font-family: "DM Sans", var(--font-body), sans-serif;
 }
 
 /* ---------- Reflection ---------- */
