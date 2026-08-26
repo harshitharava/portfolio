@@ -34,10 +34,12 @@ function InfosysPage() {
   return (
     <main id="main" className="ig">
       {/* ---------- Hero ---------- */}
-      {/* Full-bleed hero photo with the tags overlaid on top, matching every
-          other case study's hero treatment (CityLoop/PlayPal/Talos Care/
-          MyTown) — this page previously confined the image to one column of
-          a grid instead of letting it bleed the full width. */}
+      {/* Full-bleed hero photo with tags and the headline both overlaid on
+          top of it, matching CityLoop/Talos Care's hero-title-layer pattern
+          exactly (including the offset text-shadow) rather than PlayPal's
+          plain-photo-plus-separate-heading treatment. The photo has a soft
+          cream fade built into its left third, which is exactly where the
+          title sits — same placement CityLoop uses. */}
       <section className="ig-hero">
         <div className="ig-hero-media">
           <img
@@ -51,15 +53,18 @@ function InfosysPage() {
             <span>UI Design</span>
             <span>Prototyping</span>
           </div>
+          <div className="ig-hero-title-layer">
+            <div className="ig-wrap ig-hero-title-rail">
+              <h1 className="ig-hero-title">
+                Infosys Gen AI
+                <br />
+                Web Application
+              </h1>
+            </div>
+          </div>
         </div>
 
         <div className="ig-wrap">
-          <h1 className="ig-hero-title">
-            Infosys Gen AI
-            <br />
-            Web Application
-          </h1>
-
           <p className="ig-hero-sub">
             The Infosys Generative AI Application is an analytics-driven
             platform that enhances user engagement through personalized

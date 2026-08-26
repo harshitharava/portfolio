@@ -158,17 +158,40 @@
   white-space: nowrap;
 }
 
+/* Title sits on the photo itself — same three-layer setup as
+   .cl-hero-title-layer/-rail/p.cl-hero-title, placed over the cream fade
+   built into the left third of this particular photo. */
+.ig-hero-title-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ig-hero-title-rail {
+  position: relative;
+  height: 100%;
+}
+
 .ig h1.ig-hero-title {
-  margin: calc(56 * var(--u)) 0 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
   font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.7rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ig-blue);
+  /* Fixed dark shadow, not the theme-swapping --ig-ink — this project has
+     no dark-mode photo variant, so the fade the title sits on stays light
+     regardless of site theme, and --ig-ink flips to a light color in dark
+     mode (which would erase the shadow against that still-light fade). */
+  text-shadow: calc(10 * var(--u)) calc(9 * var(--u)) 0 #1c1c1c;
 }
 
 .ig-hero-sub {
   max-width: none;
-  margin: calc(32 * var(--u)) 0 0;
+  margin: calc(56 * var(--u)) 0 0;
   text-align: left;
   color: var(--ig-ink-soft);
   font-size: 1.05em;
