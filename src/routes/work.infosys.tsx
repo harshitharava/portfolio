@@ -34,29 +34,31 @@ function InfosysPage() {
   return (
     <main id="main" className="ig">
       {/* ---------- Hero ---------- */}
+      {/* Full-bleed hero photo with the tags overlaid on top, matching every
+          other case study's hero treatment (CityLoop/PlayPal/Talos Care/
+          MyTown) — this page previously confined the image to one column of
+          a grid instead of letting it bleed the full width. */}
       <section className="ig-hero">
-        <div className="ig-wrap">
-          <div className="ig-hero-tags">
+        <div className="ig-hero-media">
+          <img
+            src={heroSignin}
+            alt="Infosys Gen AI Application sign-in screen, displayed on a laptop resting on a wooden table"
+          />
+          <div className="ig-wrap ig-hero-tags">
             <span>UX Design</span>
             <span>Service Design</span>
             <span>Information Architecture</span>
             <span>UI Design</span>
             <span>Prototyping</span>
           </div>
+        </div>
 
-          <div className="ig-hero-grid">
-            <h1 className="ig-hero-title">
-              Infosys Gen AI
-              <br />
-              Web Application
-            </h1>
-            <figure className="ig-hero-figure">
-              <img
-                src={heroSignin}
-                alt="Infosys Gen AI Application sign-in screen, displayed on a laptop resting on a wooden table"
-              />
-            </figure>
-          </div>
+        <div className="ig-wrap">
+          <h1 className="ig-hero-title">
+            Infosys Gen AI
+            <br />
+            Web Application
+          </h1>
 
           <p className="ig-hero-sub">
             The Infosys Generative AI Application is an analytics-driven

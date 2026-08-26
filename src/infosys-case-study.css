@@ -115,11 +115,31 @@
   padding-top: 0;
 }
 
+/* Full-bleed hero photo — same structure as CityLoop/PlayPal/Talos Care's
+   hero-media: the <section> itself carries no .ig-wrap, so the image
+   spans the full viewport width; only the tags overlaid on top of it are
+   constrained back to the content column. */
+.ig-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.ig-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2592 / 1631;
+  object-fit: cover;
+}
+
 .ig-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  top: 8%;
   display: flex;
   flex-wrap: wrap;
   gap: calc(12 * var(--u));
-  padding-top: calc(150 * var(--u));
 }
 
 .ig-hero-tags > span {
@@ -138,34 +158,17 @@
   white-space: nowrap;
 }
 
-.ig-hero-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: calc(48 * var(--u));
-  align-items: center;
-  margin-top: calc(56 * var(--u));
-}
-
 .ig h1.ig-hero-title {
-  margin: 0;
+  margin: calc(56 * var(--u)) 0 0;
   font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.7rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ig-blue);
 }
 
-.ig-hero-figure {
-  margin: 0;
-}
-
-.ig-hero-figure img {
-  width: 100%;
-  height: auto;
-}
-
 .ig-hero-sub {
   max-width: none;
-  margin: calc(48 * var(--u)) 0 0;
+  margin: calc(32 * var(--u)) 0 0;
   text-align: left;
   color: var(--ig-ink-soft);
   font-size: 1.05em;
@@ -420,14 +423,22 @@
   .ig {
     --u: 0.62px;
   }
-
-  .ig-hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 }
 
 @media (max-width: 760px) {
+  /* Tags move off the photo and stack above it — same fallback Talos
+     Care/PlayPal use once the image is too short for overlaid text. */
+  .ig-hero-media {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .ig-hero-tags {
+    position: static;
+    padding: calc(20 * var(--u)) 0;
+    gap: calc(10 * var(--u));
+  }
+
   .ig-meta {
     grid-template-columns: repeat(2, 1fr);
   }
