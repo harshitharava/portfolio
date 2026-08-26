@@ -126,6 +126,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,300..900;1,300..900&display=swap",
         },
+        {
+          // CityLoop case study only: Kanit is its own display headings
+          // (h2, hero wordmark, intro h1), and DM Sans is the literal font
+          // named in its Typography card's own "Body" specimen. Neither
+          // was actually loaded anywhere before — both silently relied on
+          // the visitor's system already having them installed, so they
+          // rendered correctly by chance rather than reliably for everyone.
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap",
+        },
       ],
     }),
     shellComponent: RootShell,
