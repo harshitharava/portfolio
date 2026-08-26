@@ -56,9 +56,13 @@ function InfosysPage() {
           <div className="ig-hero-title-layer">
             <div className="ig-wrap ig-hero-title-rail">
               <h1 className="ig-hero-title">
-                Infosys Gen AI
+                Infosys
                 <br />
-                Web Application
+                Gen AI
+                <br />
+                Web
+                <br />
+                Application
               </h1>
               <p className="ig-hero-sub">
                 The Infosys Generative AI Application is an analytics-driven

@@ -187,8 +187,14 @@
    drag the whole title block away from that shared left edge. */
 .ig h1.ig-hero-title {
   margin: 0;
-  max-width: calc(460 * var(--u));
-  font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.7rem);
+  max-width: calc(600 * var(--u));
+  /* Sized up toward CityLoop/Talos Care's own on-photo sticker scale
+     (calc(140*u)) rather than the smaller clamp() PlayPal uses for its
+     unrelated plain-heading-beside-photo treatment — capped below their
+     full 140u because this particular photo's readable fade is narrower
+     and "Application" (the longest single unbreakable word here) needs
+     to fit inside it without spilling onto the busy photo. */
+  font-size: calc(96 * var(--u));
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ig-blue);
