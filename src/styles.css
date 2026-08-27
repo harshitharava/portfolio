@@ -8,6 +8,7 @@
 @import "./mytown-case-study.css";
 @import "./infosys-case-study.css";
 @import "./bosch-bcw-case-study.css";
+@import "./equinox-case-study.css";
 
 @custom-variant dark (&:is(.dark *));
 

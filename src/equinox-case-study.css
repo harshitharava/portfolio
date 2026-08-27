@@ -1,0 +1,392 @@
+/* ============================================================
+   Infosys Equinox — case study page
+   ------------------------------------------------------------
+   Source is a 6-page deck: hero, About/Brief/Challenge, a two-part
+   Rationale (concept icons + the ring illustration), a Design
+   Foundations reference (color palette, gradient, title-slide
+   template), and two social media post mockups — no research
+   writeup, no persona cards, no "My Contribution" or "Reflection"
+   section exists in the source, and none is invented here, matching
+   the same restraint used on Infosys/Bosch.
+
+   Hero uses PlayPal's hybrid treatment (tags overlaid on the photo,
+   title/sub/meta as a plain heading below it) rather than the
+   on-photo sticker title Infosys/CityLoop/Talos/Bosch use — this
+   photo is a busy real desk scene (plants, camera, notebook), not a
+   clean backdrop with an obvious empty region for overlaid text.
+   Meta row is Role/Team/Platform only (3 columns, not the usual 4) —
+   the deck never states a project duration anywhere, and Infosys's
+   own meta row already sets the precedent of only including what the
+   source actually supports.
+
+   Colors sampled directly from the supplied assets (the ring
+   illustration and the "Equinox gradient" swatch both share the same
+   pink-to-blue gradient); the six flat palette swatches are a close
+   visual read off the deck's own color-palette page rather than
+   pixel-sampled — no separate swatch asset file was supplied for
+   those specifically.
+
+   No dark-mode export exists for this project (the supplied asset
+   set has no "-dark" files), so every image is used as-is in both
+   themes, matching the "light asset, no dark equivalent" convention
+   already used on Infosys/Bosch.
+   ============================================================ */
+
+.eq {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --eq-bg: #f2eee3;
+  --eq-card: #ffffff;
+  --eq-ink: #1c1c1c;
+  --eq-ink-soft: #5c5c5c;
+  --eq-rule: #dcd6c8;
+  --eq-blue: #3d5fe0;
+  --eq-blue-2: #1467e0;
+  --eq-gradient: linear-gradient(90deg, #faa1bf, #96cce4);
+
+  background: var(--eq-bg);
+  color: var(--eq-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.eq :where(section) {
+  padding-block: 0;
+}
+
+.eq-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.eq-section {
+  padding-block: calc(40 * var(--u));
+}
+
+.eq p {
+  margin: 0 0 1em;
+}
+
+.eq p:last-child {
+  margin-bottom: 0;
+}
+
+.eq h1,
+.eq h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.eq h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.eq h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.eq h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.eq img {
+  display: block;
+  max-width: 100%;
+}
+
+.eq a {
+  color: inherit;
+}
+
+/* ---------- Hero ---------- */
+
+.eq-hero {
+  padding-top: 0;
+}
+
+.eq-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+  margin: 0;
+}
+
+.eq-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3600 / 2400;
+  object-fit: cover;
+}
+
+.eq-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  top: 8%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+}
+
+.eq-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--eq-ink);
+  background: #fff;
+  border: 1px solid var(--eq-rule);
+  border-radius: 999px;
+  height: calc(56 * var(--u));
+  padding-inline: calc(26 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.eq h1.eq-hero-title {
+  margin: calc(64 * var(--u)) 0 0;
+  font-size: clamp(2.4rem, 1.7rem + 3vw, 4.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--eq-blue);
+}
+
+.eq-hero-sub {
+  max-width: 62ch;
+  margin: calc(28 * var(--u)) 0 0;
+  color: var(--eq-ink-soft);
+  font-size: 1.05em;
+}
+
+/* ---------- Meta row ---------- */
+
+.eq-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(64 * var(--u));
+  border-top: 1px solid #939393;
+  border-bottom: 1px solid #939393;
+  padding-block: calc(50 * var(--u)) calc(56 * var(--u));
+  margin-top: calc(56 * var(--u));
+}
+
+.eq-meta h4 {
+  font-weight: 400;
+  color: var(--eq-ink-soft);
+  font-size: calc(28 * var(--u));
+  margin-bottom: calc(14 * var(--u));
+}
+
+.eq-meta p {
+  font-weight: 700;
+  font-size: calc(32 * var(--u));
+  line-height: 1.28;
+  margin: 0;
+}
+
+/* ---------- About / Brief / Challenge ---------- */
+
+.eq-info-row {
+  padding-block: calc(48 * var(--u));
+}
+
+.eq-info-row:first-child {
+  padding-top: 0;
+}
+
+.eq-info-row h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.eq-info-row p {
+  color: var(--eq-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.eq-info-row strong {
+  color: var(--eq-ink);
+  font-weight: 700;
+}
+
+/* ---------- Rationale ---------- */
+
+.eq-concepts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(48 * var(--u));
+  margin-bottom: calc(56 * var(--u));
+}
+
+.eq-concept {
+  display: flex;
+  align-items: center;
+  gap: calc(16 * var(--u));
+}
+
+.eq-concept img {
+  width: calc(48 * var(--u));
+  height: calc(48 * var(--u));
+  object-fit: contain;
+}
+
+.eq-concept span {
+  font-weight: 700;
+  font-size: calc(22 * var(--u));
+}
+
+.eq-rationale-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(64 * var(--u));
+  align-items: center;
+}
+
+.eq-rationale-figure {
+  margin: 0;
+}
+
+.eq-rationale-copy p {
+  color: var(--eq-ink-soft);
+  margin: 0;
+}
+
+/* ---------- Design Foundations ---------- */
+
+.eq-foundation-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--eq-ink-soft);
+  margin: calc(48 * var(--u)) 0 calc(20 * var(--u));
+}
+
+.eq-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(16 * var(--u));
+}
+
+.eq-swatch {
+  width: calc(72 * var(--u));
+  height: calc(72 * var(--u));
+  border-radius: calc(16 * var(--u));
+  border: 1px solid var(--eq-rule);
+  display: block;
+}
+
+.eq-swatch-gradient {
+  background: var(--eq-gradient);
+}
+
+.eq-template-figure {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--eq-rule);
+}
+
+.eq-template-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Social Media Posts ---------- */
+
+.eq-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(32 * var(--u));
+}
+
+.eq-social-grid figure {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--eq-rule);
+}
+
+.eq-social-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .eq {
+  --eq-bg: var(--bg);
+  --eq-ink: var(--ink);
+  --eq-ink-soft: #a89f8e;
+  --eq-card: #262019;
+  --eq-rule: #3d3624;
+}
+
+[data-theme="dark"] .eq-hero-tags > span {
+  background: #201a13;
+  border-color: var(--eq-rule);
+}
+
+[data-theme="dark"] .eq-meta {
+  border-color: #5b5348;
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .eq {
+    --u: 0.62px;
+  }
+}
+
+@media (max-width: 760px) {
+  .eq-hero-media {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eq-hero-tags {
+    position: static;
+    padding: calc(20 * var(--u)) 0 0;
+    gap: calc(10 * var(--u));
+  }
+
+  .eq h1.eq-hero-title {
+    margin-top: calc(24 * var(--u));
+  }
+
+  .eq-meta {
+    grid-template-columns: 1fr;
+    gap: calc(32 * var(--u));
+  }
+
+  .eq-rationale-grid {
+    grid-template-columns: 1fr;
+    gap: calc(32 * var(--u));
+  }
+
+  .eq-social-grid {
+    grid-template-columns: 1fr;
+  }
+}

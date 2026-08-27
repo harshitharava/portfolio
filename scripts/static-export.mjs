@@ -20,6 +20,7 @@ const ROUTES = [
   "/about",
   "/work/bosch-bcw",
   "/work/cityloop",
+  "/work/equinox",
   "/work/fieldkit",
   "/work/infosys",
   "/work/mytown",

@@ -786,7 +786,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card reveal"} data-delay={"1"}>
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/equinox"}
+                aria-label={"Infosys Equinox case study"}
+                data-delay={"1"}
+              >
                 <div className={"mini-thumb"}>
                   <img
                     src={equinoxCard}
@@ -802,8 +807,11 @@ function Index() {
                     A campaign identity built to make a B2B commerce platform
                     feel human, flexible, and distinctly its own.
                   </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <article className={"mini-card reveal"} data-delay={"1"}>
                 <div className={"mini-thumb"}>
@@ -922,7 +930,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card"} aria-hidden={"true"}>
+              <Link
+                className={"mini-card"}
+                to={"/work/equinox"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
                 <div className={"mini-thumb"}>
                   <img src={equinoxCard} alt="" />
                 </div>
@@ -935,8 +948,11 @@ function Index() {
                     A campaign identity built to make a B2B commerce platform
                     feel human, flexible, and distinctly its own.
                   </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <article className={"mini-card"} aria-hidden={"true"}>
                 <div className={"mini-thumb"}>
