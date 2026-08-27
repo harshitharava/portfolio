@@ -172,25 +172,39 @@
   gap: calc(12 * var(--u));
 }
 
-/* Matches Talos Care's on-photo tag treatment exactly (size and
-   size) rather than the solid-white-pill style used elsewhere on the
-   site: transparent, on the photo rather than a card. Color is the
-   fixed brand blue, not var(--bcw-bg) — cream text measured ~1.7:1
-   contrast against this photo's light gray, and unlike the title
-   there's no shadow here to fall back on for legibility. Blue holds
-   up on its own and, being fixed, needs no dark-mode pin either. */
+/* Matches Talos Care's on-photo tag size/style (transparent pill, no
+   card fill) with cream as the light-mode color. Dark mode needs its
+   own explicit color rather than reusing var(--bcw-ink) or copying
+   Talos/CityLoop's own dark-mode pins verbatim: both of those just
+   re-pin to another light color (Talos: the same cream as light mode,
+   so toggling theme visibly does nothing; CityLoop: a different cream
+   that still only measures ~1.5:1 against its own light photo — same
+   underlying problem, just less obvious). The photo here never
+   changes with theme, so what actually reads as "dark mode" AND stays
+   legible is a properly dark pill, not another shade of light. */
 .bcw-hero-tags > span {
   font-family: var(--font-mono);
   font-size: calc(19.2 * var(--u));
   line-height: 1;
-  color: var(--bcw-blue);
-  border: 1px solid rgba(0, 132, 192, 0.55);
+  color: var(--bcw-bg);
+  border: 1px solid rgba(242, 238, 227, 0.75);
   border-radius: 999px;
   height: calc(64 * var(--u));
   padding-inline: calc(31 * var(--u));
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+}
+
+/* Scoped to desktop, where the tags still sit on the photo — on
+   mobile they move into normal flow on the page's own background
+   (see the max-width:760px block below), where this dark pin would
+   be dark-on-dark in dark mode instead of legible. */
+@media (min-width: 761px) {
+  [data-theme="dark"] .bcw-hero-tags > span {
+    color: #1c1c1c;
+    border-color: rgba(28, 28, 28, 0.55);
+  }
 }
 
 /* Title + sub sit together as a group, vertically centered in the
@@ -408,10 +422,19 @@
     gap: calc(10 * var(--u));
   }
 
-  /* Just a size adjustment here — color stays the fixed blue, which
-     already works fine off-photo too. */
+  /* Off the photo and onto the plain page background now, so this
+     switches to var(--bcw-ink) — which, unlike the on-photo color
+     above, is meant to track the page bg and already flips correctly
+     with theme on its own (dark ink on the light page in light mode,
+     light ink on the dark page in dark mode). */
   .bcw-hero-tags > span {
+    color: var(--bcw-ink);
+    border-color: rgba(28, 28, 28, 0.45);
     height: calc(56 * var(--u));
+  }
+
+  [data-theme="dark"] .bcw-hero-tags > span {
+    border-color: rgba(244, 238, 227, 0.45);
   }
 
   .bcw-hero-title-layer {
