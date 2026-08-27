@@ -3,7 +3,6 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImac from "@/assets/bosch-bcw/hero/bosch-hero-imac.webp";
 
-import screensMonitor from "@/assets/bosch-bcw/screens/bosch-screens-monitor.webp";
 import screenUxSecret from "@/assets/bosch-bcw/screens/bosch-screen-ux-secret.webp";
 import screenHinders from "@/assets/bosch-bcw/screens/bosch-screen-hinders.webp";
 import screenSdsCognitive from "@/assets/bosch-bcw/screens/bosch-screen-sds-cognitive.webp";
@@ -191,13 +190,6 @@ function BoschBcwPage() {
       <section className="bcw-section">
         <div className="bcw-wrap">
           <h2>Screens</h2>
-
-          <figure className="bcw-screens-hero">
-            <img
-              src={screensMonitor}
-              alt="Bosch BCW infographic screen reading All Themes Together, displayed on a large monitor"
-            />
-          </figure>
 
           <div className="bcw-screens-grid">
             <figure>

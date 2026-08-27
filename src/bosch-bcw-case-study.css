@@ -56,7 +56,24 @@
     #2fa563
   );
 
-  background: var(--bcw-bg);
+  /* Faint square grid behind the whole page, echoing the graph-paper
+     backdrop every page of the source deck is built on — measured
+     directly off the supplied screens/mockups (a ~32px square, 1px
+     line), not guessed. Baked at 20% into the line color itself
+     rather than via `opacity` so it doesn't also fade the page's own
+     cream background or the content sitting on top of it; mixed
+     against --bcw-ink (not a fixed color) so it stays a soft line on
+     top of the page background rather than vanishing in dark mode,
+     where ink flips light and a fixed dark line would go invisible. */
+  --bcw-grid-line: color-mix(in srgb, var(--bcw-ink) 20%, transparent);
+  background-color: var(--bcw-bg);
+  background-image: linear-gradient(
+      to right,
+      var(--bcw-grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--bcw-grid-line) 1px, transparent 1px);
+  background-size: calc(32 * var(--u)) calc(32 * var(--u));
   color: var(--bcw-ink);
   font-family: var(--font-body);
   font-size: calc(24 * var(--u));
@@ -320,15 +337,6 @@
 }
 
 /* ---------- Screens ---------- */
-
-.bcw-screens-hero {
-  margin: calc(40 * var(--u)) 0 0;
-}
-
-.bcw-screens-hero img {
-  width: 100%;
-  height: auto;
-}
 
 .bcw-screens-grid {
   display: grid;
