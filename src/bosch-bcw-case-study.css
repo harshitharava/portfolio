@@ -173,15 +173,18 @@
 }
 
 /* Matches Talos Care's on-photo tag treatment exactly (size and
-   color) rather than the solid-white-pill style used elsewhere on
-   the site: transparent, cream text and border, since like Talos this
-   sits directly on a photo rather than a card. */
+   size) rather than the solid-white-pill style used elsewhere on the
+   site: transparent, on the photo rather than a card. Color is the
+   fixed brand blue, not var(--bcw-bg) — cream text measured ~1.7:1
+   contrast against this photo's light gray, and unlike the title
+   there's no shadow here to fall back on for legibility. Blue holds
+   up on its own and, being fixed, needs no dark-mode pin either. */
 .bcw-hero-tags > span {
   font-family: var(--font-mono);
   font-size: calc(19.2 * var(--u));
   line-height: 1;
-  color: var(--bcw-bg);
-  border: 1px solid rgba(242, 238, 227, 0.75);
+  color: var(--bcw-blue);
+  border: 1px solid rgba(0, 132, 192, 0.55);
   border-radius: 999px;
   height: calc(64 * var(--u));
   padding-inline: calc(31 * var(--u));
@@ -383,20 +386,6 @@
   --bcw-rule: #3d3624;
 }
 
-/* The hero tags and title always sit on the photograph (no dark-mode
-   export exists for it), so they stay cream regardless of theme —
-   var(--bcw-bg) would otherwise flip dark and vanish against the
-   still-light photo. Same fix as Talos Care's own dark-mode pin,
-   scoped to min-width here since Talos's unscoped version also wins
-   (wrongly) over its own mobile ink-fallback once both apply at once
-   in dark mode — worth fixing there too, just out of scope for this
-   page. */
-@media (min-width: 761px) {
-  [data-theme="dark"] .bcw-hero-tags > span {
-    color: #f2eee3;
-  }
-}
-
 /* ============================================================
    Reflow
    ============================================================ */
@@ -419,12 +408,9 @@
     gap: calc(10 * var(--u));
   }
 
-  /* Off the photo and onto the plain page background now, so the
-     cream-on-photo treatment (invisible against the equally-light
-     page bg) switches back to ink — same fallback Talos Care uses. */
+  /* Just a size adjustment here — color stays the fixed blue, which
+     already works fine off-photo too. */
   .bcw-hero-tags > span {
-    color: var(--bcw-ink);
-    border-color: rgba(28, 28, 28, 0.45);
     height: calc(56 * var(--u));
   }
 
