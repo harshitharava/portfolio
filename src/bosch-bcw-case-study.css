@@ -276,6 +276,13 @@
 
 /* ---------- Design Foundations: Color Palette + Elements Used ---------- */
 
+/* margin-top is deliberately not overridden after an h2 — letting it
+   collapse against the h2's own 36u bottom margin (down to max(36,48)
+   = 48u) is what makes this gap match the swatches-to-"Elements Used"
+   gap below exactly. An earlier explicit override to 0 here broke
+   that: it left only the h2's 36u margin in play for the first label
+   but the full 48u for the second, so the two read as different
+   sizes even though they're the same kind of transition. */
 .bcw-foundation-label {
   display: block;
   font-family: var(--font-mono);
@@ -284,10 +291,6 @@
   text-transform: uppercase;
   color: var(--bcw-ink-soft);
   margin: calc(48 * var(--u)) 0 calc(20 * var(--u));
-}
-
-.bcw h2 + .bcw-foundation-label {
-  margin-top: 0;
 }
 
 .bcw-palette {
