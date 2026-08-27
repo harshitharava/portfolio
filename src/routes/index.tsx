@@ -4,6 +4,7 @@ import talosCareCard from "@/assets/cards/talos-card.webp";
 import playPalCard from "@/assets/cards/playpal-card.webp";
 import cityLoopCard from "@/assets/cards/cityloop-card.webp";
 import myTownCard from "@/assets/cards/mytown-card.webp";
+import equinoxCard from "@/assets/cards/equinox-card.webp";
 import phytivesCard from "@/assets/cards/phytives-card.webp";
 import homeBakeryCard from "@/assets/cards/home-bakery-card.webp";
 import infosysCard from "@/assets/cards/infosys-card.webp";
@@ -788,6 +789,25 @@ function Index() {
               <article className={"mini-card reveal"} data-delay={"1"}>
                 <div className={"mini-thumb"}>
                   <img
+                    src={equinoxCard}
+                    alt="Infosys Equinox 'Make Commerce Great Again' campaign visual"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Branding · Brand Identity · Social Media
+                  </span>
+                  <h3>Infosys Equinox</h3>
+                  <p>
+                    A campaign identity built to make a B2B commerce platform
+                    feel human, flexible, and distinctly its own.
+                  </p>
+                </div>
+              </article>
+
+              <article className={"mini-card reveal"} data-delay={"1"}>
+                <div className={"mini-thumb"}>
+                  <img
                     src={phytivesCard}
                     alt="Phytives brand identity visual"
                   />
@@ -901,6 +921,22 @@ function Index() {
                   </span>
                 </div>
               </Link>
+
+              <article className={"mini-card"} aria-hidden={"true"}>
+                <div className={"mini-thumb"}>
+                  <img src={equinoxCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Branding · Brand Identity · Social Media
+                  </span>
+                  <h3>Infosys Equinox</h3>
+                  <p>
+                    A campaign identity built to make a B2B commerce platform
+                    feel human, flexible, and distinctly its own.
+                  </p>
+                </div>
+              </article>
 
               <article className={"mini-card"} aria-hidden={"true"}>
                 <div className={"mini-thumb"}>
