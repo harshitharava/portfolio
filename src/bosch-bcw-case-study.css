@@ -212,16 +212,19 @@
 
 /* Matches Talos Care's hero-title treatment: cream fill with a
    colored offset shadow, rather than Infosys/CityLoop's colored fill
-   with a dark shadow — the shadow itself carries the brand color here
-   (Bosch blue), not the text fill. */
+   with a dark shadow — but with the roles reversed from Infosys: the
+   fill is the fixed brand blue (blue holds up fine against the
+   photo's light gray on its own), and the shadow is var(--bcw-bg)
+   itself, which already flips per theme — cream in light mode,
+   near-black in dark mode — so it needs no separate dark-mode pin. */
 .bcw h1.bcw-hero-title {
   margin: 0;
   max-width: calc(700 * var(--u));
   font-size: calc(90 * var(--u));
   line-height: 1.02;
   letter-spacing: -0.02em;
-  color: var(--bcw-bg);
-  text-shadow: calc(9 * var(--u)) calc(8 * var(--u)) 0 var(--bcw-blue);
+  color: var(--bcw-blue);
+  text-shadow: calc(9 * var(--u)) calc(8 * var(--u)) 0 var(--bcw-bg);
 }
 
 .bcw .bcw-hero-sub {
@@ -389,8 +392,7 @@
    in dark mode — worth fixing there too, just out of scope for this
    page. */
 @media (min-width: 761px) {
-  [data-theme="dark"] .bcw-hero-tags > span,
-  [data-theme="dark"] .bcw h1.bcw-hero-title {
+  [data-theme="dark"] .bcw-hero-tags > span {
     color: #f2eee3;
   }
 }
@@ -441,9 +443,10 @@
        words that an unclamped box let them overflow past the
        viewport edge instead of wrapping within it. */
     max-width: 100%;
-    /* Same reasoning as the tags above: off the photo, cream-on-cream
-       would be invisible, so switch to ink (the blue shadow stays). */
-    color: var(--bcw-ink);
+    /* No color override needed here — the fill is the fixed blue,
+       which holds up fine off-photo too, and the shadow (var(--bcw-bg))
+       now exactly matches whatever's behind it off-photo, so it just
+       disappears rather than needing its own fallback. */
   }
 
   .bcw .bcw-hero-sub {
