@@ -69,9 +69,13 @@ function setUpMoreWorkScroll(): (() => void) | undefined {
   const RESUME_DELAY_MS = 2000;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const DRAG_THRESHOLD_PX = 6;
+
   let halfWidth = track.scrollWidth / 2;
   let pausedUntil = 0;
-  let dragging = false;
+  let activePointerId: number | null = null;
+  let hasDragged = false;
+  let suppressNextClick = false;
   let dragStartX = 0;
   let dragStartScrollLeft = 0;
   let rafId = 0;
@@ -96,23 +100,49 @@ function setUpMoreWorkScroll(): (() => void) | undefined {
 
   const onPointerDown = (e: PointerEvent) => {
     if (e.button !== 0 && e.pointerType === "mouse") return;
-    dragging = true;
+    // Don't capture the pointer or mark as dragging yet — a plain click
+    // is a pointerdown with (near) zero movement, and capturing here
+    // unconditionally was swallowing the click before it ever reached
+    // the card's link. Only pointermove past DRAG_THRESHOLD_PX below
+    // promotes this into an actual drag.
+    activePointerId = e.pointerId;
+    hasDragged = false;
     dragStartX = e.clientX;
     dragStartScrollLeft = container.scrollLeft;
-    container.classList.add("is-dragging");
-    container.setPointerCapture(e.pointerId);
     pauseFor(RESUME_DELAY_MS);
   };
 
   const onPointerMove = (e: PointerEvent) => {
-    if (!dragging) return;
-    container.scrollLeft = dragStartScrollLeft - (e.clientX - dragStartX);
+    if (activePointerId === null || e.pointerId !== activePointerId) return;
+    const dx = e.clientX - dragStartX;
+    if (!hasDragged) {
+      if (Math.abs(dx) < DRAG_THRESHOLD_PX) return;
+      hasDragged = true;
+      container.classList.add("is-dragging");
+      container.setPointerCapture(activePointerId);
+    }
+    container.scrollLeft = dragStartScrollLeft - dx;
     pauseFor(RESUME_DELAY_MS);
   };
 
-  const endDrag = () => {
-    dragging = false;
+  const endDrag = (e: PointerEvent) => {
+    if (activePointerId === null || e.pointerId !== activePointerId) return;
+    if (hasDragged) {
+      // The pointerup that ends a drag also fires a click on whatever's
+      // under the cursor — swallow just that one so a drag-release
+      // doesn't also navigate.
+      suppressNextClick = true;
+    }
+    activePointerId = null;
+    hasDragged = false;
     container.classList.remove("is-dragging");
+  };
+
+  const onClickCapture = (e: MouseEvent) => {
+    if (!suppressNextClick) return;
+    suppressNextClick = false;
+    e.preventDefault();
+    e.stopPropagation();
   };
 
   const onTouchStart = () => pauseFor(RESUME_DELAY_MS);
@@ -138,6 +168,7 @@ function setUpMoreWorkScroll(): (() => void) | undefined {
   container.addEventListener("pointermove", onPointerMove);
   container.addEventListener("pointerup", endDrag);
   container.addEventListener("pointercancel", endDrag);
+  container.addEventListener("click", onClickCapture, true);
   container.addEventListener("touchstart", onTouchStart, { passive: true });
   container.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onResize);
@@ -164,6 +195,7 @@ function setUpMoreWorkScroll(): (() => void) | undefined {
     container.removeEventListener("pointermove", onPointerMove);
     container.removeEventListener("pointerup", endDrag);
     container.removeEventListener("pointercancel", endDrag);
+    container.removeEventListener("click", onClickCapture, true);
     container.removeEventListener("touchstart", onTouchStart);
     container.removeEventListener("scroll", onScroll);
     window.removeEventListener("resize", onResize);
