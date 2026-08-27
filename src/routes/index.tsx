@@ -859,7 +859,7 @@ function Index() {
                 <div className={"mini-thumb"}>
                   <img
                     src={boschBcwCard}
-                    alt="Bosch BCW infographic screen reading Bosch SDS is transforming ecosystems with Cognitive Experience Design"
+                    alt="Bosch BCW infographic screen reading All Themes Together, displayed on a monitor"
                   />
                 </div>
                 <div className={"mini-body"}>

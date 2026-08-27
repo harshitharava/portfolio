@@ -338,21 +338,14 @@
 
 /* ---------- Screens ---------- */
 
-.bcw-screens-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: calc(24 * var(--u));
-  margin-top: calc(48 * var(--u));
-}
-
-.bcw-screens-grid figure {
-  margin: 0;
-  border-radius: 12px;
+.bcw-screens-figure {
+  margin: calc(48 * var(--u)) 0 0;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--bcw-rule);
 }
 
-.bcw-screens-grid img {
+.bcw-screens-figure img {
   width: 100%;
   height: auto;
   display: block;
@@ -420,9 +413,5 @@
 
   .bcw-meta {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bcw-screens-grid {
-    grid-template-columns: 1fr;
   }
 }

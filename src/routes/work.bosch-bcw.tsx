@@ -3,12 +3,7 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImac from "@/assets/bosch-bcw/hero/bosch-hero-imac.webp";
 
-import screenUxSecret from "@/assets/bosch-bcw/screens/bosch-screen-ux-secret.webp";
-import screenHinders from "@/assets/bosch-bcw/screens/bosch-screen-hinders.webp";
-import screenSdsCognitive from "@/assets/bosch-bcw/screens/bosch-screen-sds-cognitive.webp";
-import screenConfluence from "@/assets/bosch-bcw/screens/bosch-screen-confluence.webp";
-import screenMetrics from "@/assets/bosch-bcw/screens/bosch-screen-metrics.webp";
-import screenSmarterDigital from "@/assets/bosch-bcw/screens/bosch-screen-smarterdigital.webp";
+import screensAll from "@/assets/bosch-bcw/screens/bosch-screens-all.webp";
 
 import element1 from "@/assets/bosch-bcw/elements/bosch-element-1.webp";
 import element2 from "@/assets/bosch-bcw/elements/bosch-element-2.webp";
@@ -191,44 +186,12 @@ function BoschBcwPage() {
         <div className="bcw-wrap">
           <h2>Screens</h2>
 
-          <div className="bcw-screens-grid">
-            <figure>
-              <img
-                src={screenUxSecret}
-                alt="Tap to know the secret that shapes all UX"
-              />
-            </figure>
-            <figure>
-              <img
-                src={screenHinders}
-                alt="So, what hinders an amazing experience? A list of five obstacles: security concerns, gaps in understanding, isolated user journeys, inconsistent content, non-contextual personalization"
-              />
-            </figure>
-            <figure>
-              <img
-                src={screenSdsCognitive}
-                alt="Bosch SDS is transforming ecosystems with Cognitive Experience Design"
-              />
-            </figure>
-            <figure>
-              <img
-                src={screenConfluence}
-                alt="At the confluence of AI and ML, NLP, Big Data and Analytics, Cloudification, and Smart Commerce"
-              />
-            </figure>
-            <figure>
-              <img
-                src={screenMetrics}
-                alt="Impact metrics: 20 to 30 percent reduction, 30 percent faster, and a 20 percent surge in business outcomes with omnichannel commerce platforms"
-              />
-            </figure>
-            <figure>
-              <img
-                src={screenSmarterDigital}
-                alt="Let's drive #SmarterDigital with Cognitive Experience Design"
-              />
-            </figure>
-          </div>
+          <figure className="bcw-screens-figure">
+            <img
+              src={screensAll}
+              alt="All six Bosch BCW infographic screens: Tap to know the secret that shapes all UX; So, what hinders an amazing experience?; Bosch SDS is transforming ecosystems with Cognitive Experience Design; At the confluence of AI and ML, NLP, Big Data and Analytics, Cloudification, and Smart Commerce; impact metrics of 20 to 30 percent reduction, 30 percent faster, and a 20 percent surge; and Let's drive #SmarterDigital with Cognitive Experience Design"
+            />
+          </figure>
         </div>
       </section>
     </main>
