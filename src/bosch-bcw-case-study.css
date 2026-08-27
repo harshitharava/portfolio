@@ -203,7 +203,7 @@
 .bcw h1.bcw-hero-title {
   margin: 0;
   max-width: calc(700 * var(--u));
-  font-size: calc(112 * var(--u));
+  font-size: calc(90 * var(--u));
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--bcw-blue);
