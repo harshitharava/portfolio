@@ -65,7 +65,7 @@
      against --bcw-ink (not a fixed color) so it stays a soft line on
      top of the page background rather than vanishing in dark mode,
      where ink flips light and a fixed dark line would go invisible. */
-  --bcw-grid-line: color-mix(in srgb, var(--bcw-ink) 10%, transparent);
+  --bcw-grid-line: color-mix(in srgb, var(--bcw-ink) 5%, transparent);
   background-color: var(--bcw-bg);
   background-image: linear-gradient(
       to right,
@@ -253,28 +253,36 @@
 }
 
 /* ---------- Meta row ---------- */
-
+/* Matches Talos Care's own meta row exactly — was built off Infosys's
+   instead (fixed rem sizes: 0.9rem/1.15rem, a 24u gap, a single 32u
+   padding-block), which reads noticeably smaller than Talos's own
+   --u-scaled 28u/32u type and wider 64u gaps. The border also looked
+   thinner at the same 1px only because --bcw-rule (#dcd6c8, a very
+   light beige) has far less contrast against the cream page than
+   Talos's neutral #939393 — same width, much fainter — so the meta
+   row gets its own rule color rather than changing --bcw-rule
+   site-wide (used elsewhere on this page too, unrelated to this ask). */
 .bcw-meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: calc(24 * var(--u));
-  border-top: 1px solid var(--bcw-rule);
-  border-bottom: 1px solid var(--bcw-rule);
-  padding-block: calc(32 * var(--u));
+  gap: calc(64 * var(--u));
+  border-top: 1px solid #939393;
+  border-bottom: 1px solid #939393;
+  padding-block: calc(50 * var(--u)) calc(56 * var(--u));
   margin-top: calc(64 * var(--u));
 }
 
 .bcw-meta h4 {
   font-weight: 400;
   color: var(--bcw-ink-soft);
-  margin-bottom: calc(8 * var(--u));
-  font-size: 0.9rem;
+  font-size: calc(28 * var(--u));
+  margin-bottom: calc(14 * var(--u));
 }
 
 .bcw-meta p {
   font-weight: 700;
-  font-size: 1.15rem;
-  line-height: 1.3;
+  font-size: calc(32 * var(--u));
+  line-height: 1.28;
   margin: 0;
 }
 
@@ -400,6 +408,10 @@
   --bcw-rule: #3d3624;
 }
 
+[data-theme="dark"] .bcw-meta {
+  border-color: #5b5348;
+}
+
 /* ============================================================
    Reflow
    ============================================================ */
@@ -464,5 +476,6 @@
 
   .bcw-meta {
     grid-template-columns: repeat(2, 1fr);
+    gap: calc(40 * var(--u));
   }
 }
