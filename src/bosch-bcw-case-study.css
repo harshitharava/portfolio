@@ -172,17 +172,19 @@
   gap: calc(12 * var(--u));
 }
 
+/* Matches Talos Care's on-photo tag treatment exactly (size and
+   color) rather than the solid-white-pill style used elsewhere on
+   the site: transparent, cream text and border, since like Talos this
+   sits directly on a photo rather than a card. */
 .bcw-hero-tags > span {
   font-family: var(--font-mono);
-  font-size: calc(17 * var(--u));
-  letter-spacing: 0.01em;
+  font-size: calc(19.2 * var(--u));
   line-height: 1;
-  color: var(--bcw-ink);
-  background: #fff;
-  border: 1px solid var(--bcw-rule);
+  color: var(--bcw-bg);
+  border: 1px solid rgba(242, 238, 227, 0.75);
   border-radius: 999px;
-  height: calc(56 * var(--u));
-  padding-inline: calc(26 * var(--u));
+  height: calc(64 * var(--u));
+  padding-inline: calc(31 * var(--u));
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -208,14 +210,18 @@
   align-items: flex-start;
 }
 
+/* Matches Talos Care's hero-title treatment: cream fill with a
+   colored offset shadow, rather than Infosys/CityLoop's colored fill
+   with a dark shadow — the shadow itself carries the brand color here
+   (Bosch blue), not the text fill. */
 .bcw h1.bcw-hero-title {
   margin: 0;
   max-width: calc(700 * var(--u));
   font-size: calc(90 * var(--u));
   line-height: 1.02;
   letter-spacing: -0.02em;
-  color: var(--bcw-blue);
-  text-shadow: calc(9 * var(--u)) calc(8 * var(--u)) 0 #1c1c1c;
+  color: var(--bcw-bg);
+  text-shadow: calc(9 * var(--u)) calc(8 * var(--u)) 0 var(--bcw-blue);
 }
 
 .bcw .bcw-hero-sub {
@@ -374,9 +380,19 @@
   --bcw-rule: #3d3624;
 }
 
-[data-theme="dark"] .bcw-hero-tags > span {
-  background: #201a13;
-  border-color: var(--bcw-rule);
+/* The hero tags and title always sit on the photograph (no dark-mode
+   export exists for it), so they stay cream regardless of theme —
+   var(--bcw-bg) would otherwise flip dark and vanish against the
+   still-light photo. Same fix as Talos Care's own dark-mode pin,
+   scoped to min-width here since Talos's unscoped version also wins
+   (wrongly) over its own mobile ink-fallback once both apply at once
+   in dark mode — worth fixing there too, just out of scope for this
+   page. */
+@media (min-width: 761px) {
+  [data-theme="dark"] .bcw-hero-tags > span,
+  [data-theme="dark"] .bcw h1.bcw-hero-title {
+    color: #f2eee3;
+  }
 }
 
 /* ============================================================
@@ -401,6 +417,15 @@
     gap: calc(10 * var(--u));
   }
 
+  /* Off the photo and onto the plain page background now, so the
+     cream-on-photo treatment (invisible against the equally-light
+     page bg) switches back to ink — same fallback Talos Care uses. */
+  .bcw-hero-tags > span {
+    color: var(--bcw-ink);
+    border-color: rgba(28, 28, 28, 0.45);
+    height: calc(56 * var(--u));
+  }
+
   .bcw-hero-title-layer {
     position: static;
   }
@@ -416,6 +441,9 @@
        words that an unclamped box let them overflow past the
        viewport edge instead of wrapping within it. */
     max-width: 100%;
+    /* Same reasoning as the tags above: off the photo, cream-on-cream
+       would be invisible, so switch to ink (the blue shadow stays). */
+    color: var(--bcw-ink);
   }
 
   .bcw .bcw-hero-sub {
