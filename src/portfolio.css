@@ -814,41 +814,34 @@ section {
   color: var(--ink-3);
 }
 
-/* "more work" — free-running marquee, same technique as the skills
-   marquee above: the track holds the card set twice back-to-back and
-   loops via translateX(-50%), so it always appears to scroll rather
-   than needing a manual drag/scroll gesture. */
+/* "more work" — a real horizontal scroll container, not a CSS-animated
+   marquee: the track holds the card set twice back-to-back so the
+   auto-scroll driven from usePortfolioEffects can loop seamlessly, but
+   wheel, trackpad, touch swipe, and click-drag all work too, since
+   .more-work is genuinely scrollable rather than just visually
+   translating. The JS pauses the ambient auto-scroll on any of those
+   and resumes it a couple seconds after you stop. */
 .more-work {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   margin-top: clamp(36px, 5vw, 56px);
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.more-work.is-dragging {
+  cursor: grabbing;
+}
+
+.more-work::-webkit-scrollbar {
+  display: none;
 }
 
 .more-work-track {
   display: flex;
   gap: 24px;
   width: max-content;
-  animation: more-work-marquee 48s linear infinite;
-}
-
-.more-work:hover .more-work-track,
-.more-work:focus-within .more-work-track {
-  animation-play-state: paused;
-}
-
-@keyframes more-work-marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .more-work-track {
-    animation: none;
-  }
-
-  .more-work {
-    overflow-x: auto;
-  }
 }
 
 .mini-card {
