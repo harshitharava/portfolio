@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as WorkBoschBcwRouteImport } from './routes/work.bosch-bcw'
 import { Route as WorkCityloopRouteImport } from './routes/work.cityloop'
 import { Route as WorkFieldkitRouteImport } from './routes/work.fieldkit'
 import { Route as WorkInfosysRouteImport } from './routes/work.infosys'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkBoschBcwRoute = WorkBoschBcwRouteImport.update({
+  id: '/work/bosch-bcw',
+  path: '/work/bosch-bcw',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkCityloopRoute = WorkCityloopRouteImport.update({
@@ -62,6 +68,7 @@ const WorkTalosCareRoute = WorkTalosCareRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/work/bosch-bcw': typeof WorkBoschBcwRoute
   '/work/cityloop': typeof WorkCityloopRoute
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/work/bosch-bcw': typeof WorkBoschBcwRoute
   '/work/cityloop': typeof WorkCityloopRoute
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/work/bosch-bcw': typeof WorkBoschBcwRoute
   '/work/cityloop': typeof WorkCityloopRoute
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/work/bosch-bcw'
     | '/work/cityloop'
     | '/work/fieldkit'
     | '/work/infosys'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/work/bosch-bcw'
     | '/work/cityloop'
     | '/work/fieldkit'
     | '/work/infosys'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/work/bosch-bcw'
     | '/work/cityloop'
     | '/work/fieldkit'
     | '/work/infosys'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  WorkBoschBcwRoute: typeof WorkBoschBcwRoute
   WorkCityloopRoute: typeof WorkCityloopRoute
   WorkFieldkitRoute: typeof WorkFieldkitRoute
   WorkInfosysRoute: typeof WorkInfosysRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/bosch-bcw': {
+      id: '/work/bosch-bcw'
+      path: '/work/bosch-bcw'
+      fullPath: '/work/bosch-bcw'
+      preLoaderRoute: typeof WorkBoschBcwRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work/cityloop': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  WorkBoschBcwRoute: WorkBoschBcwRoute,
   WorkCityloopRoute: WorkCityloopRoute,
   WorkFieldkitRoute: WorkFieldkitRoute,
   WorkInfosysRoute: WorkInfosysRoute,

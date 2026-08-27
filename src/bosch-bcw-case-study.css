@@ -1,0 +1,420 @@
+/* ============================================================
+   Bosch BCW Interactive Infographic — case study page
+   ------------------------------------------------------------
+   Source is a 4-page deck: hero, About/Brief/Challenge, a Color
+   Palette + Elements Used reference, and a set of six infographic
+   screens — no research writeup, no persona cards, no "My
+   Contribution" or "Reflection" section exists in the source, and
+   none is invented here, matching the same restraint used on the
+   Infosys page.
+
+   Role/Duration/Team in the hero meta row are inferred from the
+   brief's own wording ("a tight two-day timeframe", "I designed",
+   "I had only one day to learn the software") rather than an
+   explicit meta list in the deck — flagged here in case the real
+   numbers differ.
+
+   No dark-mode exports exist for this project (the supplied asset
+   set has no "-dark" files), so every image is used as-is in both
+   themes, matching the "light asset, no dark equivalent" convention
+   already used on Infosys.
+
+   Colours sampled directly from the supplied screens (the gradient
+   bar every screen shares, and the solid tile fills), not guessed:
+     page bg     #f2eee3  (shared cream, matches every other case study)
+     ink         #1c1c1c
+     ink-soft    #5c5c5c
+     bosch blue  #0084c0  (sampled from "Cognitive Experience Design")
+     green       #2fa563  (sampled from the gradient's green end)
+     purple      #5b3991  (sampled from the gradient's mid purple)
+     magenta     #c0246c  (sampled from the stat-card tiles)
+     teal        #00a2b4  (sampled from the gradient's cyan-teal band)
+     gray        #b7bdc4  (palette's own neutral swatch)
+   ============================================================ */
+
+.bcw {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --bcw-bg: #f2eee3;
+  --bcw-card: #ffffff;
+  --bcw-ink: #1c1c1c;
+  --bcw-ink-soft: #5c5c5c;
+  --bcw-rule: #dcd6c8;
+  --bcw-blue: #0084c0;
+  --bcw-green: #2fa563;
+  --bcw-purple: #5b3991;
+  --bcw-magenta: #c0246c;
+  --bcw-teal: #00a2b4;
+  --bcw-gray: #b7bdc4;
+  --bcw-gradient: linear-gradient(
+    90deg,
+    #952130,
+    #d52329,
+    #5b3991,
+    #0084c0,
+    #00a2b4,
+    #2fa563
+  );
+
+  background: var(--bcw-bg);
+  color: var(--bcw-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.bcw :where(section) {
+  padding-block: 0;
+}
+
+.bcw-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.bcw-section {
+  padding-block: calc(80 * var(--u));
+}
+
+.bcw p {
+  margin: 0 0 1em;
+}
+
+.bcw p:last-child {
+  margin-bottom: 0;
+}
+
+.bcw h1,
+.bcw h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.bcw h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.bcw h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.bcw h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.bcw img {
+  display: block;
+  max-width: 100%;
+}
+
+.bcw a {
+  color: inherit;
+}
+
+/* ---------- Hero ---------- */
+
+.bcw-hero {
+  padding-top: 0;
+}
+
+.bcw-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.bcw-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5074 / 3383;
+  object-fit: cover;
+}
+
+.bcw-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  top: 8%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+}
+
+.bcw-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--bcw-ink);
+  background: #fff;
+  border: 1px solid var(--bcw-rule);
+  border-radius: 999px;
+  height: calc(56 * var(--u));
+  padding-inline: calc(26 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Title + sub sit together as a group, vertically centered in the
+   photo's own generous gray dead-space (the studio backdrop leaves
+   roughly the left half of the frame empty before the monitor
+   starts) — same on-photo technique as Infosys, just with far more
+   room to work with here. */
+.bcw-hero-title-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bcw-hero-title-rail {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bcw h1.bcw-hero-title {
+  margin: 0;
+  max-width: calc(700 * var(--u));
+  font-size: calc(112 * var(--u));
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--bcw-blue);
+  text-shadow: calc(9 * var(--u)) calc(8 * var(--u)) 0 #1c1c1c;
+}
+
+.bcw .bcw-hero-sub {
+  max-width: calc(480 * var(--u));
+  margin: calc(28 * var(--u)) 0 0;
+  text-align: left;
+  color: #2b2b2b;
+  font-size: 1.05em;
+}
+
+/* ---------- Meta row ---------- */
+
+.bcw-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(24 * var(--u));
+  border-top: 1px solid var(--bcw-rule);
+  border-bottom: 1px solid var(--bcw-rule);
+  padding-block: calc(32 * var(--u));
+  margin-top: calc(64 * var(--u));
+}
+
+.bcw-meta h4 {
+  font-weight: 400;
+  color: var(--bcw-ink-soft);
+  margin-bottom: calc(8 * var(--u));
+  font-size: 0.9rem;
+}
+
+.bcw-meta p {
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- About / Brief / Challenge ---------- */
+
+.bcw-info-row {
+  padding-block: calc(48 * var(--u));
+}
+
+.bcw-info-row:first-child {
+  padding-top: 0;
+}
+
+.bcw-info-row h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.bcw-info-row p {
+  color: var(--bcw-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.bcw-info-row strong {
+  color: var(--bcw-ink);
+  font-weight: 700;
+}
+
+/* ---------- Design Foundations: Color Palette + Elements Used ---------- */
+
+.bcw-foundation-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bcw-ink-soft);
+  margin: calc(48 * var(--u)) 0 calc(20 * var(--u));
+}
+
+.bcw h2 + .bcw-foundation-label {
+  margin-top: 0;
+}
+
+.bcw-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(16 * var(--u));
+}
+
+.bcw-swatch {
+  width: calc(72 * var(--u));
+  height: calc(72 * var(--u));
+  border-radius: calc(16 * var(--u));
+  border: 1px solid var(--bcw-rule);
+  display: block;
+}
+
+.bcw-swatch-gradient {
+  background: var(--bcw-gradient);
+}
+
+/* Fixed-size tiles that wrap, not a 4-column grid stretched across the
+   full 1180px wrap — at that width each cell would balloon to ~285px
+   for a 47px icon, reading as mostly empty card instead of a compact
+   icon reference matching the deck's own tighter layout. */
+.bcw-elements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(16 * var(--u));
+}
+
+.bcw-element {
+  width: calc(140 * var(--u));
+  height: calc(140 * var(--u));
+  background: var(--bcw-card);
+  border: 1px solid var(--bcw-rule);
+  border-radius: calc(16 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.bcw-element img {
+  width: calc(56 * var(--u));
+  height: calc(56 * var(--u));
+  object-fit: contain;
+}
+
+/* ---------- Screens ---------- */
+
+.bcw-screens-hero {
+  margin: calc(40 * var(--u)) 0 0;
+}
+
+.bcw-screens-hero img {
+  width: 100%;
+  height: auto;
+}
+
+.bcw-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(24 * var(--u));
+  margin-top: calc(48 * var(--u));
+}
+
+.bcw-screens-grid figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--bcw-rule);
+}
+
+.bcw-screens-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .bcw {
+  --bcw-bg: var(--bg);
+  --bcw-ink: var(--ink);
+  --bcw-ink-soft: #a89f8e;
+  --bcw-card: #262019;
+  --bcw-rule: #3d3624;
+}
+
+[data-theme="dark"] .bcw-hero-tags > span {
+  background: #201a13;
+  border-color: var(--bcw-rule);
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .bcw {
+    --u: 0.62px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bcw-hero-media {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .bcw-hero-tags {
+    position: static;
+    padding: calc(20 * var(--u)) 0;
+    gap: calc(10 * var(--u));
+  }
+
+  .bcw-hero-title-layer {
+    position: static;
+  }
+
+  .bcw-hero-title-rail {
+    height: auto;
+    padding: calc(24 * var(--u)) 0 0;
+  }
+
+  .bcw h1.bcw-hero-title {
+    position: static;
+    /* 100%, not none — "Interactive"/"Infographic" are long enough
+       words that an unclamped box let them overflow past the
+       viewport edge instead of wrapping within it. */
+    max-width: 100%;
+  }
+
+  .bcw .bcw-hero-sub {
+    max-width: 100%;
+  }
+
+  .bcw-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bcw-screens-grid {
+    grid-template-columns: 1fr;
+  }
+}

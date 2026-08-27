@@ -7,6 +7,7 @@ import myTownCard from "@/assets/cards/mytown-card.webp";
 import phytivesCard from "@/assets/cards/phytives-card.webp";
 import homeBakeryCard from "@/assets/cards/home-bakery-card.webp";
 import infosysCard from "@/assets/cards/infosys-card.webp";
+import boschBcwCard from "@/assets/cards/bosch-bcw-card.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -849,6 +850,33 @@ function Index() {
                 </div>
               </Link>
 
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/bosch-bcw"}
+                aria-label={"Bosch BCW Interactive Infographic case study"}
+                data-delay={"4"}
+              >
+                <div className={"mini-thumb"}>
+                  <img
+                    src={boschBcwCard}
+                    alt="Bosch BCW infographic screen reading Bosch SDS is transforming ecosystems with Cognitive Experience Design"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UI / UX Design · Design Systems · UX Research
+                  </span>
+                  <h3>Bosch BCW Infographic</h3>
+                  <p>
+                    An interactive infographic for Bosch's BCW 2024 global
+                    hybrid event, built under a two-day deadline.
+                  </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
               {/* ---- duplicate copy, decorative only ---- */}
               <Link
                 className={"mini-card"}
@@ -923,6 +951,30 @@ function Index() {
                   <p>
                     An analytics-driven platform for personalized
                     recommendations and interactive AI insights.
+                  </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
+              <Link
+                className={"mini-card"}
+                to={"/work/bosch-bcw"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
+                <div className={"mini-thumb"}>
+                  <img src={boschBcwCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    UI / UX Design · Design Systems · UX Research
+                  </span>
+                  <h3>Bosch BCW Infographic</h3>
+                  <p>
+                    An interactive infographic for Bosch's BCW 2024 global
+                    hybrid event, built under a two-day deadline.
                   </p>
                   <span className={"text-link"}>
                     Read the case study <span aria-hidden={"true"}>→</span>

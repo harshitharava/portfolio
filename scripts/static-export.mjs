@@ -18,6 +18,7 @@ const PORT = 41730;
 const ROUTES = [
   "/",
   "/about",
+  "/work/bosch-bcw",
   "/work/cityloop",
   "/work/fieldkit",
   "/work/infosys",

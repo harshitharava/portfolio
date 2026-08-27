@@ -1,0 +1,244 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
+
+import heroImac from "@/assets/bosch-bcw/hero/bosch-hero-imac.webp";
+
+import screensMonitor from "@/assets/bosch-bcw/screens/bosch-screens-monitor.webp";
+import screenUxSecret from "@/assets/bosch-bcw/screens/bosch-screen-ux-secret.webp";
+import screenHinders from "@/assets/bosch-bcw/screens/bosch-screen-hinders.webp";
+import screenSdsCognitive from "@/assets/bosch-bcw/screens/bosch-screen-sds-cognitive.webp";
+import screenConfluence from "@/assets/bosch-bcw/screens/bosch-screen-confluence.webp";
+import screenMetrics from "@/assets/bosch-bcw/screens/bosch-screen-metrics.webp";
+import screenSmarterDigital from "@/assets/bosch-bcw/screens/bosch-screen-smarterdigital.webp";
+
+import element1 from "@/assets/bosch-bcw/elements/bosch-element-1.webp";
+import element2 from "@/assets/bosch-bcw/elements/bosch-element-2.webp";
+import element3 from "@/assets/bosch-bcw/elements/bosch-element-3.webp";
+import element4 from "@/assets/bosch-bcw/elements/bosch-element-4.webp";
+import element5 from "@/assets/bosch-bcw/elements/bosch-element-5.webp";
+import element6 from "@/assets/bosch-bcw/elements/bosch-element-6.webp";
+import element7 from "@/assets/bosch-bcw/elements/bosch-element-7.webp";
+import element8 from "@/assets/bosch-bcw/elements/bosch-element-8.webp";
+
+export const Route = createFileRoute("/work/bosch-bcw")({
+  head: () => ({
+    meta: [
+      { title: "Bosch BCW Interactive Infographic | Harshith Arava" },
+      {
+        name: "description",
+        content:
+          "An interactive infographic designed for Bosch's BCW 2024 global hybrid event, built in Adobe XD under a two-day deadline.",
+      },
+    ],
+  }),
+  component: BoschBcwPage,
+});
+
+function BoschBcwPage() {
+  usePortfolioEffects();
+
+  return (
+    <main id="main" className="bcw">
+      {/* ---------- Hero ---------- */}
+      <section className="bcw-hero">
+        <div className="bcw-hero-media">
+          <img
+            src={heroImac}
+            alt="Bosch BCW interactive infographic displayed on an iMac, reading Let's drive #SmarterDigital with Cognitive Experience Design"
+          />
+          <div className="bcw-wrap bcw-hero-tags">
+            <span>UI / UX Design</span>
+            <span>Adobe XD</span>
+            <span>Design Systems</span>
+            <span>UX Research</span>
+            <span>Design Thinking</span>
+          </div>
+          <div className="bcw-hero-title-layer">
+            <div className="bcw-wrap bcw-hero-title-rail">
+              <h1 className="bcw-hero-title">
+                Bosch BCW
+                <br />
+                Interactive
+                <br />
+                Infographic
+                <br />
+                Design
+              </h1>
+              <p className="bcw-hero-sub">
+                BCW 2024 is a global hybrid event which serves as a platform
+                for industry leaders to share insights, strategies, and
+                solutions, promoting networking and collaboration among
+                participants.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bcw-wrap">
+          <div className="bcw-meta">
+            <div>
+              <h4>Role</h4>
+              <p>UI/UX Designer</p>
+            </div>
+            <div>
+              <h4>Duration</h4>
+              <p>2 Days</p>
+            </div>
+            <div>
+              <h4>Team</h4>
+              <p>Solo</p>
+            </div>
+            <div>
+              <h4>Platform</h4>
+              <p>Adobe XD</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- About / Brief / Challenge ---------- */}
+      <section className="bcw-section">
+        <div className="bcw-wrap">
+          <div className="bcw-info-row">
+            <h3>About the project</h3>
+            <p>
+              For the &lsquo;<strong>BCW 2024</strong>&rsquo; event, I
+              designed an <strong>interactive infographic</strong> within a
+              tight <strong>two-day timeframe</strong>, showcasing my ability
+              to deliver engaging visual content under pressure. The
+              challenge lay in my unfamiliarity with{" "}
+              <strong>Adobe XD</strong>, where I had only one day to learn
+              the software before creating the designs.
+            </p>
+          </div>
+          <div className="bcw-info-row">
+            <h3>The brief</h3>
+            <p>
+              The client aimed to create an <strong>immersive experience</strong>{" "}
+              for attendees through interactive infographics displayed on
+              monitors at the event. They sought visually appealing designs
+              that effectively communicated{" "}
+              <strong>key information</strong>, encouraged{" "}
+              <strong>audience engagement</strong>, and aligned with the
+              event&rsquo;s theme.
+            </p>
+          </div>
+          <div className="bcw-info-row">
+            <h3>The challenge</h3>
+            <p>
+              I faced a steep learning curve with Adobe XD, having only one
+              day to familiarize myself with the software before starting
+              the <strong>design process</strong>. The{" "}
+              <strong>limited timeframe</strong> compounded the pressure to
+              produce <strong>high-quality work</strong> while navigating a
+              new tool, making efficient <strong>time management</strong>{" "}
+              crucial.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Design Foundations: Color Palette + Elements Used ---------- */}
+      <section className="bcw-section">
+        <div className="bcw-wrap">
+          <h2>Design Foundations</h2>
+
+          <span className="bcw-foundation-label">Color Palette</span>
+          <div className="bcw-palette">
+            <span
+              className="bcw-swatch bcw-swatch-gradient"
+              aria-label="Brand gradient: red to blue to green"
+            />
+            <span className="bcw-swatch" style={{ background: "#0084c0" }} />
+            <span className="bcw-swatch" style={{ background: "#2fa563" }} />
+            <span className="bcw-swatch" style={{ background: "#5b3991" }} />
+            <span className="bcw-swatch" style={{ background: "#c0246c" }} />
+            <span className="bcw-swatch" style={{ background: "#b7bdc4" }} />
+            <span className="bcw-swatch" style={{ background: "#00a2b4" }} />
+          </div>
+
+          <span className="bcw-foundation-label">Elements Used</span>
+          <div className="bcw-elements">
+            <div className="bcw-element">
+              <img src={element1} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element2} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element3} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element4} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element5} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element6} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element7} alt="" />
+            </div>
+            <div className="bcw-element">
+              <img src={element8} alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Screens ---------- */}
+      <section className="bcw-section">
+        <div className="bcw-wrap">
+          <h2>Screens</h2>
+
+          <figure className="bcw-screens-hero">
+            <img
+              src={screensMonitor}
+              alt="Bosch BCW infographic screen reading All Themes Together, displayed on a large monitor"
+            />
+          </figure>
+
+          <div className="bcw-screens-grid">
+            <figure>
+              <img
+                src={screenUxSecret}
+                alt="Tap to know the secret that shapes all UX"
+              />
+            </figure>
+            <figure>
+              <img
+                src={screenHinders}
+                alt="So, what hinders an amazing experience? A list of five obstacles: security concerns, gaps in understanding, isolated user journeys, inconsistent content, non-contextual personalization"
+              />
+            </figure>
+            <figure>
+              <img
+                src={screenSdsCognitive}
+                alt="Bosch SDS is transforming ecosystems with Cognitive Experience Design"
+              />
+            </figure>
+            <figure>
+              <img
+                src={screenConfluence}
+                alt="At the confluence of AI and ML, NLP, Big Data and Analytics, Cloudification, and Smart Commerce"
+              />
+            </figure>
+            <figure>
+              <img
+                src={screenMetrics}
+                alt="Impact metrics: 20 to 30 percent reduction, 30 percent faster, and a 20 percent surge in business outcomes with omnichannel commerce platforms"
+              />
+            </figure>
+            <figure>
+              <img
+                src={screenSmarterDigital}
+                alt="Let's drive #SmarterDigital with Cognitive Experience Design"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
