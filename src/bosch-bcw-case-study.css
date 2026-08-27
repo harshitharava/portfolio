@@ -65,7 +65,7 @@
      against --bcw-ink (not a fixed color) so it stays a soft line on
      top of the page background rather than vanishing in dark mode,
      where ink flips light and a fixed dark line would go invisible. */
-  --bcw-grid-line: color-mix(in srgb, var(--bcw-ink) 20%, transparent);
+  --bcw-grid-line: color-mix(in srgb, var(--bcw-ink) 10%, transparent);
   background-color: var(--bcw-bg);
   background-image: linear-gradient(
       to right,
