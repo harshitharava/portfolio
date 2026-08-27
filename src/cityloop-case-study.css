@@ -688,13 +688,22 @@
    in that theme — its caption below still lined up with the true (now
    invisible) edge, but visually read as misaligned against the logo
    artwork, the only part left visible. A border keeps the box legible
-   in both themes regardless of which plate happens to match the page. */
+   in both themes regardless of which plate happens to match the page.
+
+   display was inline-block here but plain block on .cl-logo-dark below —
+   an inline-block sits on a text baseline, which reserves a sliver of
+   descender space beneath it that a block box never gets. That gap
+   (~7px at this font size) is what actually pushed "For light
+   background" down relative to "For dark background", even though both
+   captions share the exact same margin-top and start flush at the same
+   left edge — the misalignment was vertical, not horizontal. */
 .cl-logo-plate {
   background: #f2eee3;
   border: 1px solid var(--cl-stroke);
   border-radius: calc(16 * var(--u));
   padding: calc(20 * var(--u)) calc(28 * var(--u));
   display: inline-block;
+  vertical-align: top;
 }
 
 .cl-logo-dark {
