@@ -89,8 +89,16 @@
   margin-inline: auto;
 }
 
+/* 40u, not the 80u every other case study uses — at 80u, two adjacent
+   sections' padding stacked to a ~133px gap between major sections,
+   next to Design Foundations' own internal gaps of 17-40px. On a page
+   this short (four sections, no research/persona content to separate)
+   that 3x+ jump read as the page alternating between big and small
+   spacing rather than one rhythm. 40u still gives each section's own
+   heading more room than the label-to-content gaps inside Design
+   Foundations, just not by as wide a margin. */
 .bcw-section {
-  padding-block: calc(80 * var(--u));
+  padding-block: calc(40 * var(--u));
 }
 
 .bcw p {
