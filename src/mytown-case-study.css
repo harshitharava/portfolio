@@ -813,7 +813,21 @@
     padding-bottom: calc(28 * var(--u));
   }
 
-  .mt-hero-head {
+  /* .mt-hero-tags-row's 150*u top padding exists to clear the fixed
+     nav when the desktop overlay is absolutely positioned over the
+     photo — now that it's in normal flow right after the image, that
+     same padding was pushing the tags ~93px further down than every
+     other case study's image-to-tags gap. Matches Talos Care's own
+     28*u mobile value instead. */
+  .mt-hero-tags-row {
+    padding-top: calc(28 * var(--u));
+  }
+
+  /* Hides the whole rail, not just .mt-hero-head inside it — the rail
+     itself still carries its own 64*u margin-top even with its only
+     child hidden, which was adding ~40px of phantom space after the
+     tags that hiding just the child didn't remove. */
+  .mt-hero-rail {
     display: none;
   }
 
