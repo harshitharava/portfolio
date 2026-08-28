@@ -6,6 +6,10 @@ import heroImage from "@/assets/equinox/hero/equinox-hero.webp";
 import iconHumanCentric from "@/assets/equinox/rationale/icon-human-centric.webp";
 import iconAdaptability from "@/assets/equinox/rationale/icon-adaptability.webp";
 import iconEfficiency from "@/assets/equinox/rationale/icon-efficiency.webp";
+import iconHumanCentric2 from "@/assets/equinox/rationale/icon-human-centric-2.webp";
+import iconAdaptability2 from "@/assets/equinox/rationale/icon-adaptability-2.webp";
+import iconEfficiency2 from "@/assets/equinox/rationale/icon-efficiency-2.webp";
+import iconGradient from "@/assets/equinox/rationale/icon-gradient.webp";
 import ringIllustration from "@/assets/equinox/rationale/equinox-ring.webp";
 
 import titleSlide from "@/assets/equinox/foundations/equinox-title-slide.webp";
@@ -47,22 +51,25 @@ function EquinoxPage() {
             <span>Illustrator</span>
             <span>Social Media</span>
           </div>
-          <div className="eq-wrap eq-hero-title-rail">
-            <h1 className="eq-hero-title">
-              Make Commerce
-              <br />
-              Great Again Campaign
-            </h1>
+          <div className="eq-hero-title-layer">
+            <div className="eq-wrap eq-hero-title-rail">
+              <h1 className="eq-hero-title">
+                Make Commerce
+                <br />
+                Great Again
+                <br />
+                Campaign
+              </h1>
+              <p className="eq-hero-sub">
+                Infosys Equinox is a digital commerce platform that empowers
+                businesses to deliver personalized and seamless customer
+                experiences across channels.
+              </p>
+            </div>
           </div>
         </figure>
 
         <div className="eq-wrap">
-          <p className="eq-hero-sub">
-            Infosys Equinox is a digital commerce platform that empowers
-            businesses to deliver personalized and seamless customer
-            experiences across channels.
-          </p>
-
           <div className="eq-meta">
             <div>
               <h4>Role</h4>
@@ -127,38 +134,84 @@ function EquinoxPage() {
         <div className="eq-wrap">
           <h2>How Did We Arrive Here?</h2>
 
-          <div className="eq-concepts">
-            <div className="eq-concept">
-              <img src={iconHumanCentric} alt="" />
-              <span>Human Centric</span>
-            </div>
-            <div className="eq-concept">
-              <img src={iconAdaptability} alt="" />
-              <span>Adaptability</span>
-            </div>
-            <div className="eq-concept">
-              <img src={iconEfficiency} alt="" />
-              <span>Efficiency</span>
-            </div>
-          </div>
+          <div className="eq-arrival">
+            <div className="eq-arrival-rows">
+              <div className="eq-arrival-row">
+                <div className="eq-concept">
+                  <img src={iconHumanCentric} alt="" />
+                  <span>Human Centric</span>
+                </div>
+                <span className="eq-plus" aria-hidden="true">
+                  +
+                </span>
+                <div className="eq-concept">
+                  <img src={iconAdaptability} alt="" />
+                  <span>Adaptability</span>
+                </div>
+                <span className="eq-plus" aria-hidden="true">
+                  +
+                </span>
+                <div className="eq-concept">
+                  <img src={iconEfficiency} alt="" />
+                  <span>Efficiency</span>
+                </div>
+              </div>
 
-          <div className="eq-rationale-grid">
-            <figure className="eq-rationale-figure">
+              <div className="eq-arrival-divider" aria-hidden="true">
+                <span className="eq-arrival-dots" />
+                <span className="eq-arrival-arrow">→</span>
+              </div>
+
+              <div className="eq-arrival-row">
+                <div className="eq-concept">
+                  <img src={iconHumanCentric2} alt="" />
+                  <span>Human Centric</span>
+                </div>
+                <span className="eq-plus" aria-hidden="true">
+                  +
+                </span>
+                <div className="eq-concept">
+                  <img src={iconAdaptability2} alt="" />
+                  <span>Adaptability</span>
+                </div>
+                <span className="eq-plus" aria-hidden="true">
+                  +
+                </span>
+                <div className="eq-concept">
+                  <img src={iconEfficiency2} alt="" />
+                  <span>Efficiency</span>
+                </div>
+                <span className="eq-plus" aria-hidden="true">
+                  +
+                </span>
+                <div className="eq-concept">
+                  <img src={iconGradient} alt="" />
+                  <span>Equinox gradient</span>
+                </div>
+              </div>
+            </div>
+
+            <span className="eq-arrival-bracket" aria-hidden="true">
+              {"}"}
+            </span>
+
+            <figure className="eq-arrival-figure">
               <img
                 src={ringIllustration}
-                alt="An abstract ring illustration made of dozens of overlapping elliptical lines, gradiating from pink to blue"
+                alt="An abstract ring illustration made of dozens of overlapping elliptical lines, gradiating from pink to blue — the combination of all the concepts above"
               />
             </figure>
-            <div className="eq-rationale-copy">
-              <h3>The Framework of Progress</h3>
-              <p>
-                The frame can be seen as a gateway to new possibilities,
-                where the efficiency is denoted by turning of the clock
-                hand, adaptability is denoted by the changing shape of the
-                circle making concentric circles with every change,
-                retaining the outer circle shape from original assets.
-              </p>
-            </div>
+          </div>
+
+          <div className="eq-rationale-copy">
+            <h3>The Framework of Progress</h3>
+            <p>
+              The frame can be seen as a gateway to new possibilities, where
+              the efficiency is denoted by turning of the clock hand,
+              adaptability is denoted by the changing shape of the circle
+              making concentric circles with every change, retaining the
+              outer circle shape from original assets.
+            </p>
           </div>
         </div>
       </section>
