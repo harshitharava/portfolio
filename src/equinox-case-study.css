@@ -152,12 +152,44 @@
   white-space: nowrap;
 }
 
+/* On-photo, like Infosys/Bosch's hero titles — the desk photo has a
+   plain wall filling roughly its top-left half (measured: flat, low
+   local-variance pixels from y:0 to ~y:400 of 2400, x:0 to ~x:1900 of
+   3600, before the monitor/plants/camera start), which is where this
+   sits, right below the tags row. */
+/* max-width lives on the two text elements, not the rail — the rail
+   needs its full inset-inline:0 width so its left edge lines up with
+   the tags row above it; capping the rail itself here re-centers a
+   narrower box instead (same bug already caught on Bosch's hero).
+
+   Just the title lives here, on one line — this photo's clean wall
+   area (measured: flat, low-variance pixels) is wide but short
+   (roughly the top 17% of the frame before the monitor's screen
+   content starts, already half-claimed by the tags row above), with
+   no real room left for a multi-line title plus a sub paragraph too.
+   The sub moved back down to the plain wrap below the photo instead
+   of forcing both into a space that can't actually hold them. */
+.eq-hero-title-rail {
+  position: absolute;
+  inset-inline: 0;
+  top: 19%;
+}
+
+/* Kept narrower than the tags row above it and broken across two
+   lines — measured where the clean wall actually ends: a dark
+   monitor edge starts around 47% across the photo, well inside the
+   tags' own full-width span, so the title (no background of its own
+   to hide behind) needs a tighter box the tags don't. The dark
+   shadow is insurance for the bottom line dipping slightly past the
+   cleanest part of the wall into a softer transition below it. */
 .eq h1.eq-hero-title {
-  margin: calc(64 * var(--u)) 0 0;
-  font-size: clamp(2.4rem, 1.7rem + 3vw, 4.1rem);
-  line-height: 1.06;
+  margin: 0;
+  max-width: calc(650 * var(--u));
+  font-size: calc(44 * var(--u));
+  line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--eq-blue);
+  text-shadow: calc(3 * var(--u)) calc(3 * var(--u)) 0 rgba(28, 28, 28, 0.5);
 }
 
 .eq-hero-sub {
@@ -372,8 +404,14 @@
     gap: calc(10 * var(--u));
   }
 
-  .eq h1.eq-hero-title {
-    margin-top: calc(24 * var(--u));
+  .eq-hero-title-rail {
+    position: static;
+    max-width: none;
+    padding: calc(24 * var(--u)) 0 0;
+  }
+
+  .eq-hero-sub {
+    max-width: none;
   }
 
   .eq-meta {

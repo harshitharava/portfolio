@@ -47,14 +47,16 @@ function EquinoxPage() {
             <span>Illustrator</span>
             <span>Social Media</span>
           </div>
+          <div className="eq-wrap eq-hero-title-rail">
+            <h1 className="eq-hero-title">
+              Make Commerce
+              <br />
+              Great Again Campaign
+            </h1>
+          </div>
         </figure>
 
         <div className="eq-wrap">
-          <h1 className="eq-hero-title">
-            Make Commerce
-            <br />
-            Great Again Campaign
-          </h1>
           <p className="eq-hero-sub">
             Infosys Equinox is a digital commerce platform that empowers
             businesses to deliver personalized and seamless customer
