@@ -3,16 +3,11 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImage from "@/assets/equinox/hero/equinox-hero.webp";
 
-import iconHumanCentric from "@/assets/equinox/rationale/icon-human-centric.webp";
-import iconAdaptability from "@/assets/equinox/rationale/icon-adaptability.webp";
-import iconEfficiency from "@/assets/equinox/rationale/icon-efficiency.webp";
-import iconHumanCentric2 from "@/assets/equinox/rationale/icon-human-centric-2.webp";
-import iconAdaptability2 from "@/assets/equinox/rationale/icon-adaptability-2.webp";
-import iconEfficiency2 from "@/assets/equinox/rationale/icon-efficiency-2.webp";
-import iconGradient from "@/assets/equinox/rationale/icon-gradient.webp";
-import ringIllustration from "@/assets/equinox/rationale/equinox-ring.webp";
+import arrivalLight from "@/assets/equinox/rationale/equinox-arrival-light.svg";
+import arrivalDark from "@/assets/equinox/rationale/equinox-arrival-dark.svg";
 
 import titleSlide from "@/assets/equinox/foundations/equinox-title-slide.webp";
+import titleSlideDark from "@/assets/equinox/foundations/equinox-title-slide-dark.svg";
 
 import socialFitness from "@/assets/equinox/social/equinox-social-fitness.webp";
 import socialFashion from "@/assets/equinox/social/equinox-social-fashion.webp";
@@ -30,6 +25,25 @@ export const Route = createFileRoute("/work/equinox")({
   }),
   component: EquinoxPage,
 });
+
+type ThemedImageProps = {
+  light: string;
+  dark: string;
+  alt: string;
+};
+
+// Renders the light and dark exports of one finished composition.
+// Only one is ever visible — CSS toggles `display` off the hidden one,
+// so it never overlaps its sibling and doesn't affect layout while
+// hidden.
+function ThemedImage({ light, dark, alt }: ThemedImageProps) {
+  return (
+    <>
+      <img className="eq-img-light" src={light} alt={alt} />
+      <img className="eq-img-dark" src={dark} alt={alt} />
+    </>
+  );
+}
 
 function EquinoxPage() {
   usePortfolioEffects();
@@ -134,74 +148,13 @@ function EquinoxPage() {
         <div className="eq-wrap">
           <h2>How Did We Arrive Here?</h2>
 
-          <div className="eq-arrival">
-            <div className="eq-arrival-rows">
-              <div className="eq-arrival-row">
-                <div className="eq-concept">
-                  <img src={iconHumanCentric} alt="" />
-                  <span>Human Centric</span>
-                </div>
-                <span className="eq-plus" aria-hidden="true">
-                  +
-                </span>
-                <div className="eq-concept">
-                  <img src={iconAdaptability} alt="" />
-                  <span>Adaptability</span>
-                </div>
-                <span className="eq-plus" aria-hidden="true">
-                  +
-                </span>
-                <div className="eq-concept">
-                  <img src={iconEfficiency} alt="" />
-                  <span>Efficiency</span>
-                </div>
-              </div>
-
-              <div className="eq-arrival-divider" aria-hidden="true">
-                <span className="eq-arrival-dots" />
-                <span className="eq-arrival-arrow">→</span>
-              </div>
-
-              <div className="eq-arrival-row">
-                <div className="eq-concept">
-                  <img src={iconHumanCentric2} alt="" />
-                  <span>Human Centric</span>
-                </div>
-                <span className="eq-plus" aria-hidden="true">
-                  +
-                </span>
-                <div className="eq-concept">
-                  <img src={iconAdaptability2} alt="" />
-                  <span>Adaptability</span>
-                </div>
-                <span className="eq-plus" aria-hidden="true">
-                  +
-                </span>
-                <div className="eq-concept">
-                  <img src={iconEfficiency2} alt="" />
-                  <span>Efficiency</span>
-                </div>
-                <span className="eq-plus" aria-hidden="true">
-                  +
-                </span>
-                <div className="eq-concept">
-                  <img src={iconGradient} alt="" />
-                  <span>Equinox gradient</span>
-                </div>
-              </div>
-            </div>
-
-            <span className="eq-arrival-bracket" aria-hidden="true">
-              {"}"}
-            </span>
-
-            <figure className="eq-arrival-figure">
-              <img
-                src={ringIllustration}
-                alt="An abstract ring illustration made of dozens of overlapping elliptical lines, gradiating from pink to blue — the combination of all the concepts above"
-              />
-            </figure>
-          </div>
+          <figure className="eq-arrival-diagram">
+            <ThemedImage
+              light={arrivalLight}
+              dark={arrivalDark}
+              alt="Diagram: Human Centric, Adaptability, and Efficiency icons combine with a repeated row of the same three plus the Equinox gradient, converging through a bracket into the ring illustration — an abstract ring made of dozens of overlapping elliptical lines, gradiating from pink to blue"
+            />
+          </figure>
 
           <div className="eq-rationale-copy">
             <h3>The Framework of Progress</h3>
@@ -237,8 +190,9 @@ function EquinoxPage() {
 
           <span className="eq-foundation-label">Title Slide Template</span>
           <figure className="eq-template-figure">
-            <img
-              src={titleSlide}
+            <ThemedImage
+              light={titleSlide}
+              dark={titleSlideDark}
               alt="Title slide template: Infosys Equinox logo top-left, a large 'Title Slide, Lorem Ipsum' headline, body copy, and a call-to-action button, with the ring illustration bleeding off the right edge"
             />
           </figure>

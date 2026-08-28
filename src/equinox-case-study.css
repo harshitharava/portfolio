@@ -26,10 +26,12 @@
    pixel-sampled — no separate swatch asset file was supplied for
    those specifically.
 
-   No dark-mode export exists for this project (the supplied asset
-   set has no "-dark" files), so every image is used as-is in both
-   themes, matching the "light asset, no dark equivalent" convention
-   already used on Infosys/Bosch.
+   The hero photo has no dark-mode export, so its on-photo title/tags
+   stay pinned to fixed colors in both themes (matching Infosys/Bosch).
+   The Rationale diagram and Title Slide Template *do* have matching
+   light/dark source SVGs (Figma-exported "Asset 1"/"Asset 6" and
+   "Asset 3"), swapped via the ThemedImage component/eq-img-light/
+   eq-img-dark classes below, same mechanism as MyTown's hero art.
    ============================================================ */
 
 .eq {
@@ -104,6 +106,26 @@
 
 .eq a {
   color: inherit;
+}
+
+/* ---------- Themed image swap ----------
+   ThemedImage renders both a light and dark <img> for one composition;
+   only one is ever shown, toggled purely with `display` so the hidden
+   one never affects layout. */
+.eq figure .eq-img-light {
+  display: block;
+}
+
+.eq figure .eq-img-dark {
+  display: none;
+}
+
+[data-theme="dark"] .eq figure .eq-img-light {
+  display: none;
+}
+
+[data-theme="dark"] .eq figure .eq-img-dark {
+  display: block;
 }
 
 /* ---------- Hero ---------- */
@@ -252,97 +274,14 @@
 
 /* ---------- Rationale ---------- */
 
-/* "How did we arrive here?" — the deck's own two-row build-up: each
-   concept (Human Centric, Adaptability, Efficiency) shown once as a
-   small linework icon, then again on the row below alongside the
-   Equinox gradient swatch, joined by a dotted line and arrow into a
-   bracket that resolves into the ring illustration on the right. */
-.eq-arrival {
-  display: flex;
-  align-items: center;
-  gap: calc(40 * var(--u));
-  margin-bottom: calc(56 * var(--u));
+/* "How did we arrive here?" — full light/dark diagram exports (icons,
+   labels, dotted divider, and the ring illustration all baked into one
+   SVG each), swapped via ThemedImage instead of hand-built with CSS. */
+.eq-arrival-diagram {
+  margin: 0 0 calc(56 * var(--u));
 }
 
-.eq-arrival-rows {
-  display: flex;
-  flex-direction: column;
-  gap: calc(32 * var(--u));
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.eq-arrival-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: calc(20 * var(--u));
-}
-
-.eq-plus {
-  font-size: calc(24 * var(--u));
-  color: var(--eq-ink-soft);
-  align-self: center;
-}
-
-.eq-arrival-divider {
-  display: flex;
-  align-items: center;
-  gap: calc(12 * var(--u));
-}
-
-.eq-arrival-dots {
-  flex: 1 1 auto;
-  height: 0;
-  border-top: 2px dotted var(--eq-ink);
-}
-
-.eq-arrival-arrow {
-  color: var(--eq-ink);
-  font-size: calc(20 * var(--u));
-  line-height: 1;
-}
-
-.eq-concept {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: calc(12 * var(--u));
-  text-align: center;
-  width: calc(120 * var(--u));
-}
-
-.eq-concept img {
-  height: calc(56 * var(--u));
-  width: auto;
-  max-width: calc(100 * var(--u));
-  object-fit: contain;
-}
-
-.eq-concept span {
-  font-size: calc(17 * var(--u));
-  color: var(--eq-ink-soft);
-}
-
-/* A bare "}" set large and light stands in for the deck's thin curly
-   bracket connecting the two rows to the ring — simplest way to get
-   the same shape without a custom SVG path. */
-.eq-arrival-bracket {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: calc(140 * var(--u));
-  line-height: 1;
-  color: var(--eq-ink-soft);
-  flex: 0 0 auto;
-}
-
-.eq-arrival-figure {
-  margin: 0;
-  flex: 0 0 auto;
-  width: calc(260 * var(--u));
-}
-
-.eq-arrival-figure img {
+.eq-arrival-diagram img {
   width: 100%;
   height: auto;
 }
@@ -485,20 +424,6 @@
   .eq-meta {
     grid-template-columns: 1fr;
     gap: calc(32 * var(--u));
-  }
-
-  .eq-arrival {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: calc(24 * var(--u));
-  }
-
-  .eq-arrival-bracket {
-    display: none;
-  }
-
-  .eq-arrival-figure {
-    width: min(260px, 100%);
   }
 
   .eq-social-grid {
