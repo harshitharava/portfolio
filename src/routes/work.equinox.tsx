@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImage from "@/assets/equinox/hero/equinox-hero.webp";
+import heroImageMobile from "@/assets/equinox/hero/equinox-hero-mobile.webp";
 
 import arrivalLight from "@/assets/equinox/rationale/equinox-arrival-light.svg";
 import arrivalDark from "@/assets/equinox/rationale/equinox-arrival-dark.svg";
@@ -53,10 +54,13 @@ function EquinoxPage() {
       {/* ---------- Hero ---------- */}
       <section className="eq-hero">
         <figure className="eq-hero-media">
-          <img
-            src={heroImage}
-            alt="Infosys Equinox website displayed on an iMac resting on a wooden desk"
-          />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroImageMobile} />
+            <img
+              src={heroImage}
+              alt="Infosys Equinox website displayed on an iMac resting on a wooden desk"
+            />
+          </picture>
           <div className="eq-wrap eq-hero-tags">
             <span>Design Research</span>
             <span>Branding</span>
