@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 import heroImage from "@/assets/talos/hero/talos-hero.webp";
+import heroImageMobile from "@/assets/talos/hero/talos-hero-mobile.webp";
 import contributionImage from "@/assets/talos/contribution/talos-contribution.webp";
 import trustImage from "@/assets/talos/trust/talos-trust.webp";
 import welcomeShot from "@/assets/talos/experience/talos-welcome.webp";
@@ -41,7 +42,10 @@ function TalosCarePage() {
       {/* ---------- Hero ---------- */}
       <section className="tcs-hero">
         <div className="tcs-hero-media">
-          <img src={heroImage} alt="Talos Care running on a laptop resting on dark rock" />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroImageMobile} />
+            <img src={heroImage} alt="Talos Care running on a laptop resting on dark rock" />
+          </picture>
           <div className="grain-strong" aria-hidden="true" />
           <div className="tcs-wrap tcs-hero-tags">
             <span>Conversational AI</span>

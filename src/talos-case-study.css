@@ -946,10 +946,18 @@
     max-width: 62%;
   }
 
-  /* hero: tags and title move below the image rather than shrinking to nothing */
+  /* hero: tags and title move below the image rather than shrinking to
+     nothing, and the photo itself swaps to a separately-cropped
+     portrait export (via the <picture><source> in the component)
+     instead of forcing the desktop photo's wide 1728:898 crop into a
+     narrow viewport, which squashed it into a thin strip. */
   .tcs-hero-media {
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
+  }
+
+  .tcs-hero-media img {
+    aspect-ratio: 1149 / 1436;
   }
 
   .tcs-hero-tags {
