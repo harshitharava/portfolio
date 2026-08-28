@@ -209,7 +209,7 @@
 }
 
 .tcs-intro h1 {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: calc(59 * var(--u));
   line-height: 1.18;
