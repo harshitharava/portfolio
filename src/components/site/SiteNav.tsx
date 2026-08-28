@@ -60,7 +60,7 @@ export function SiteNav() {
       <header className={scrolled ? "nav scrolled" : "nav"}>
         <div className="wrap">
           <Link className="logo" to="/" aria-label="Harshith Arava — home">
-            Harshith Arava <span className="logo-role">| UX Designer</span>
+            Harshith Arava <span className="logo-role">| Product Designer</span>
           </Link>
           <nav aria-label="Primary">
             <ul className="nav-links">

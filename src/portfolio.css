@@ -620,27 +620,30 @@ section {
   background: var(--ink);
   color: var(--bg);
   overflow: hidden;
-  padding: 14px 0;
+  padding: 10px 0;
   transform: rotate(-1deg) scale(1.02);
   margin-block: clamp(20px, 4vw, 44px);
 }
 
 .marquee-track {
   display: flex;
-  gap: 48px;
+  gap: 34px;
   width: max-content;
   animation: marquee 28s linear infinite;
 }
 
+/* Scaled down 30% across the board (font-size, gaps, padding above) —
+   the band was reading as noticeably oversized next to the rest of
+   the homepage's type scale. */
 .marquee span {
   font-family: var(--font-display);
-  font-size: 1.575rem;
+  font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  gap: 48px;
+  gap: 34px;
 }
 
 .marquee span::after {
@@ -845,7 +848,8 @@ section {
 }
 
 .mini-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 clamp(260px, 30vw, 340px);
   background: var(--surface);
   border: 1.5px solid var(--line);
@@ -886,6 +890,9 @@ section {
 }
 
 .mini-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
   padding: 20px 24px 24px;
 }
 
@@ -910,10 +917,16 @@ section {
   color: var(--ink-2);
 }
 
-/* only MyTown carries a case-study link today; the other mini-cards are
-   presentational, so this spacing only applies where a link is present */
+/* Pinned to the bottom of the (now flex-column) card via margin-top:
+   auto, rather than a fixed margin off the paragraph above it — a
+   fixed margin left the link sitting at a different height on every
+   card depending on how many lines its description wrapped to. Only
+   MyTown, Infosys Equinox, and Infosys Gen AI carry a case-study link
+   today; the other mini-cards are presentational, so this only
+   applies where a link is present. */
 .mini-body .text-link {
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 /* ---------- About ---------- */
@@ -1972,8 +1985,13 @@ section {
    offset matches the homepage hero's own nav clearance; font-size is
    pinned to h2's smaller scale — same visual size as "Selected work."
    — even though it stays a real h1 for the page's document outline. */
+/* Clearance above --nav-h reduced 40% from the homepage hero's own
+   value (56/9vw/110 -> 34/5.4vw/66) — the hero needs the extra room to
+   breathe next to a big display headline, but this page's heading is
+   the smaller "Selected work"-style treatment and was sitting under
+   noticeably more empty space than it needed. */
 #about {
-  padding-top: calc(var(--nav-h) + clamp(56px, 9vw, 110px));
+  padding-top: calc(var(--nav-h) + clamp(34px, 5.4vw, 66px));
 }
 
 #about .section-head h1 {
