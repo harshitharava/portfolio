@@ -971,6 +971,14 @@
     height: calc(56 * var(--u));
   }
 
+  /* The dark near-black border above is meant for the light mobile
+     page background — in dark mode the page itself goes near-black,
+     so that same border all but disappears. Needs its own light-toned
+     pin here, same fix Bosch's mobile tags already carry. */
+  [data-theme="dark"] .tcs-hero-tags > span {
+    border-color: rgba(244, 238, 227, 0.45);
+  }
+
   .tcs-hero-title-layer {
     display: none;
   }

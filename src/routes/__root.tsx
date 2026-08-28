@@ -114,8 +114,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           crossOrigin: "anonymous",
         },
         {
+          // Fontshare's f[] param silently drops every font but one when
+          // multiple are requested in a single call (confirmed: combining
+          // clash-display + satoshi in one URL always returns only one of
+          // them — whichever, not consistently the first). Satoshi was the
+          // one going missing here, which is why body copy fell back to
+          // system-ui/-apple-system everywhere, not just on mobile — it
+          // just reads as a bigger difference on iOS's San Francisco than
+          // on most desktop fallback fonts. Split into two requests.
           rel: "stylesheet",
-          href: "https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap",
+          href: "https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap",
         },
         {
           rel: "stylesheet",
