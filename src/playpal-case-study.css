@@ -786,6 +786,15 @@
     border-top: 1px solid rgba(23, 21, 18, 0.14) !important;
   }
 
+  /* .pp-hero-tags itself going static wasn't enough — its parent
+     .pp-hero-overlay is still position:absolute;inset:0, so the tags
+     rendered pinned to the top of that full-height absolute box,
+     floating over the image instead of flowing below it. The overlay
+     needs to go static too so the whole block joins normal flow. */
+  .pp-hero-overlay {
+    position: static;
+  }
+
   .pp-hero-tags {
     position: static;
     padding: calc(20 * var(--u)) 0 0;
