@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImage from "@/assets/playpal/hero/playpal-hero.webp";
+import heroImageMobile from "@/assets/playpal/hero/playpal-hero-mobile.webp";
 import contributionImage from "@/assets/playpal/contribution/playpal-contribution.webp";
 
 import primaryPersona from "@/assets/playpal/personas/playpal-primary-persona.webp";
@@ -87,10 +88,13 @@ function PlayPalPage() {
           the rest of the page even though the photo itself bleeds past it. */}
       <section className="pp-hero">
         <div className="pp-hero-media">
-          <img
-            src={heroImage}
-            alt="A hand holding a phone showing the PlayPal home screen, with upcoming games and quick actions to find players or book a venue"
-          />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroImageMobile} />
+            <img
+              src={heroImage}
+              alt="A hand holding a phone showing the PlayPal home screen, with upcoming games and quick actions to find players or book a venue"
+            />
+          </picture>
           <div className="pp-hero-overlay">
             <div className="pp-wrap pp-hero-overlay-rail">
               <div className="pp-hero-tags">
