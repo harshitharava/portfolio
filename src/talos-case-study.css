@@ -946,20 +946,17 @@
     max-width: 62%;
   }
 
-  /* hero: tags and title move below the image rather than shrinking to
-     nothing, and the photo itself swaps to a separately-cropped
-     portrait export (via the <picture><source> in the component)
-     instead of forcing the desktop photo's wide 1728:898 crop into a
-     narrow viewport, which squashed it into a thin strip. The rounded
-     bottom corners move onto the image itself rather than staying on
-     .tcs-hero-media — tags and title now flow inside that same
-     container below the image (not absolutely positioned over it), so
-     rounding the container would round the corner way down past the
-     title text instead of the image, where it's invisible. */
+  /* hero: the mobile export (via the <picture><source> in the
+     component) is a taller composition than the last version — it now
+     bakes the "Talos Care" wordmark and its green offset shadow
+     directly into the image, with genuine alpha transparency for the
+     rounded bottom corners (not a CSS radius), rather than forcing the
+     desktop photo's wide 1728:898 crop into a narrow viewport. Tags
+     still render separately below it; the HTML title is hidden below
+     since it's now baked into the image and would otherwise duplicate
+     it. */
   .tcs-hero-media img {
-    aspect-ratio: 1149 / 1436;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    aspect-ratio: 1149 / 1542;
   }
 
   .tcs-hero-tags {
@@ -975,24 +972,7 @@
   }
 
   .tcs-hero-title-layer {
-    position: static;
-  }
-
-  .tcs p.tcs-hero-title {
-    position: static;
-    transform: none;
-    right: auto;
-    top: auto;
-    padding-top: calc(30 * var(--u));
-    /* Desktop's 110*u (and its matching 20*u shadow offset) was sized
-       for a wide artboard — at a 375px viewport it wrapped to two
-       lines large enough to clip against the edge, with the shadow
-       offset heavy enough to blur into the fill instead of reading as
-       a crisp outline. Both scaled down together to keep the same
-       proportion between letterform and shadow. */
-    font-size: calc(72 * var(--u));
-    text-shadow: calc(11 * var(--u)) calc(11 * var(--u)) 0 var(--tcs-green);
-    color: var(--tcs-ink);
+    display: none;
   }
 
   .tcs-table-scroll {
