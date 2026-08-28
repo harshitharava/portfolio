@@ -423,9 +423,15 @@
 }
 
 @media (max-width: 760px) {
-  .bcw-hero-media {
-    display: flex;
-    flex-direction: column-reverse;
+  /* Swaps to a separately-cropped portrait export (via the
+     <picture><source> in the component) with the "Bosch BCW
+     Interactive Infographic Design" title and its shadow baked
+     directly into the image, same as Infosys/Equinox/Talos
+     Care/CityLoop/PlayPal/MyTown. The HTML title is hidden below
+     since it would otherwise duplicate the baked-in title; the
+     sub-copy wasn't baked in, so it stays and flows below the tags. */
+  .bcw-hero-media img {
+    aspect-ratio: 1149 / 1478;
   }
 
   .bcw-hero-tags {
@@ -459,19 +465,17 @@
   }
 
   .bcw h1.bcw-hero-title {
-    position: static;
-    /* 100%, not none — "Interactive"/"Infographic" are long enough
-       words that an unclamped box let them overflow past the
-       viewport edge instead of wrapping within it. */
-    max-width: 100%;
-    /* No color override needed here — the fill is the fixed blue,
-       which holds up fine off-photo too, and the shadow (var(--bcw-bg))
-       now exactly matches whatever's behind it off-photo, so it just
-       disappears rather than needing its own fallback. */
+    display: none;
   }
 
+  /* Off the photo and onto the plain page background now, so this
+     switches to var(--bcw-ink-soft) (this file's own convention for
+     secondary body copy, e.g. .bcw-info-row p) — the fixed #2b2b2b
+     from the base rule only works because that photo never changes
+     with theme. */
   .bcw .bcw-hero-sub {
     max-width: 100%;
+    color: var(--bcw-ink-soft);
   }
 
   .bcw-meta {

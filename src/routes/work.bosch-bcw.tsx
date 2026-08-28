@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImac from "@/assets/bosch-bcw/hero/bosch-hero-imac.webp";
+import heroImacMobile from "@/assets/bosch-bcw/hero/bosch-hero-mobile.webp";
 
 import screensAll from "@/assets/bosch-bcw/screens/bosch-screens-all.webp";
 
@@ -36,10 +37,13 @@ function BoschBcwPage() {
       {/* ---------- Hero ---------- */}
       <section className="bcw-hero">
         <div className="bcw-hero-media">
-          <img
-            src={heroImac}
-            alt="Bosch BCW interactive infographic displayed on an iMac, reading Let's drive #SmarterDigital with Cognitive Experience Design"
-          />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroImacMobile} />
+            <img
+              src={heroImac}
+              alt="Bosch BCW interactive infographic displayed on an iMac, reading Let's drive #SmarterDigital with Cognitive Experience Design"
+            />
+          </picture>
           <div className="bcw-wrap bcw-hero-tags">
             <span>UI / UX Design</span>
             <span>Adobe XD</span>
