@@ -158,17 +158,23 @@
   gap: calc(12 * var(--u));
 }
 
+/* Same transparent ghost-pill treatment as Bosch's on-photo tags —
+   larger scale, no fill, border-only — but with the polarity flipped:
+   Bosch's studio backdrop is neutral gray, so cream-on-gray reads in
+   both themes; this photo's backdrop is a near-white wall, so only a
+   dark pill stays legible, in either theme, since the photo itself
+   never changes. Scoped to desktop — mobile moves the tags off the
+   photo onto the page's own (theme-adaptive) background below. */
 .eq-hero-tags > span {
   font-family: var(--font-mono);
-  font-size: calc(17 * var(--u));
+  font-size: calc(19.2 * var(--u));
   letter-spacing: 0.01em;
   line-height: 1;
-  color: var(--eq-ink);
-  background: #fff;
-  border: 1px solid var(--eq-rule);
+  color: #1c1c1c;
+  border: 1px solid rgba(28, 28, 28, 0.35);
   border-radius: 999px;
-  height: calc(56 * var(--u));
-  padding-inline: calc(26 * var(--u));
+  height: calc(64 * var(--u));
+  padding-inline: calc(31 * var(--u));
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -196,6 +202,12 @@
   align-items: flex-start;
 }
 
+/* Fill stays the fixed brand blue (holds up fine against the photo's
+   white wall on its own); the shadow is what gets Bosch's reactive
+   treatment — pinned dark in light mode (var(--eq-bg) there is cream,
+   nearly the same tone as the wall itself and would vanish), then
+   switched to var(--eq-bg) once dark mode flips it to the site's own
+   near-black, which reads clearly against the same white wall. */
 .eq h1.eq-hero-title {
   margin: 0;
   max-width: calc(600 * var(--u));
@@ -206,7 +218,15 @@
   text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 #1c1c1c;
 }
 
-.eq-hero-sub {
+@media (min-width: 761px) {
+  [data-theme="dark"] .eq h1.eq-hero-title {
+    text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 var(--eq-bg);
+  }
+}
+
+/* .eq p (0,1,1) outranks a bare .eq-hero-sub (0,1,0) and was silently
+   zeroing this margin-top out — .eq .eq-hero-sub (0,2,0) beats it. */
+.eq .eq-hero-sub {
   max-width: calc(480 * var(--u));
   margin: calc(28 * var(--u)) 0 0;
   /* Fixed, not var(--eq-ink-soft) — that flips light in dark mode and
@@ -368,11 +388,6 @@
   --eq-rule: #3d3624;
 }
 
-[data-theme="dark"] .eq-hero-tags > span {
-  background: #201a13;
-  border-color: var(--eq-rule);
-}
-
 [data-theme="dark"] .eq-meta {
   border-color: #5b5348;
 }
@@ -399,6 +414,19 @@
     gap: calc(10 * var(--u));
   }
 
+  /* Off the photo and onto the plain page background now, so this
+     switches to theme-adaptive ink instead of the fixed dark pin
+     above, matching Bosch's own mobile fallback for its tags. */
+  .eq-hero-tags > span {
+    color: var(--eq-ink);
+    border-color: rgba(28, 28, 28, 0.45);
+    height: calc(56 * var(--u));
+  }
+
+  [data-theme="dark"] .eq-hero-tags > span {
+    border-color: rgba(244, 238, 227, 0.45);
+  }
+
   .eq-hero-title-layer {
     position: static;
   }
@@ -412,7 +440,7 @@
     max-width: none;
   }
 
-  .eq-hero-sub {
+  .eq .eq-hero-sub {
     max-width: none;
     /* Off the photo and onto the plain page background now, so this
        switches to var(--eq-ink-soft), which tracks the page bg and
