@@ -925,6 +925,11 @@ section {
    today; the other mini-cards are presentational, so this only
    applies where a link is present. */
 .mini-body .text-link {
+  /* .mini-body's flex column stretches children to full width by
+     default, which was dragging the link's background-size:100%
+     underline out to the card's full width instead of the text's own
+     width — align-self opts this one child back out of the stretch. */
+  align-self: flex-start;
   margin-top: auto;
   padding-top: 14px;
 }
