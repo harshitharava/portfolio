@@ -92,7 +92,6 @@ function AboutPage() {
               </div>
               <div>
                 <h4>Beyond the résumé</h4>
-                <p>Photography · Cities · Visual storytelling</p>
                 <p>When I’m not designing, I’m probably taking photos, chasing down a film festival, attempting a new recipe, or falling down a rabbit hole about the history of whatever city I’m in.</p>
               </div>
             </div>
