@@ -490,11 +490,16 @@
 }
 
 @media (max-width: 760px) {
-  /* Tags move off the photo and stack above it — same fallback Talos
-     Care/PlayPal use once the image is too short for overlaid text. */
-  .ig-hero-media {
-    display: flex;
-    flex-direction: column-reverse;
+  /* Swaps to a separately-cropped portrait export (via the
+     <picture><source> in the component) with the "Infosys Gen AI"
+     title and its shadow baked directly into the image, rather than
+     forcing the desktop photo's wide 2592:1631 crop into a narrow
+     viewport with a 96*u title still absolutely positioned over it.
+     The HTML title is hidden below since it would otherwise duplicate
+     the baked-in title; the sub-copy wasn't baked in, so it stays and
+     flows below the tags. */
+  .ig-hero-media img {
+    aspect-ratio: 1149 / 1478;
   }
 
   .ig-hero-tags {
@@ -503,27 +508,25 @@
     gap: calc(10 * var(--u));
   }
 
-  /* Title + sub move off the photo the same way the tags do — at this
-     width there's no readable fade left to sit on, and without this
-     override (missing until now) the text stayed absolutely positioned
-     over the full-height stack and overlapped the photo itself. */
   .ig-hero-title-layer {
     position: static;
   }
 
   .ig-hero-title-rail {
     height: auto;
-    padding: calc(24 * var(--u)) 0 0;
+    padding: 0;
   }
 
   .ig h1.ig-hero-title {
-    position: static;
-    transform: none;
-    max-width: none;
+    display: none;
   }
 
+  /* Off-photo now (sits on the page background, not the fade), so the
+     fixed light-fade color from the desktop treatment needs to flip
+     with the theme instead of staying a hardcoded dark tone. */
   .ig .ig-hero-sub {
     max-width: none;
+    color: var(--ig-ink);
   }
 
   .ig-meta {

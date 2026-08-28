@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroSignin from "@/assets/infosys/hero/infosys-hero-signin.webp";
+import heroSigninMobile from "@/assets/infosys/hero/infosys-hero-mobile.webp";
 import dashboardMonitor from "@/assets/infosys/hero/infosys-dashboard-monitor.webp";
 
 import screenSignin from "@/assets/infosys/screens/infosys-signin.webp";
@@ -42,10 +43,13 @@ function InfosysPage() {
           title sits — same placement CityLoop uses. */}
       <section className="ig-hero">
         <div className="ig-hero-media">
-          <img
-            src={heroSignin}
-            alt="Infosys Gen AI Application sign-in screen, displayed on a laptop resting on a wooden table"
-          />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroSigninMobile} />
+            <img
+              src={heroSignin}
+              alt="Infosys Gen AI Application sign-in screen, displayed on a laptop resting on a wooden table"
+            />
+          </picture>
           <div className="ig-wrap ig-hero-tags">
             <span>UX Design</span>
             <span>Service Design</span>
