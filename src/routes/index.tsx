@@ -1184,8 +1184,11 @@ function Index() {
                     <span>linkedin.com/in/harshitharava</span>
                   </div>
                 </a>
-                <a className={"channel"} href={"#resume-placeholder"}>
-                  {/* TEMPORARY PLACEHOLDER: swap for the real resume file URL. */}
+                <a
+                  className={"channel"}
+                  href={`${import.meta.env.BASE_URL}harshith-arava-resume.pdf`}
+                  download={"Harshith-Arava-Resume.pdf"}
+                >
                   <span className={"ch-icon"}>
                     <svg
                       width={"17"}
@@ -1206,7 +1209,7 @@ function Index() {
                   </span>
                   <div>
                     <b>Resume</b>
-                    <span>Temporary placeholder — resume file coming soon</span>
+                    <span>Download PDF</span>
                   </div>
                 </a>
                 <a

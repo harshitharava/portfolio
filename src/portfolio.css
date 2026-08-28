@@ -1965,15 +1965,17 @@ section {
   display: inline-block;
 }
 
-/* About page header */
-.about-page-head {
-  padding: calc(var(--nav-h) + 48px) 0 0;
+/* About page header — folded into #about's own .section-head so the
+   heading gets the same tight heading-to-content gap every other
+   section uses (.section-head's margin-bottom) instead of a separate
+   section's full inter-section padding sitting on top of it. Top
+   offset matches the homepage hero's own nav clearance; font-size is
+   pinned to h2's smaller scale — same visual size as "Selected work."
+   — even though it stays a real h1 for the page's document outline. */
+#about {
+  padding-top: calc(var(--nav-h) + clamp(56px, 9vw, 110px));
 }
 
-.about-page-head h1 {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 6vw, 74px);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  margin: 8px 0 0;
+#about .section-head h1 {
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
 }

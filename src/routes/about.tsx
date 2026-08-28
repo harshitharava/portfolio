@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 import aboutPhoto1 from "@/assets/about/about-harshith-pier.webp";
 import aboutPhoto2 from "@/assets/about/about-harshith-alley.webp";
@@ -29,16 +29,26 @@ function AboutPage() {
   ];
   const [active, setActive] = useState(0);
 
+  // Auto-advance the portrait every 5s — long enough to actually look at
+  // each illustration before it moves on, short enough that it doesn't
+  // feel stalled. Restarts on every change (including manual dot clicks),
+  // so picking a photo doesn't get immediately undone by a stale timer.
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % photos.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [active, photos.length]);
+
   return (
     <main id="main">
-      <section className="about-page-head">
-        <div className="wrap">
-          <h1 className="reveal">ABOUT ME</h1>
-        </div>
-      </section>
-
     <section id={"about"}>
       <div className={"wrap"}>
+        <div className={"section-head reveal"}>
+          <p className={"eyebrow"}>About</p>
+          <h1>About me.</h1>
+        </div>
+
         <div className={"about-grid"}>
           <div className={"about-photos reveal"}>
             <div className={"about-scroller"}>
@@ -83,7 +93,7 @@ function AboutPage() {
               <div>
                 <h4>Beyond the résumé</h4>
                 <p>Photography · Cities · Visual storytelling</p>
-                <p>Usually exploring somewhere new, taking photos, or noticing details other people walk past.</p>
+                <p>When I’m not designing, I’m probably taking photos, chasing down a film festival, attempting a new recipe, or falling down a rabbit hole about the history of whatever city I’m in.</p>
               </div>
             </div>
           </div>
