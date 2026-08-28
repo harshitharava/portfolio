@@ -158,34 +158,30 @@
   gap: calc(12 * var(--u));
 }
 
-/* Same transparent ghost-pill treatment as Bosch's on-photo tags —
-   larger scale, no fill, border-only. Bosch can flip all the way from
-   cream to near-black because its studio backdrop is neutral gray;
-   this photo's backdrop is a near-white wall, where a light-mode-style
-   cream pill would vanish. So instead of a light/dark polarity flip,
-   dark mode swaps the accent to the brand's second blue below —
-   still reads clearly against the wall, and still visibly answers the
-   theme toggle the way Bosch's pill does. */
+/* Bosch's ghost pill (transparent, border-only) works there because
+   its studio backdrop is neutral gray, which tolerates cream text in
+   light mode and near-black text in dark mode. This photo's backdrop
+   is a near-white wall — a transparent pill can only ever show dark
+   text against it, in *either* theme, so it can't carry a real
+   light/dark distinction on its own. Matched to Bosch's scale, but
+   kept as the same opaque pill Infosys already uses (just bigger),
+   using this file's own --eq-card/--eq-rule/--eq-ink tokens so it
+   inherits the exact same light/dark values as the rest of the page
+   instead of a one-off color. */
 .eq-hero-tags > span {
   font-family: var(--font-mono);
   font-size: calc(19.2 * var(--u));
   letter-spacing: 0.01em;
   line-height: 1;
-  color: #1c1c1c;
-  border: 1px solid rgba(28, 28, 28, 0.35);
+  color: var(--eq-ink);
+  background: var(--eq-card);
+  border: 1px solid var(--eq-rule);
   border-radius: 999px;
   height: calc(64 * var(--u));
   padding-inline: calc(31 * var(--u));
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-}
-
-@media (min-width: 761px) {
-  [data-theme="dark"] .eq-hero-tags > span {
-    color: var(--eq-blue-2);
-    border-color: rgba(20, 103, 224, 0.55);
-  }
 }
 
 /* On-photo, same technique as Infosys/Bosch's hero titles — the new
@@ -211,15 +207,12 @@
 }
 
 /* Fill stays the fixed brand blue (holds up fine against the photo's
-   white wall on its own). The shadow is what answers the theme
-   toggle, Bosch-style — but Bosch can swing all the way to var(--bg)
-   because its gray backdrop tolerates both cream and near-black; this
-   photo's wall is near-white, so a light-mode-cream shadow would sit
-   almost on top of the wall itself and disappear. Swapping to the
-   brand's second blue for dark mode instead keeps the same "shadow
-   reacts to theme" idea while staying legible against the fixed
-   photo, and echoes the blue/blue-2 duotone the palette already uses
-   elsewhere on this page. */
+   white wall on its own). Shadow uses Bosch/CityLoop's own mechanism
+   — var(--eq-bg), the case study's own background token — rather than
+   a one-off color: pinned dark in light mode, since var(--eq-bg)
+   there is cream, nearly the same tone as the wall itself and would
+   vanish, then let loose to var(--eq-bg) once dark mode flips that
+   token to the site's actual near-black background. */
 .eq h1.eq-hero-title {
   margin: 0;
   max-width: calc(600 * var(--u));
@@ -232,7 +225,7 @@
 
 @media (min-width: 761px) {
   [data-theme="dark"] .eq h1.eq-hero-title {
-    text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 var(--eq-blue-2);
+    text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 var(--eq-bg);
   }
 }
 
@@ -426,17 +419,12 @@
     gap: calc(10 * var(--u));
   }
 
-  /* Off the photo and onto the plain page background now, so this
-     switches to theme-adaptive ink instead of the fixed dark pin
-     above, matching Bosch's own mobile fallback for its tags. */
+  /* color/background/border already track theme via var(--eq-ink),
+     var(--eq-card), var(--eq-rule) in the base rule above — only the
+     size needs to shrink once the tags leave the photo for the page's
+     own (narrower) flow. */
   .eq-hero-tags > span {
-    color: var(--eq-ink);
-    border-color: rgba(28, 28, 28, 0.45);
     height: calc(56 * var(--u));
-  }
-
-  [data-theme="dark"] .eq-hero-tags > span {
-    border-color: rgba(244, 238, 227, 0.45);
   }
 
   .eq-hero-title-layer {
