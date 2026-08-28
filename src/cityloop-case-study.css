@@ -117,7 +117,10 @@
   border-bottom-right-radius: min(4.6vw, 68px);
 }
 
-.cl-hero-media > img {
+/* Descendant, not direct-child — the mobile <source> swap wraps the
+   <img> in a <picture>, so it's no longer a direct child of
+   .cl-hero-media. */
+.cl-hero-media img {
   width: 100%;
   aspect-ratio: 1728 / 1087;
   object-fit: cover;
@@ -816,8 +819,22 @@
     right: calc(60 * var(--u));
   }
 
-  /* wordmark: artboard x94, width 667, centred at 44% of the hero height */
-.cl-hero-tags {
+  /* hero: swaps to a separately-cropped portrait export (via the
+     <picture><source> in the component) with the "CityLoop" wordmark
+     and its shadow baked directly into the image, rather than forcing
+     the desktop photo's wide 1728:1087 crop into a narrow viewport
+     with a 140*u title still absolutely positioned over it. The HTML
+     title is hidden below since it would otherwise duplicate the
+     baked-in wordmark; tags still render separately below the image. */
+  .cl-hero-media img {
+    aspect-ratio: 1149 / 1478;
+  }
+
+  .cl-hero-title-layer {
+    display: none;
+  }
+
+  .cl-hero-tags {
     position: static;
     padding-top: calc(26 * var(--u));
     gap: calc(14 * var(--u));

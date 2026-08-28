@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroImage from "@/assets/cityloop/hero/cityloop-hero.webp";
+import heroImageMobile from "@/assets/cityloop/hero/cityloop-hero-mobile.webp";
 import contributionImage from "@/assets/cityloop/contribution/cityloop-contribution.webp";
 import iaImage from "@/assets/cityloop/information-architecture/cityloop-information-architecture.webp";
 import primaryPersona from "@/assets/cityloop/personas/cityloop-primary-persona.webp";
@@ -96,7 +97,10 @@ function CityLoopPage() {
       {/* ---------- Hero ---------- */}
       <section className="cl-hero">
         <div className="cl-hero-media">
-          <img src={heroImage} alt="The CityLoop app shown on a phone resting on a wooden shelf" />
+          <picture>
+            <source media="(max-width: 760px)" srcSet={heroImageMobile} />
+            <img src={heroImage} alt="The CityLoop app shown on a phone resting on a wooden shelf" />
+          </picture>
           <div className="grain-strong" aria-hidden="true" />
           {/* the supplied hero export is the photograph only; the wordmark is set
               in the case study's own display face, as on the artboard */}
