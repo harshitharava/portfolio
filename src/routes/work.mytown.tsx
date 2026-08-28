@@ -3,6 +3,7 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 
 import heroFullLight from "@/assets/mytown/hero/mytown-hero-full.webp";
 import heroFullDark from "@/assets/mytown/hero/mytown-hero-full-dark.webp";
+import heroMobile from "@/assets/mytown/hero/mytown-hero-mobile.webp";
 import logoLight from "@/assets/mytown/hero/mytown-logo.webp";
 import logoDark from "@/assets/mytown/hero/mytown-logo-dark.webp";
 /* the hero photo's sky is genuinely semi-transparent (confirmed by
@@ -105,6 +106,15 @@ function MyTownPage() {
             dark={heroFullDark}
             alt="Four MyTown screens — the splash screen, the home screen with a first-week checklist, a step-by-step SIM card guide, and the Support Hub — captioned Arrival, Orientation, Essential Tasks, and Support & Community"
           />
+          {/* Mobile-only export: the four-phone composition above doesn't
+              leave enough room to stay legible once squeezed into a narrow
+              viewport, so mobile gets its own simpler portrait banner —
+              logo, headline, and sub baked directly over a generic skyline
+              — shown instead of (not alongside) the desktop photo. Tags
+              stay separate, rendered in normal flow below it. Only a
+              light-mode export exists so far; it's used for both themes
+              at this breakpoint until a dark counterpart is supplied. */}
+          <img className="mt-hero-mobile" src={heroMobile} alt="MyTown — Helping students feel at home, sooner. Making every new beginning a little easier." />
           <div className="mt-hero-overlay">
             {/* the tags sit in the page's normal-width wrap (matching the
                 nav above), in one row like before; the logo/headline/sub

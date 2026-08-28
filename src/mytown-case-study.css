@@ -201,6 +201,18 @@
   );
 }
 
+/* Hidden above the mobile breakpoint — the desktop four-phone
+   ThemedImage composition is what shows there instead. Scoped to
+   .mt-hero-photo .mt-hero-mobile (0,2,0), not just .mt-hero-mobile
+   (0,1,0) — the base ".mt img { display: block }" rule (0,1,1)
+   would otherwise silently outrank a bare single-class selector here,
+   same specificity bug hit earlier on Infosys/Equinox. */
+.mt-hero-photo .mt-hero-mobile {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
 .mt-hero-overlay {
   position: absolute;
   inset: 0;
@@ -767,36 +779,42 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* at this width the tag row wraps to 2–3 lines and, combined with the
-     logo/headline block, needs more vertical room than the image's own
-     sky region reliably provides once text wraps — absolute-positioning
-     it over the image (as desktop does) let it spill down over the
-     phones. Below this breakpoint the overlay drops out of the image
-     and becomes a normal-flow block sitting above it instead, so it can
-     never overlap no matter how much the tags wrap. Its background
-     reuses the image's own sky colour at the same ~30% alpha the image
-     itself uses, so it blends into the page the same way the image does
-     in both themes rather than needing two separately tuned colours. */
+  /* Swaps to the mobile-only portrait export (logo/headline/sub baked
+     over a skyline) instead of the desktop four-phone photo, which
+     doesn't leave enough room to stay legible squeezed into a narrow
+     viewport. The overlay now carries only the tags — the logo/
+     headline/sub block is hidden since it's baked into the new image
+     — and joins normal flow below it instead of absolutely
+     positioning over the image (or the old order:-1 tinted block
+     above it) as the desktop/previous mobile treatments did. */
   .mt-hero-photo {
     display: flex;
     flex-direction: column;
   }
 
+  .mt-hero-photo > img.mt-img-light,
+  .mt-hero-photo > img.mt-img-dark {
+    display: none;
+  }
+
+  /* [data-theme="dark"] .mt-hero-photo .mt-img-dark's own display:block
+     rule (0,3,0) outranks the plain rule just above (0,2,1) — needs the
+     same attribute-selector weight to actually win in dark mode too. */
+  [data-theme="dark"] .mt-hero-photo > img.mt-img-dark {
+    display: none;
+  }
+
+  .mt-hero-photo .mt-hero-mobile {
+    display: block;
+  }
+
   .mt-hero-overlay {
     position: static;
-    order: -1;
-    background: rgba(57, 148, 225, 0.3);
     padding-bottom: calc(28 * var(--u));
   }
 
-
   .mt-hero-head {
-    gap: calc(20 * var(--u));
-    margin-top: calc(32 * var(--u));
-  }
-
-  .mt-hero-logo-wrap img {
-    width: calc(166 * var(--u));
+    display: none;
   }
 
   .mt-map-head {
