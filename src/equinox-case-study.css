@@ -207,12 +207,17 @@
 }
 
 /* Fill stays the fixed brand blue (holds up fine against the photo's
-   white wall on its own). Shadow uses Bosch/CityLoop's own mechanism
-   — var(--eq-bg), the case study's own background token — rather than
-   a one-off color: pinned dark in light mode, since var(--eq-bg)
-   there is cream, nearly the same tone as the wall itself and would
-   vanish, then let loose to var(--eq-bg) once dark mode flips that
-   token to the site's actual near-black background. */
+   white wall on its own). Shadow uses var(--eq-ink) — the same ink
+   token every other case study uses for its own text — rather than a
+   one-off color. var(--eq-bg) was tried first (Bosch/CityLoop's own
+   mechanism) but its light/dark values (#1c1c1c / #17130e) are both
+   near-black, too close to read as a change; --eq-ink's dark value is
+   the site's actual light "ink" (#f4eee3), so this swings the shadow
+   from a hard dark outline in light mode to a pale cream one in dark
+   mode — a real, visible difference, not just a technically-correct
+   one, while pinned dark in light mode for the same reason as before
+   (var(--eq-ink) there is #1c1c1c already, so this is really only a
+   change in dark mode). */
 .eq h1.eq-hero-title {
   margin: 0;
   max-width: calc(600 * var(--u));
@@ -225,7 +230,7 @@
 
 @media (min-width: 761px) {
   [data-theme="dark"] .eq h1.eq-hero-title {
-    text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 var(--eq-bg);
+    text-shadow: calc(8 * var(--u)) calc(7 * var(--u)) 0 var(--eq-ink);
   }
 }
 
