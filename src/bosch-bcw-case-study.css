@@ -383,11 +383,12 @@
 
 /* ---------- Screens ---------- */
 
+/* Sized independently of .bcw-wrap (1180px) rather than nested inside
+   it — 1416px is exactly 1180px scaled up 20%, with the same 48px
+   viewport gutter so it stays just as responsive at narrow widths. */
 .bcw-screens-figure {
-  margin: calc(48 * var(--u)) 0 0;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--bcw-rule);
+  width: min(1416px, calc(100% - 48px));
+  margin: calc(48 * var(--u)) auto 0;
 }
 
 .bcw-screens-figure img {

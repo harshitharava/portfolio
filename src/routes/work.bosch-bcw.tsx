@@ -189,14 +189,14 @@ function BoschBcwPage() {
       <section className="bcw-section">
         <div className="bcw-wrap">
           <h2>Screens</h2>
-
-          <figure className="bcw-screens-figure">
-            <img
-              src={screensAll}
-              alt="All six Bosch BCW infographic screens: Tap to know the secret that shapes all UX; So, what hinders an amazing experience?; Bosch SDS is transforming ecosystems with Cognitive Experience Design; At the confluence of AI and ML, NLP, Big Data and Analytics, Cloudification, and Smart Commerce; impact metrics of 20 to 30 percent reduction, 30 percent faster, and a 20 percent surge; and Let's drive #SmarterDigital with Cognitive Experience Design"
-            />
-          </figure>
         </div>
+
+        <figure className="bcw-screens-figure">
+          <img
+            src={screensAll}
+            alt="All six Bosch BCW infographic screens: Tap to know the secret that shapes all UX; So, what hinders an amazing experience?; Bosch SDS is transforming ecosystems with Cognitive Experience Design; At the confluence of AI and ML, NLP, Big Data and Analytics, Cloudification, and Smart Commerce; impact metrics of 20 to 30 percent reduction, 30 percent faster, and a 20 percent surge; and Let's drive #SmarterDigital with Cognitive Experience Design"
+          />
+        </figure>
       </section>
     </main>
   );
