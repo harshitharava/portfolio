@@ -94,7 +94,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:site_name", content: "Harshith Arava" },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:site", content: "@Lovable" },
       ],
       links: [
         {
@@ -103,8 +102,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         },
         {
           rel: "icon",
+          href: `${import.meta.env.BASE_URL}favicon.svg`,
+          type: "image/svg+xml",
+        },
+        {
+          rel: "icon",
           href: `${import.meta.env.BASE_URL}favicon.ico`,
-          type: "image/x-icon",
+          sizes: "any",
         },
         { rel: "preconnect", href: "https://api.fontshare.com" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
