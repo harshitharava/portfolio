@@ -82,6 +82,7 @@
   --pf-accent-contrast: #fffdf8;
   --ok: #2c8c5e;
   --redline: #f4500c;
+  --danger: #c33a2e;
 
   --font-display: "Clash Display", "Satoshi", system-ui, sans-serif;
   --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
@@ -110,6 +111,7 @@
   --pf-accent-contrast: #1c130b;
   --ok: #4fbf8b;
   --redline: #ff6b2c;
+  --danger: #e0685c;
   --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
   --shadow-soft: 0 14px 34px -18px rgba(0, 0, 0, 0.5);
 }
@@ -324,6 +326,12 @@ section {
 .btn-primary:hover {
   background: var(--pf-accent-deep);
   box-shadow: 0 14px 30px -12px var(--pf-accent);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .btn-ghost {
@@ -1338,6 +1346,32 @@ section {
   font-size: 0.8rem;
   color: var(--ink-3);
   margin-top: 14px;
+}
+
+.form-status {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--pf-radius-sm);
+  border: 1.5px solid transparent;
+}
+
+.form-status a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.form-status-success {
+  color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  border-color: color-mix(in srgb, var(--ok) 35%, transparent);
+}
+
+.form-status-error {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 35%, transparent);
 }
 
 /* ---------- Footer ---------- */

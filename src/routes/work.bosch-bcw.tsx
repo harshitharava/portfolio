@@ -24,6 +24,27 @@ export const Route = createFileRoute("/work/bosch-bcw")({
         content:
           "An interactive infographic designed for Bosch's BCW 2024 global hybrid event, built in Adobe XD under a two-day deadline.",
       },
+      {
+        property: "og:title",
+        content: "Bosch BCW Interactive Infographic | Harshith Arava",
+      },
+      {
+        property: "og:description",
+        content:
+          "An interactive infographic designed for Bosch's BCW 2024 global hybrid event, built in Adobe XD under a two-day deadline.",
+      },
+      { property: "og:type", content: "article" },
+      {
+        property: "og:url",
+        content: "https://harshitharava.github.io/portfolio/work/bosch-bcw",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://harshitharava.github.io/portfolio/work/bosch-bcw",
+      },
     ],
   }),
   component: BoschBcwPage,

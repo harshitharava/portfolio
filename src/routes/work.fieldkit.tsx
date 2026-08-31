@@ -9,11 +9,10 @@ export const Route = createFileRoute("/work/fieldkit")({
       { property: "og:title", content: 'FieldKit case study — Harshith Arava' },
       { property: "og:description", content: "UX case study: an exception-first fleet operations dashboard that took a dispatcher's morning from 40 tabs to one screen. 62% faster to find at-risk trailers." },
       { property: "og:type", content: 'article' },
-      { property: "og:url", content: '/work/fieldkit' },
+      { property: "og:url", content: 'https://harshitharava.github.io/portfolio/work/fieldkit' },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: '/work/fieldkit' }],
+    links: [{ rel: "canonical", href: 'https://harshitharava.github.io/portfolio/work/fieldkit' }],
   }),
   component: FieldkitPage,
 });

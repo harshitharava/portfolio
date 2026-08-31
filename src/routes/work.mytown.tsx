@@ -51,11 +51,10 @@ export const Route = createFileRoute("/work/mytown")({
       { property: "og:title", content: "MyTown case study — Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/work/mytown" },
+      { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/mytown" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: "/work/mytown" }],
+    links: [{ rel: "canonical", href: "https://harshitharava.github.io/portfolio/work/mytown" }],
   }),
   component: MyTownPage,
 });

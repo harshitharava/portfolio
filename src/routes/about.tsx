@@ -12,11 +12,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Harshith Arava — UX Designer" },
       { property: "og:description", content: "From graphic design to Human-Technology Interaction: craft, research, and product thinking." },
       { property: "og:type", content: "profile" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://harshitharava.github.io/portfolio/about" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://harshitharava.github.io/portfolio/about" }],
   }),
   component: AboutPage,
 });

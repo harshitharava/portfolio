@@ -24,6 +24,27 @@ export const Route = createFileRoute("/work/infosys")({
         content:
           "An analytics-driven platform that enhances user engagement through personalized recommendations and interactive AI insights.",
       },
+      {
+        property: "og:title",
+        content: "Infosys Gen AI Web Application | Harshith Arava",
+      },
+      {
+        property: "og:description",
+        content:
+          "An analytics-driven platform that enhances user engagement through personalized recommendations and interactive AI insights.",
+      },
+      { property: "og:type", content: "article" },
+      {
+        property: "og:url",
+        content: "https://harshitharava.github.io/portfolio/work/infosys",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://harshitharava.github.io/portfolio/work/infosys",
+      },
     ],
   }),
   component: InfosysPage,

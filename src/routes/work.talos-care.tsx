@@ -22,11 +22,10 @@ export const Route = createFileRoute("/work/talos-care")({
       { property: "og:title", content: "Talos Care case study — Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/work/talos-care" },
+      { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/talos-care" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: "/work/talos-care" }],
+    links: [{ rel: "canonical", href: "https://harshitharava.github.io/portfolio/work/talos-care" }],
   }),
   component: TalosCarePage,
 });

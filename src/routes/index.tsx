@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 import talosCareCard from "@/assets/cards/talos-card.webp";
 import playPalCard from "@/assets/cards/playpal-card.webp";
@@ -26,17 +27,57 @@ export const Route = createFileRoute("/")({
           "Making technology make sense. UX Designer focused on Human-Technology Interaction, UX Research, and AI.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      {
+        property: "og:url",
+        content: "https://harshitharava.github.io/portfolio/",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://harshitharava.github.io/portfolio/",
+      },
+    ],
   }),
   component: Index,
 });
 
 function Index() {
   usePortfolioEffects();
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
+  const handleContactSubmit = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setFormStatus("submitting");
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/aravaharshith@gmail.com",
+        {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        },
+      );
+      const data = await response.json().catch(() => null);
+      // FormSubmit returns HTTP 200 even when it didn't actually deliver
+      // the message (e.g. "needs activation") — the real result is in
+      // the JSON body's `success` field, not the HTTP status.
+      if (!response.ok || !data || data.success === "false") {
+        throw new Error("Request failed");
+      }
+      setFormStatus("success");
+      form.reset();
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
     <main id="main">
       <section className={"hero"} id={"top"}>
@@ -1242,8 +1283,8 @@ function Index() {
 
             <form
               className={"contact-form reveal"}
-              action={"#contact-form-placeholder"}
               method={"POST"}
+              onSubmit={handleContactSubmit}
             >
               <h3>Tell me about your project</h3>
               <input
@@ -1301,12 +1342,34 @@ function Index() {
                   placeholder={"What are you building, and where does it hurt?"}
                 ></textarea>
               </div>
-              <button className={"btn btn-primary"} type={"submit"}>
-                Send message{" "}
+              <button
+                className={"btn btn-primary"}
+                type={"submit"}
+                disabled={formStatus === "submitting"}
+              >
+                {formStatus === "submitting" ? "Sending…" : "Send message"}{" "}
                 <span className={"arrow"} aria-hidden={"true"}>
                   →
                 </span>
               </button>
+              <div aria-live={"polite"}>
+                {formStatus === "success" && (
+                  <p className={"form-status form-status-success"}>
+                    Thanks — your message is on its way. I reply to every
+                    serious message within 48 hours.
+                  </p>
+                )}
+                {formStatus === "error" && (
+                  <p className={"form-status form-status-error"}>
+                    Something went wrong sending that. Please try again, or
+                    email me directly at{" "}
+                    <a href={"mailto:aravaharshith@gmail.com"}>
+                      aravaharshith@gmail.com
+                    </a>
+                    .
+                  </p>
+                )}
+              </div>
               <p className={"form-note"}>
                 Straight to my inbox. No newsletters, no spam — just a reply.
               </p>

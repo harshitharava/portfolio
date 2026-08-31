@@ -22,6 +22,24 @@ export const Route = createFileRoute("/work/equinox")({
         content:
           "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch — a brand language built to feel human, flexible, and distinctly its own.",
       },
+      { property: "og:title", content: "Infosys Equinox | Harshith Arava" },
+      {
+        property: "og:description",
+        content:
+          "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch — a brand language built to feel human, flexible, and distinctly its own.",
+      },
+      { property: "og:type", content: "article" },
+      {
+        property: "og:url",
+        content: "https://harshitharava.github.io/portfolio/work/equinox",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://harshitharava.github.io/portfolio/work/equinox",
+      },
     ],
   }),
   component: EquinoxPage,

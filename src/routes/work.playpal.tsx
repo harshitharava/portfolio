@@ -47,11 +47,10 @@ export const Route = createFileRoute("/work/playpal")({
       { property: "og:title", content: "PlayPal case study — Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/work/playpal" },
+      { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/playpal" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    // TEMPORARY PLACEHOLDER: relative canonical until the real domain is live.
-    links: [{ rel: "canonical", href: "/work/playpal" }],
+    links: [{ rel: "canonical", href: "https://harshitharava.github.io/portfolio/work/playpal" }],
   }),
   component: PlayPalPage,
 });
