@@ -485,6 +485,20 @@ section {
   overflow: hidden;
 }
 
+/* The padding above is sized off viewport *width* (vw), so it doesn't
+   shrink at all on a short but wide window — a laptop at 150% Windows
+   scaling with a visible bookmarks bar can end up with a browser
+   viewport under 700px tall while still being 1700px+ wide. Without
+   this, the CTA button (and the marquee band right after it) sits
+   flush against the bottom edge, cut off or nearly so, even though
+   nothing is technically overflowing. */
+@media (max-height: 800px) {
+  .hero {
+    padding-top: calc(var(--nav-h) + 32px);
+    padding-bottom: 28px;
+  }
+}
+
 .hero-inner {
   position: relative;
 }
