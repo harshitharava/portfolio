@@ -33,11 +33,57 @@ export const Route = createFileRoute("/work/talos-care")({
 const DESIGN_QUESTION =
   "How might we help patients disclose sensitive health information honestly while making them feel safe, respected, and in control?";
 
+const TOC_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "contribution", label: "My Contribution" },
+  { id: "understanding-the-problem", label: "Understanding the Problem" },
+  { id: "why-conversational-ai", label: "Why Conversational AI?" },
+  { id: "existing-solutions", label: "Existing Solutions" },
+  { id: "research", label: "Research" },
+  { id: "research-findings", label: "Research Findings" },
+  { id: "research-insights", label: "Research Insights" },
+  { id: "design-constraints", label: "Design Constraints" },
+  { id: "designing-for-trust", label: "Designing for Trust" },
+  { id: "designing-conversations", label: "Designing Conversations" },
+  { id: "the-experience", label: "The Experience" },
+  { id: "reflection", label: "Reflection" },
+];
+
 function TalosCarePage() {
   usePortfolioEffects();
 
+  const handleTocClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "start",
+    });
+    history.pushState(null, "", `#${id}`);
+  };
+
   return (
     <main id="main" className="tcs">
+      <nav className="tcs-toc" aria-label="Case study contents">
+        <p className="tcs-toc-eyebrow">Contents</p>
+        <ul>
+          {TOC_SECTIONS.map((section) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                onClick={(event) => handleTocClick(event, section.id)}
+              >
+                {section.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       {/* ---------- Hero ---------- */}
       <section className="tcs-hero">
         <div className="tcs-hero-media">
@@ -67,7 +113,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Intro + meta ---------- */}
-      <div className="tcs-wrap">
+      <div className="tcs-wrap" id="overview">
         <div className="tcs-intro">
           <h1>Designing trustworthy AI conversations for sensitive healthcare disclosure</h1>
           <p>
@@ -99,7 +145,7 @@ function TalosCarePage() {
       </div>
 
       {/* ---------- My contribution ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="contribution">
         <div className="tcs-wrap">
           <div className="tcs-contribution reveal">
             <img src={contributionImage} alt="Talos Care home screen on a mobile device" />
@@ -138,7 +184,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Understanding the problem ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="understanding-the-problem">
         <div className="tcs-wrap reveal">
           <h2>Understanding the Problem</h2>
           <div className="tcs-callout tcs-callout-full">
@@ -170,7 +216,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Why conversational AI ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="why-conversational-ai">
         <div className="tcs-wrap reveal">
           <h2>Why Conversational AI?</h2>
           <p>
@@ -217,7 +263,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Existing solutions ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="existing-solutions">
         <div className="tcs-wrap reveal">
           <h2>Existing Solutions</h2>
           <div className="tcs-cols">
@@ -292,7 +338,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Research ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="research">
         <div className="tcs-wrap reveal">
           <h2>Research</h2>
           <p>
@@ -338,7 +384,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Research findings ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="research-findings">
         <div className="tcs-wrap reveal">
           <h2>Research Findings</h2>
           <p>
@@ -410,7 +456,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Research insights ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="research-insights">
         <div className="tcs-wrap reveal">
           <h2>Research Insights</h2>
           <p>
@@ -453,7 +499,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Design constraints ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="design-constraints">
         <div className="tcs-wrap reveal">
           <h2>Design Constraints</h2>
           <p>
@@ -484,7 +530,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Designing for trust ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="designing-for-trust">
         <div className="tcs-wrap reveal">
           <h2>Designing for Trust</h2>
           <div className="tcs-callout tcs-callout-full">
@@ -541,7 +587,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Designing conversations ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="designing-conversations">
         <div className="tcs-wrap reveal">
           <h2>Designing Conversations</h2>
           <p>
@@ -612,7 +658,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- The experience ---------- */}
-      <section className="tcs-section">
+      <section className="tcs-section" id="the-experience">
         <div className="tcs-wrap reveal">
           <h2>The Experience</h2>
           <p>
@@ -701,7 +747,7 @@ function TalosCarePage() {
       </section>
 
       {/* ---------- Reflection ---------- */}
-      <section className="tcs-section tcs-reflection">
+      <section className="tcs-section tcs-reflection" id="reflection">
         <div className="tcs-wrap reveal">
           <h2>Reflection</h2>
           <p>
