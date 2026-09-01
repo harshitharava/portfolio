@@ -66,7 +66,12 @@
    Floats in the left gutter next to the 1180px content column. Only
    shown once the viewport is wide enough for it not to crowd that
    column — below this the gutter is too narrow for a legible sidebar,
-   so it's hidden entirely rather than overlapping the content. */
+   so it's hidden entirely rather than overlapping the content.
+
+   The hero photo and the Experience section's frame both bleed full-
+   width with no side margin, so even at a wide viewport the fixed TOC
+   would sit on top of them there — work.talos-care.tsx toggles
+   .tcs-toc-hidden via IntersectionObserver while either is behind it. */
 .tcs-toc {
   display: none;
 }
@@ -81,6 +86,13 @@
     max-height: calc(100vh - var(--nav-h) - 80px);
     overflow-y: auto;
     z-index: 10;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
+
+  .tcs-toc.tcs-toc-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .tcs-toc-eyebrow {
@@ -100,7 +112,7 @@
     border-left: 1.5px solid var(--tcs-stroke);
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    gap: 10px;
   }
 
   .tcs-toc a {
@@ -111,13 +123,23 @@
     color: var(--tcs-ink);
     opacity: 0.65;
     text-decoration: none;
-    transition: opacity 0.2s, color 0.2s;
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-left: -14px;
+    transition: opacity 0.2s, color 0.2s, border-color 0.2s;
   }
 
   .tcs-toc a:hover,
   .tcs-toc a:focus-visible {
     opacity: 1;
     color: var(--tcs-green);
+  }
+
+  .tcs-toc a.current {
+    opacity: 1;
+    color: var(--tcs-green);
+    border-color: var(--tcs-red);
   }
 }
 
