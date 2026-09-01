@@ -168,8 +168,8 @@ function Index() {
             <p className={"eyebrow"}>Selected work</p>
             <h2>Selected work.</h2>
             <p className={"lede"}>
-              Three projects across urban discovery, social experiences, and
-              care technology.
+              Four projects across urban discovery, social experiences, care
+              technology, and campus community.
             </p>
           </div>
 
@@ -782,6 +782,28 @@ function Index() {
             </a>
           </article>
 
+          <article className={"work-card reveal"}>
+            <div className={"work-copy"}>
+              <div className={"case-tags"}>
+                <span className={"tag filled"}>MyTown</span>
+                <span className={"tag"}>UX Research</span>
+                <span className={"tag"}>UX Design</span>
+                <span className={"tag"}>Interaction Design</span>
+              </div>
+              <h3>Helping students feel at home, sooner</h3>
+              <p>
+                Rethinking how people discover and connect with their local
+                community.
+              </p>
+              <Link className={"text-link"} to={"/work/mytown"}>
+                Read the case study <span aria-hidden={"true"}>→</span>
+              </Link>
+            </div>
+            <a className={"work-visual"} tabIndex={-1} aria-hidden={"true"}>
+              <img className={"work-visual-img"} src={myTownCard} alt="" />
+            </a>
+          </article>
+
           <div className={"reveal"}>
             <p
               className={"eyebrow"}
@@ -791,47 +813,22 @@ function Index() {
             </p>
           </div>
           {/* Free-running marquee: the track below renders this same set of
-              four cards twice back-to-back and loops via CSS transform, so
+              five cards twice back-to-back and loops via CSS transform, so
               it always scrolls on its own instead of needing a manual drag.
               Only the first copy is reachable by keyboard/screen reader —
               the second exists purely for the seamless visual loop. */}
           <div className={"more-work"}>
             <div className={"more-work-track"}>
-              <Link
-                className={"mini-card reveal"}
-                to={"/work/mytown"}
-                aria-label={"MyTown case study"}
-              >
-                <div className={"mini-thumb"}>
-                  <img src={myTownCard} alt="MyTown project visual" />
-                </div>
-                <div className={"mini-body"}>
-                  <span className={"cat"}>
-                    UX Research · UX Design · Interaction Design
-                  </span>
-                  <h3>MyTown</h3>
-                  <p>
-                    Rethinking how people discover and connect with their
-                    local community.
-                  </p>
-                  {/* the whole card is already the link (wrapped in <Link>
-                      above); nesting a second <Link>/<a> here is invalid
-                      HTML — browsers auto-correct by closing the outer tag
-                      early, which was visually splitting the thumbnail and
-                      body into two separate boxes. A plain span keeps the
-                      same "Read the case study →" affordance text without
-                      creating a second, illegally-nested link. */}
-                  <span className={"text-link"} aria-hidden={"true"}>
-                    Read the case study <span aria-hidden={"true"}>→</span>
-                  </span>
-                </div>
-              </Link>
-
+              {/* the whole card is already the link; nesting a second
+                  <Link>/<a> inside .mini-body is invalid HTML — browsers
+                  auto-correct by closing the outer tag early, which visually
+                  splits the thumbnail and body into two separate boxes. A
+                  plain span keeps the "Read the case study →" affordance
+                  text without creating a second, illegally-nested link. */}
               <Link
                 className={"mini-card reveal"}
                 to={"/work/equinox"}
                 aria-label={"Infosys Equinox case study"}
-                data-delay={"1"}
               >
                 <div className={"mini-thumb"}>
                   <img
@@ -947,30 +944,6 @@ function Index() {
               </Link>
 
               {/* ---- duplicate copy, decorative only ---- */}
-              <Link
-                className={"mini-card"}
-                to={"/work/mytown"}
-                aria-hidden={"true"}
-                tabIndex={-1}
-              >
-                <div className={"mini-thumb"}>
-                  <img src={myTownCard} alt="" />
-                </div>
-                <div className={"mini-body"}>
-                  <span className={"cat"}>
-                    UX Research · UX Design · Interaction Design
-                  </span>
-                  <h3>MyTown</h3>
-                  <p>
-                    Rethinking how people discover and connect with their
-                    local community.
-                  </p>
-                  <span className={"text-link"}>
-                    Read the case study <span aria-hidden={"true"}>→</span>
-                  </span>
-                </div>
-              </Link>
-
               <Link
                 className={"mini-card"}
                 to={"/work/equinox"}
