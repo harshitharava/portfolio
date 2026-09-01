@@ -57,22 +57,30 @@ function TalosCarePage() {
     const toc = document.querySelector<HTMLElement>(".tcs-toc");
     if (!toc) return;
 
-    // The hero photo and the Experience section's frame both bleed past
-    // the 1180px content column with no side margin, so the fixed TOC
-    // would sit on top of them regardless of viewport width — hide it
-    // while either is in the band of the viewport it occupies.
-    const bleedEls = document.querySelectorAll(".tcs-hero-media, .tcs-frame");
-    const bleedIO = new IntersectionObserver(
-      (entries) => {
-        const overlapping = entries.some((entry) => entry.isIntersecting);
-        toc.classList.toggle("tcs-toc-hidden", overlapping);
-      },
-      { rootMargin: "-120px 0px -20% 0px" },
+    // Highlights the current section as it's scrolled through.
+    const tocLinks = Array.from(toc.querySelectorAll<HTMLAnchorElement>("a"));
+    const sections = TOC_SECTIONS.map((s) => document.getElementById(s.id)).filter(
+      (el): el is HTMLElement => el !== null,
     );
-    bleedEls.forEach((el) => bleedIO.observe(el));
+    const sectionIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach((link) =>
+              link.classList.toggle(
+                "current",
+                link.getAttribute("href") === `#${entry.target.id}`,
+              ),
+            );
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px" },
+    );
+    sections.forEach((el) => sectionIO.observe(el));
 
     return () => {
-      bleedIO.disconnect();
+      sectionIO.disconnect();
     };
   }, []);
 
@@ -92,22 +100,6 @@ function TalosCarePage() {
 
   return (
     <main id="main" className="tcs">
-      <nav className="tcs-toc" aria-label="Case study contents">
-        <p className="tcs-toc-eyebrow">Contents</p>
-        <ul>
-          {TOC_SECTIONS.map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                onClick={(event) => handleTocClick(event, section.id)}
-              >
-                {section.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       {/* ---------- Hero ---------- */}
       <section className="tcs-hero">
         <div className="tcs-hero-media">
@@ -136,6 +128,24 @@ function TalosCarePage() {
         </div>
       </section>
 
+      <div className="tcs-body">
+        <nav className="tcs-toc" aria-label="Case study contents">
+          <p className="tcs-toc-eyebrow">Contents</p>
+          <ul>
+            {TOC_SECTIONS.map((section) => (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  onClick={(event) => handleTocClick(event, section.id)}
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="tcs-body-content">
       {/* ---------- Intro + meta ---------- */}
       <div className="tcs-wrap" id="overview">
         <div className="tcs-intro">
@@ -793,6 +803,8 @@ function TalosCarePage() {
           </p>
         </div>
       </section>
+        </div>
+      </div>
 
       {/* ---------- Closing statement ---------- */}
       <section className="tcs-closing">
