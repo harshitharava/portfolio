@@ -57,27 +57,41 @@ function TalosCarePage() {
     const toc = document.querySelector<HTMLElement>(".tcs-toc");
     if (!toc) return;
 
-    // Highlights the current section as it's scrolled through.
+    // Highlights the current section as it's scrolled through. Always
+    // recomputes the answer from every section's current position
+    // rather than incrementally toggling off a single IntersectionObserver
+    // entry — the previous version only ever reacted to a section
+    // *entering* view and never explicitly cleared one that had
+    // scrolled out, so a fast jump (click, or a short in-between
+    // section) could leave the old section marked current forever.
     const tocLinks = Array.from(toc.querySelectorAll<HTMLAnchorElement>("a"));
     const sections = TOC_SECTIONS.map((s) => document.getElementById(s.id)).filter(
       (el): el is HTMLElement => el !== null,
     );
-    const sectionIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            tocLinks.forEach((link) =>
-              link.classList.toggle(
-                "current",
-                link.getAttribute("href") === `#${entry.target.id}`,
-              ),
-            );
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -70% 0px" },
-    );
+
+    const setCurrent = (id: string | null) => {
+      tocLinks.forEach((link) =>
+        link.classList.toggle("current", link.getAttribute("href") === `#${id}`),
+      );
+    };
+
+    const updateCurrent = () => {
+      const activationLine = window.innerHeight * 0.3;
+      let currentId = sections[0]?.id ?? null;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= activationLine) {
+          currentId = section.id;
+        }
+      }
+      setCurrent(currentId);
+    };
+
+    const sectionIO = new IntersectionObserver(updateCurrent, {
+      rootMargin: "0px 0px -60% 0px",
+      threshold: [0, 1],
+    });
     sections.forEach((el) => sectionIO.observe(el));
+    updateCurrent();
 
     return () => {
       sectionIO.disconnect();
@@ -96,6 +110,11 @@ function TalosCarePage() {
       block: "start",
     });
     history.pushState(null, "", `#${id}`);
+    // Set immediately rather than waiting on the scroll-driven observer,
+    // so the highlight always matches exactly what was clicked.
+    document.querySelectorAll(".tcs-toc a").forEach((link) =>
+      link.classList.toggle("current", link.getAttribute("href") === `#${id}`),
+    );
   };
 
   return (
