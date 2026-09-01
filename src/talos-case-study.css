@@ -156,7 +156,11 @@
 .tcs-hero-tags {
   position: absolute;
   inset-inline: 0;
-  top: 10.6%;
+  /* max() rather than a bare percentage — 10.6% of a wide, short hero
+     can resolve to less than the fixed nav's own height, which
+     tucked the tags in behind/under it. This guarantees clearance
+     below the nav regardless of the hero's aspect ratio. */
+  top: max(10.6%, calc(var(--nav-h) + 24px));
   display: flex;
   flex-wrap: wrap;
   gap: calc(22 * var(--u));
