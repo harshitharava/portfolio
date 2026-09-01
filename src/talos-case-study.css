@@ -115,9 +115,13 @@
     padding: 0;
     display: grid;
     gap: 4px;
-    border-left: 1.5px solid var(--tcs-stroke);
   }
 
+  /* Each link carries its own border-left rather than overlaying a
+     second border on top of a shared one on the <ul> — two separate
+     border-left declarations meant to sit exactly on top of each
+     other doesn't line up cleanly at every zoom/scale factor, and
+     was rendering as two visibly separate lines. */
   .tcs-toc a {
     display: block;
     font-family: var(--font-body);
@@ -127,8 +131,7 @@
     opacity: 0.65;
     text-decoration: none;
     padding: 6px 0 6px 16px;
-    margin-left: -1.5px;
-    border-left: 2px solid transparent;
+    border-left: 1.5px solid var(--tcs-stroke);
     transition: opacity 0.2s, color 0.2s, border-color 0.2s;
   }
 
@@ -207,11 +210,6 @@
 
 .tcs-section {
   padding-block: calc(53 * var(--u));
-  scroll-margin-top: calc(var(--nav-h) + 24px);
-}
-
-#overview {
-  scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
 /* artboard gaps that don't come from the section rhythm */
