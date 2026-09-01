@@ -112,7 +112,7 @@
     border-left: 1.5px solid var(--tcs-stroke);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 13px;
   }
 
   .tcs-toc a {
@@ -123,23 +123,13 @@
     color: var(--tcs-ink);
     opacity: 0.65;
     text-decoration: none;
-    border: 1.5px solid transparent;
-    border-radius: 999px;
-    padding: 6px 14px;
-    margin-left: -14px;
-    transition: opacity 0.2s, color 0.2s, border-color 0.2s;
+    transition: opacity 0.2s, color 0.2s;
   }
 
   .tcs-toc a:hover,
   .tcs-toc a:focus-visible {
     opacity: 1;
     color: var(--tcs-green);
-  }
-
-  .tcs-toc a.current {
-    opacity: 1;
-    color: var(--tcs-green);
-    border-color: var(--tcs-red);
   }
 }
 

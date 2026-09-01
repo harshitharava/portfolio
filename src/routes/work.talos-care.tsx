@@ -57,28 +57,6 @@ function TalosCarePage() {
     const toc = document.querySelector<HTMLElement>(".tcs-toc");
     if (!toc) return;
 
-    // Highlights the current section as it's scrolled through.
-    const tocLinks = Array.from(toc.querySelectorAll<HTMLAnchorElement>("a"));
-    const sections = TOC_SECTIONS.map((s) => document.getElementById(s.id)).filter(
-      (el): el is HTMLElement => el !== null,
-    );
-    const sectionIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            tocLinks.forEach((link) =>
-              link.classList.toggle(
-                "current",
-                link.getAttribute("href") === `#${entry.target.id}`,
-              ),
-            );
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -70% 0px" },
-    );
-    sections.forEach((el) => sectionIO.observe(el));
-
     // The hero photo and the Experience section's frame both bleed past
     // the 1180px content column with no side margin, so the fixed TOC
     // would sit on top of them regardless of viewport width — hide it
@@ -94,7 +72,6 @@ function TalosCarePage() {
     bleedEls.forEach((el) => bleedIO.observe(el));
 
     return () => {
-      sectionIO.disconnect();
       bleedIO.disconnect();
     };
   }, []);
