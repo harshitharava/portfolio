@@ -68,9 +68,7 @@ function PhytivesPage() {
         </div>
 
         <div className="phy-wrap">
-          <h1 className="phy-hero-title">
-            Phytives brand &amp; packaging redesign
-          </h1>
+          <h1 className="sr-only">Phytives brand &amp; packaging redesign</h1>
           <p className="phy-hero-sub">
             Phytives is a wellness brand offering plant-based supplements and
             natural health solutions for holistic well-being. This project
@@ -136,14 +134,6 @@ function PhytivesPage() {
               <strong>efficacy</strong>.
             </p>
           </div>
-
-          <blockquote className="phy-pull">
-            <strong>Phytives</strong>, a brand at the intersection of nature
-            and science, captures the essence of botanical healing through
-            its clean and innovative design &mdash; a modern, minimalist
-            aesthetic mirroring the precision and effectiveness of its
-            plant-derived solutions.
-          </blockquote>
         </div>
       </section>
 
