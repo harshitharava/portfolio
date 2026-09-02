@@ -152,6 +152,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap",
         },
+        {
+          // Phytives case study only: its Typography card names Gotham,
+          // which is a commercial font with no free web-embeddable
+          // distribution (unlike Kanit/DM Sans above) — Montserrat is used
+          // as the closest freely-licensed geometric-sans substitute so the
+          // specimen renders as an actual typeface rather than falling back
+          // to system-ui.
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap",
+        },
       ],
     }),
     shellComponent: RootShell,

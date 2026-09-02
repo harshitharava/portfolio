@@ -217,8 +217,12 @@
   border-bottom: 1px solid var(--phy-rule);
 }
 
+/* Gotham itself has no free web-embeddable distribution — see the
+   Google Fonts link comment in __root.tsx for why Montserrat, the
+   closest freely-licensed geometric-sans substitute, is used here
+   instead of var(--font-display). */
 .phy-type-glyphs {
-  font-family: var(--font-display);
+  font-family: "Montserrat", var(--font-display);
   font-weight: 700;
   font-size: calc(140 * var(--u));
   line-height: 1;
@@ -241,7 +245,8 @@
 }
 
 .phy-type-sample {
-  font-family: var(--font-mono);
+  font-family: "Montserrat", var(--font-display);
+  font-weight: 500;
   font-size: calc(19 * var(--u));
   line-height: 1.7;
   color: var(--phy-ink-soft) !important;
