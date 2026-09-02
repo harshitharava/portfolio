@@ -136,10 +136,10 @@ function PhytivesPage() {
         <div className="phy-wrap">
           <h2>Design foundations</h2>
 
+          <span className="phy-foundation-label">Typography</span>
           <div className="phy-type">
             <span className="phy-type-glyphs">Aa</span>
             <div className="phy-type-info">
-              <span className="phy-foundation-label">Typography</span>
               <p>
                 Set in the <strong>Gotham</strong> font family across
                 packaging, stationery, and campaign material.

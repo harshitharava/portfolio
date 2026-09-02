@@ -213,17 +213,16 @@
   display: flex;
   align-items: center;
   gap: calc(48 * var(--u));
-  background: var(--phy-teal-deep);
-  color: #fff;
-  border-radius: calc(20 * var(--u));
-  padding: calc(48 * var(--u));
+  padding-bottom: calc(48 * var(--u));
+  border-bottom: 1px solid var(--phy-rule);
 }
 
 .phy-type-glyphs {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: calc(160 * var(--u));
+  font-size: calc(140 * var(--u));
   line-height: 1;
+  color: var(--phy-teal-deep);
   flex: 0 0 auto;
 }
 
@@ -233,18 +232,19 @@
 }
 
 .phy-type-info p {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--phy-ink-soft);
   margin: 0 0 calc(16 * var(--u));
 }
 
 .phy-type-info strong {
-  color: #fff;
+  color: var(--phy-ink);
 }
 
 .phy-type-sample {
+  font-family: var(--font-mono);
   font-size: calc(19 * var(--u));
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--phy-ink-soft) !important;
 }
 
 .phy-foundation-label {
