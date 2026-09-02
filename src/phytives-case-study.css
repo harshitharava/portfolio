@@ -138,17 +138,17 @@
   white-space: nowrap;
 }
 
-/* The hero photo is a fixed light studio shot that never changes
-   with theme, so the on-photo tag pill keeps its own fixed light
-   styling in dark mode too — a dark pill here would vanish against
-   the page's own dark background once the pill scrolls into normal
-   flow on mobile, so mobile gets its own rule below instead. */
-
-.phy-hero-sub {
-  max-width: none;
-  margin: calc(56 * var(--u)) 0 0;
-  color: var(--phy-ink-soft);
-  font-size: 1.05em;
+/* The hero photo itself is a fixed light studio shot that never
+   changes with theme, but the pill's own colors still need to flip —
+   otherwise this is the one element on the page that visibly ignores
+   the dark toggle. Matches Bosch BCW/Talos Care: a light fill in
+   light mode, a dark fill in dark mode, both legible against the same
+   unchanging light photo. Tags stay on the photo at every width here
+   (no mobile "off the photo" reflow), so this isn't width-scoped. */
+[data-theme="dark"] .phy-hero-tags > span {
+  color: #f4eee3;
+  background: rgba(20, 16, 12, 0.78);
+  border-color: rgba(244, 238, 227, 0.35);
 }
 
 /* ---------- Meta row ---------- */
