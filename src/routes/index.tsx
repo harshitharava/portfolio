@@ -851,7 +851,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card reveal"} data-delay={"1"}>
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/phytives"}
+                aria-label={"Phytives brand and packaging redesign case study"}
+                data-delay={"1"}
+              >
                 <div className={"mini-thumb"}>
                   <img
                     src={phytivesCard}
@@ -867,8 +872,11 @@ function Index() {
                     A visual identity built to give a growing brand a clearer
                     personality.
                   </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <article className={"mini-card reveal"} data-delay={"2"}>
                 <div className={"mini-thumb"}>
@@ -968,7 +976,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card"} aria-hidden={"true"}>
+              <Link
+                className={"mini-card"}
+                to={"/work/phytives"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
                 <div className={"mini-thumb"}>
                   <img src={phytivesCard} alt="" />
                 </div>
@@ -981,8 +994,11 @@ function Index() {
                     A visual identity built to give a growing brand a clearer
                     personality.
                   </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <article className={"mini-card"} aria-hidden={"true"}>
                 <div className={"mini-thumb"}>

@@ -46,12 +46,19 @@ its own thing.
 | Infosys Gen AI | `/work/infosys` | `src/infosys-case-study.css` |
 | Infosys Equinox | `/work/equinox` | `src/equinox-case-study.css` |
 | Bosch BCW | `/work/bosch-bcw` | `src/bosch-bcw-case-study.css` |
+| Phytives | `/work/phytives` | `src/phytives-case-study.css` |
 
-Talos Care, PlayPal and CityLoop are the three featured **Selected Work**
-cards on the homepage; the other four appear in the "A Few More Things I've
-Made" secondary row. `src/routes/work.fieldkit.tsx` also exists but is not
-linked from the homepage or any other page — it's an orphaned route from an
-earlier design iteration, left in place rather than deleted.
+Talos Care, PlayPal, CityLoop and MyTown are the four featured **Selected
+Work** cards on the homepage; the other three appear in the "A Few More
+Things I've Made" secondary row. `src/routes/work.fieldkit.tsx` also exists
+but is not linked from the homepage or any other page — it's an orphaned
+route from an earlier design iteration, left in place rather than deleted.
+
+Phytives is a brand/packaging project, not a UX flow — its page skips the
+research/persona sections the app case studies have and instead walks
+About/Brief/Challenge copy, typography + color palette, stationery, and
+packaging/campaign renders, matching Bosch BCW's lighter weight rather than
+the full Figma-precise treatment of the app case studies.
 
 ## Conventions worth knowing before editing a case-study page
 

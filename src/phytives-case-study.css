@@ -1,0 +1,419 @@
+/* ============================================================
+   Phytives Brand & Packaging Redesign — case study page
+   ------------------------------------------------------------
+   Source is a 4-page deck (cover, About/Brief/Challenge, Color
+   Palette + two ad creatives, Typography + business cards) plus a
+   loose set of packaging, stationery, and campaign renders — a
+   branding/print project, not a UX flow, so there's no research
+   writeup, persona cards, or "My Contribution"/"Reflection"
+   section here, matching the restraint used on Bosch BCW.
+
+   Client/Tools/Deliverables in the hero meta row are inferred from
+   the brief's own wording and the supplied tag list (Packaging
+   Design, Branding, Art Direction, Photoshop, Illustrator), not an
+   explicit meta list in the deck — flagged here in case the real
+   details differ.
+
+   No dark-mode exports exist for this project, so every image is
+   used as-is in both themes, matching Infosys/Bosch BCW.
+
+   Colours are the deck's own named palette (#00953d, #007d90,
+   #568937, #00949f, #3f4440), not guessed.
+   ============================================================ */
+
+.phy {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --phy-bg: #f2eee3;
+  --phy-card: #ffffff;
+  --phy-ink: #1c1c1c;
+  --phy-ink-soft: #5c5c5c;
+  --phy-rule: #dcd6c8;
+  --phy-green: #00953d;
+  --phy-teal-deep: #007d90;
+  --phy-olive: #568937;
+  --phy-teal: #00949f;
+  --phy-dark: #3f4440;
+
+  background-color: var(--phy-bg);
+  color: var(--phy-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.phy :where(section) {
+  padding-block: 0;
+}
+
+.phy-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.phy-section {
+  padding-block: calc(64 * var(--u));
+}
+
+.phy p {
+  margin: 0 0 1em;
+}
+
+.phy p:last-child {
+  margin-bottom: 0;
+}
+
+.phy h1,
+.phy h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.phy h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.phy h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.phy h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.phy img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Hero ---------- */
+
+.phy-hero {
+  padding-top: 0;
+}
+
+.phy-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.phy-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2600 / 1721;
+  object-fit: cover;
+  object-position: center;
+}
+
+.phy-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  /* max() rather than a bare percentage — see Bosch BCW / Talos Care /
+     etc. for why: guarantees clearance below the fixed nav regardless
+     of how short the hero photo's own resolved height is. */
+  top: max(8%, calc(var(--nav-h) + 24px));
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+}
+
+.phy-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  line-height: 1;
+  color: var(--phy-dark);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(63, 68, 64, 0.15);
+  border-radius: 999px;
+  height: calc(64 * var(--u));
+  padding-inline: calc(31 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* The hero photo is a fixed light studio shot that never changes
+   with theme, so the on-photo tag pill keeps its own fixed light
+   styling in dark mode too — a dark pill here would vanish against
+   the page's own dark background once the pill scrolls into normal
+   flow on mobile, so mobile gets its own rule below instead. */
+
+.phy-hero-title {
+  margin: calc(56 * var(--u)) 0 0;
+  font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  max-width: calc(760 * var(--u));
+}
+
+.phy-hero-sub {
+  max-width: calc(640 * var(--u));
+  margin: calc(20 * var(--u)) 0 0;
+  color: var(--phy-ink-soft);
+  font-size: 1.05em;
+}
+
+/* ---------- Meta row ---------- */
+
+.phy-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(64 * var(--u));
+  border-top: 1px solid #939393;
+  border-bottom: 1px solid #939393;
+  padding-block: calc(50 * var(--u)) calc(56 * var(--u));
+  margin-top: calc(64 * var(--u));
+}
+
+.phy-meta h4 {
+  font-weight: 400;
+  color: var(--phy-ink-soft);
+  font-size: calc(28 * var(--u));
+  margin-bottom: calc(14 * var(--u));
+}
+
+.phy-meta p {
+  font-weight: 700;
+  font-size: calc(32 * var(--u));
+  line-height: 1.28;
+  margin: 0;
+}
+
+/* ---------- About / Brief / Challenge ---------- */
+
+.phy-info-row {
+  padding-block: calc(48 * var(--u));
+}
+
+.phy-info-row:first-child {
+  padding-top: 0;
+}
+
+.phy-info-row h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.phy-info-row p {
+  color: var(--phy-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.phy-info-row strong {
+  color: var(--phy-ink);
+  font-weight: 700;
+}
+
+.phy-pull {
+  margin: calc(56 * var(--u)) 0 0;
+  padding: calc(40 * var(--u)) calc(48 * var(--u));
+  background: var(--phy-teal);
+  color: #fff;
+  border-radius: calc(20 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.phy-pull strong {
+  font-weight: 700;
+}
+
+/* ---------- Design Foundations ---------- */
+
+.phy-type {
+  display: flex;
+  align-items: center;
+  gap: calc(48 * var(--u));
+  background: var(--phy-teal-deep);
+  color: #fff;
+  border-radius: calc(20 * var(--u));
+  padding: calc(48 * var(--u));
+}
+
+.phy-type-glyphs {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(160 * var(--u));
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.phy-type-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.phy-type-info p {
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 calc(16 * var(--u));
+}
+
+.phy-type-info strong {
+  color: #fff;
+}
+
+.phy-type-sample {
+  font-size: calc(19 * var(--u));
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.phy-foundation-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--phy-ink-soft);
+  margin: calc(48 * var(--u)) 0 calc(20 * var(--u));
+}
+
+.phy-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(20 * var(--u));
+}
+
+.phy-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 * var(--u));
+}
+
+.phy-swatch > span {
+  width: calc(96 * var(--u));
+  height: calc(96 * var(--u));
+  border-radius: calc(16 * var(--u));
+  border: 1px solid var(--phy-rule);
+  display: block;
+}
+
+.phy-swatch code {
+  font-family: var(--font-mono);
+  font-size: calc(15 * var(--u));
+  color: var(--phy-ink-soft);
+}
+
+/* ---------- Identity & Stationery ---------- */
+
+.phy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(32 * var(--u));
+  align-items: start;
+}
+
+.phy-cards img {
+  width: 100%;
+  height: auto;
+}
+
+.phy-letterhead {
+  margin: calc(48 * var(--u)) 0 0;
+  width: min(760px, 100%);
+  margin-inline: auto;
+}
+
+.phy-letterhead img {
+  width: 100%;
+  border-radius: calc(16 * var(--u));
+}
+
+/* ---------- Packaging & Campaign ---------- */
+
+.phy-ads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(32 * var(--u));
+}
+
+.phy-ads img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(20 * var(--u));
+}
+
+.phy-range-figure {
+  width: min(1416px, calc(100% - 48px));
+  margin: calc(48 * var(--u)) auto 0;
+}
+
+.phy-range-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(20 * var(--u));
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .phy {
+  --phy-bg: var(--bg);
+  --phy-ink: var(--ink);
+  --phy-ink-soft: #a89f8e;
+  --phy-card: #262019;
+  --phy-rule: #3d3624;
+}
+
+[data-theme="dark"] .phy-meta {
+  border-color: #5b5348;
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .phy {
+    --u: 0.62px;
+  }
+}
+
+@media (max-width: 760px) {
+  .phy-hero-media img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .phy-hero-tags {
+    padding-inline: 24px;
+    gap: calc(10 * var(--u));
+  }
+
+  .phy-hero-tags > span {
+    height: calc(56 * var(--u));
+  }
+
+  .phy-meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(40 * var(--u));
+  }
+
+  .phy-type {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(24 * var(--u));
+  }
+
+  .phy-cards,
+  .phy-ads {
+    grid-template-columns: 1fr;
+  }
+}

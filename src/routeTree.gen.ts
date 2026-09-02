@@ -17,6 +17,7 @@ import { Route as WorkEquinoxRouteImport } from './routes/work.equinox'
 import { Route as WorkFieldkitRouteImport } from './routes/work.fieldkit'
 import { Route as WorkInfosysRouteImport } from './routes/work.infosys'
 import { Route as WorkMytownRouteImport } from './routes/work.mytown'
+import { Route as WorkPhytivesRouteImport } from './routes/work.phytives'
 import { Route as WorkPlaypalRouteImport } from './routes/work.playpal'
 import { Route as WorkTalosCareRouteImport } from './routes/work.talos-care'
 
@@ -60,6 +61,11 @@ const WorkMytownRoute = WorkMytownRouteImport.update({
   path: '/work/mytown',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkPhytivesRoute = WorkPhytivesRouteImport.update({
+  id: '/work/phytives',
+  path: '/work/phytives',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkPlaypalRoute = WorkPlaypalRouteImport.update({
   id: '/work/playpal',
   path: '/work/playpal',
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
   '/work/mytown': typeof WorkMytownRoute
+  '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
   '/work/mytown': typeof WorkMytownRoute
+  '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/work/fieldkit': typeof WorkFieldkitRoute
   '/work/infosys': typeof WorkInfosysRoute
   '/work/mytown': typeof WorkMytownRoute
+  '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/work/fieldkit'
     | '/work/infosys'
     | '/work/mytown'
+    | '/work/phytives'
     | '/work/playpal'
     | '/work/talos-care'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/work/fieldkit'
     | '/work/infosys'
     | '/work/mytown'
+    | '/work/phytives'
     | '/work/playpal'
     | '/work/talos-care'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/work/fieldkit'
     | '/work/infosys'
     | '/work/mytown'
+    | '/work/phytives'
     | '/work/playpal'
     | '/work/talos-care'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   WorkFieldkitRoute: typeof WorkFieldkitRoute
   WorkInfosysRoute: typeof WorkInfosysRoute
   WorkMytownRoute: typeof WorkMytownRoute
+  WorkPhytivesRoute: typeof WorkPhytivesRoute
   WorkPlaypalRoute: typeof WorkPlaypalRoute
   WorkTalosCareRoute: typeof WorkTalosCareRoute
 }
@@ -218,6 +231,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkMytownRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/phytives': {
+      id: '/work/phytives'
+      path: '/work/phytives'
+      fullPath: '/work/phytives'
+      preLoaderRoute: typeof WorkPhytivesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work/playpal': {
       id: '/work/playpal'
       path: '/work/playpal'
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   WorkFieldkitRoute: WorkFieldkitRoute,
   WorkInfosysRoute: WorkInfosysRoute,
   WorkMytownRoute: WorkMytownRoute,
+  WorkPhytivesRoute: WorkPhytivesRoute,
   WorkPlaypalRoute: WorkPlaypalRoute,
   WorkTalosCareRoute: WorkTalosCareRoute,
 }
