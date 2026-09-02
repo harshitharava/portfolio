@@ -145,7 +145,7 @@
    flow on mobile, so mobile gets its own rule below instead. */
 
 .phy-hero-sub {
-  max-width: calc(640 * var(--u));
+  max-width: none;
   margin: calc(56 * var(--u)) 0 0;
   color: var(--phy-ink-soft);
   font-size: 1.05em;
