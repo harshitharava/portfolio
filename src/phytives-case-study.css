@@ -300,6 +300,8 @@
 .phy-cards img {
   width: 100%;
   height: auto;
+  border-radius: calc(20 * var(--u));
+  box-shadow: 0 calc(16 * var(--u)) calc(40 * var(--u)) rgba(28, 23, 18, 0.14);
 }
 
 .phy-letterhead {
