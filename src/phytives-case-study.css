@@ -306,8 +306,6 @@
 
 .phy-letterhead {
   margin: calc(48 * var(--u)) 0 0;
-  width: min(760px, 100%);
-  margin-inline: auto;
 }
 
 .phy-letterhead img {
