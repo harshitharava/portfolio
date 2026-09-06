@@ -1821,7 +1821,7 @@ section {
     border-bottom: 1.5px solid var(--line);
     padding: 20px 24px 28px;
     display: grid;
-    gap: 4px;
+    gap: 10px;
     z-index: 99;
     transform: translateY(-110%);
     transition: transform 0.35s var(--ease);
