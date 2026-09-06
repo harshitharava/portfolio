@@ -743,6 +743,20 @@ section {
   order: -1;
 }
 
+/* Peak-end rule: with four evenly-weighted cards, nothing in this section
+   reads as a high point — engineers one deliberate standout instead of
+   another identical row. Scoped to the 2-column desktop layout only; the
+   ≤1020px stack below resets every card to min-height:0 regardless. */
+@media (min-width: 1021px) {
+  .work-card-featured {
+    min-height: clamp(420px, 38vw, 560px);
+  }
+}
+
+.work-featured-badge {
+  margin-bottom: 12px;
+}
+
 .work-copy {
   padding: clamp(24px, 3.2vw, 44px);
   align-self: center;

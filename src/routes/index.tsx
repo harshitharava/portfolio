@@ -173,8 +173,9 @@ function Index() {
             </p>
           </div>
 
-          <article className={"work-card reveal"}>
+          <article className={"work-card work-card-featured reveal"}>
             <div className={"work-copy"}>
+              <p className={"eyebrow work-featured-badge"}>Featured project</p>
               <div className={"case-tags"}>
                 <span className={"tag filled"}>Talos Care</span>
                 <span className={"tag"}>Conversational AI</span>
