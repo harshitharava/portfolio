@@ -195,6 +195,18 @@ section {
   padding-block: clamp(76px, 10vw, 140px);
 }
 
+/* Homepage sections only (hero has its own explicit padding above and
+   isn't affected) — 30% less than the sitewide default, which read as
+   too much dead space stacking up between Selected Work, the process
+   section, and Contact. Scoped by ID rather than lowering the shared
+   `section` rule so About (which relies on that same default) doesn't
+   shift too. */
+#work,
+#process,
+#contact {
+  padding-block: clamp(53px, 7vw, 98px);
+}
+
 .skip-link {
   position: absolute;
   left: 16px;
