@@ -879,7 +879,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card reveal"} data-delay={"2"}>
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/home-bakery"}
+                aria-label={"The Home Bakery brand and packaging case study"}
+                data-delay={"2"}
+              >
                 <div className={"mini-thumb"}>
                   <img
                     src={homeBakeryCard}
@@ -895,8 +900,11 @@ function Index() {
                     A warmer, more distinctive identity for a homegrown
                     bakery brand.
                   </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <Link
                 className={"mini-card reveal"}
@@ -1001,7 +1009,12 @@ function Index() {
                 </div>
               </Link>
 
-              <article className={"mini-card"} aria-hidden={"true"}>
+              <Link
+                className={"mini-card"}
+                to={"/work/home-bakery"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
                 <div className={"mini-thumb"}>
                   <img src={homeBakeryCard} alt="" />
                 </div>
@@ -1014,8 +1027,11 @@ function Index() {
                     A warmer, more distinctive identity for a homegrown
                     bakery brand.
                   </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
                 </div>
-              </article>
+              </Link>
 
               <Link
                 className={"mini-card"}

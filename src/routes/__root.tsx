@@ -162,6 +162,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap",
         },
+        {
+          // Home Bakery case study only: its Typography card names
+          // Bicyclette, a commercial font (Feliciano Type Foundry) with no
+          // free web-embeddable distribution — Quicksand, a free rounded
+          // geometric sans in the same friendly register, stands in for
+          // the specimen instead.
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap",
+        },
       ],
     }),
     shellComponent: RootShell,

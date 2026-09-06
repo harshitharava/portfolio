@@ -47,18 +47,24 @@ its own thing.
 | Infosys Equinox | `/work/equinox` | `src/equinox-case-study.css` |
 | Bosch BCW | `/work/bosch-bcw` | `src/bosch-bcw-case-study.css` |
 | Phytives | `/work/phytives` | `src/phytives-case-study.css` |
+| The Home Bakery | `/work/home-bakery` | `src/home-bakery-case-study.css` |
 
 Talos Care, PlayPal, CityLoop and MyTown are the four featured **Selected
-Work** cards on the homepage; the other three appear in the "A Few More
-Things I've Made" secondary row. `src/routes/work.fieldkit.tsx` also exists
-but is not linked from the homepage or any other page — it's an orphaned
-route from an earlier design iteration, left in place rather than deleted.
+Work** cards on the homepage; the other three (Infosys Equinox, Phytives,
+The Home Bakery) appear in the "A Few More Things I've Made" secondary row.
+`src/routes/work.fieldkit.tsx` also exists but is not linked from the
+homepage or any other page — it's an orphaned route from an earlier design
+iteration, left in place rather than deleted.
 
-Phytives is a brand/packaging project, not a UX flow — its page skips the
-research/persona sections the app case studies have and instead walks
-About/Brief/Challenge copy, typography + color palette, stationery, and
-packaging/campaign renders, matching Bosch BCW's lighter weight rather than
-the full Figma-precise treatment of the app case studies.
+Phytives and The Home Bakery are brand/packaging projects, not UX flows —
+their pages skip the research/persona sections the app case studies have and
+instead walk About/Brief/Challenge copy, typography + color palette,
+stationery, and packaging renders, matching Bosch BCW's lighter weight
+rather than the full Figma-precise treatment of the app case studies. Both
+also name a commercial display font (Gotham, Bicyclette) with no free
+web-embeddable license for their live specimen — Montserrat and Quicksand
+stand in respectively (see the Google Fonts link comments in
+`src/routes/__root.tsx`).
 
 ## Conventions worth knowing before editing a case-study page
 

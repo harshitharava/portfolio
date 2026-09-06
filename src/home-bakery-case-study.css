@@ -1,0 +1,395 @@
+/* ============================================================
+   The Home Bakery Brand & Packaging — case study page
+   ------------------------------------------------------------
+   Source is a 4-page deck (cover, hero, About/Brief/Challenge,
+   Typography + business cards) plus a loose set of packaging,
+   stationery, and menu renders — a branding/print project, not a
+   UX flow, so there's no research writeup, persona cards, or "My
+   Contribution"/"Reflection" section here, matching Phytives.
+
+   Client/Tools/Deliverables in the hero meta row are inferred from
+   the brief's own wording and the supplied tag list, not an
+   explicit meta list in the deck — flagged here in case the real
+   details differ.
+
+   No dark-mode exports exist for this project, so every image is
+   used as-is in both themes, matching every other case study.
+
+   Colours are sampled directly from the supplied assets (the "Home"
+   script, the "BAKERY"/tHB navy, and the heart-pattern pink), not
+   guessed or copied from the deck's own stray "#00953d #007d90"
+   typography-slide note — those two hex codes are a leftover from
+   the Phytives deck template and don't appear anywhere in this
+   project's actual artwork.
+   ============================================================ */
+
+.hb {
+  --u: min(0.833px, calc((100vw - 48px) / 1440));
+
+  --hb-bg: #f2eee3;
+  --hb-card: #ffffff;
+  --hb-ink: #1c1c1c;
+  --hb-ink-soft: #5c5c5c;
+  --hb-rule: #dcd6c8;
+  --hb-navy: #373c71;
+  --hb-orange: #f37c52;
+  --hb-pink: #f9b1a5;
+
+  background-color: var(--hb-bg);
+  color: var(--hb-ink);
+  font-family: var(--font-body);
+  font-size: calc(24 * var(--u));
+  line-height: 1.6;
+}
+
+.hb :where(section) {
+  padding-block: 0;
+}
+
+.hb-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.hb-section {
+  padding-block: calc(64 * var(--u));
+}
+
+.hb p {
+  margin: 0 0 1em;
+}
+
+.hb p:last-child {
+  margin-bottom: 0;
+}
+
+.hb h1,
+.hb h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hb h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.hb h2 {
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.hb h3 {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  margin: 0 0 calc(14 * var(--u));
+}
+
+.hb img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Hero ---------- */
+
+.hb-hero {
+  padding-top: 0;
+}
+
+.hb-hero-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: min(4.6vw, 68px);
+  border-bottom-right-radius: min(4.6vw, 68px);
+}
+
+.hb-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2600 / 1725;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hb-hero-tags {
+  position: absolute;
+  inset-inline: 0;
+  /* max() rather than a bare percentage — see Bosch BCW / Talos Care /
+     Phytives for why: guarantees clearance below the fixed nav
+     regardless of how short the hero photo's own resolved height is. */
+  top: max(8%, calc(var(--nav-h) + 24px));
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(12 * var(--u));
+}
+
+.hb-hero-tags > span {
+  font-family: var(--font-mono);
+  font-size: calc(19.2 * var(--u));
+  line-height: 1;
+  color: var(--hb-navy);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(55, 60, 113, 0.18);
+  border-radius: 999px;
+  height: calc(64 * var(--u));
+  padding-inline: calc(31 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* The hero photo is a fixed light studio shot that never changes with
+   theme, but the pill's own colors still flip — otherwise this is the
+   one element on the page that visibly ignores the dark toggle.
+   Matches Phytives/Bosch BCW/Talos Care. */
+[data-theme="dark"] .hb-hero-tags > span {
+  color: #f4eee3;
+  background: rgba(20, 18, 30, 0.78);
+  border-color: rgba(244, 238, 227, 0.35);
+}
+
+/* ---------- Meta row ---------- */
+
+.hb-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(64 * var(--u));
+  border-top: 1px solid #939393;
+  border-bottom: 1px solid #939393;
+  padding-block: calc(50 * var(--u)) calc(56 * var(--u));
+  margin-top: calc(64 * var(--u));
+}
+
+.hb-meta h4 {
+  font-weight: 400;
+  color: var(--hb-ink-soft);
+  font-size: calc(28 * var(--u));
+  margin-bottom: calc(14 * var(--u));
+}
+
+.hb-meta p {
+  font-weight: 700;
+  font-size: calc(32 * var(--u));
+  line-height: 1.28;
+  margin: 0;
+}
+
+/* ---------- About / Brief / Challenge ---------- */
+
+.hb-info-row {
+  padding-block: calc(48 * var(--u));
+}
+
+.hb-info-row:first-child {
+  padding-top: 0;
+}
+
+.hb-info-row h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 1.55rem + 1.9vw, 3.1rem);
+  line-height: 1.05;
+  margin: 0 0 calc(36 * var(--u));
+}
+
+.hb-info-row p {
+  color: var(--hb-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.hb-info-row strong {
+  color: var(--hb-ink);
+  font-weight: 700;
+}
+
+/* ---------- Design Foundations ---------- */
+
+.hb-foundation-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: calc(17 * var(--u));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hb-ink-soft);
+  margin: calc(48 * var(--u)) 0 calc(20 * var(--u));
+}
+
+.hb-foundation-label:first-of-type {
+  margin-top: 0;
+}
+
+.hb-type {
+  display: flex;
+  align-items: center;
+  gap: calc(48 * var(--u));
+  padding-bottom: calc(48 * var(--u));
+  border-bottom: 1px solid var(--hb-rule);
+}
+
+/* Gotham-style commercial fonts have no free web-embeddable
+   distribution — Bicyclette (Feliciano Type Foundry) is the same
+   story here, so Quicksand, a free rounded geometric-sans in the
+   same friendly-bakery register, stands in for the live specimen
+   instead of var(--font-display). See the Google Fonts link comment
+   in __root.tsx. */
+.hb-type-glyphs {
+  font-family: "Quicksand", var(--font-display);
+  font-weight: 700;
+  font-size: calc(140 * var(--u));
+  line-height: 1;
+  color: var(--hb-orange);
+  flex: 0 0 auto;
+}
+
+.hb-type-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hb-type-info p {
+  color: var(--hb-ink-soft);
+  margin: 0 0 calc(16 * var(--u));
+}
+
+.hb-type-info strong {
+  color: var(--hb-ink);
+}
+
+.hb-type-sample {
+  font-family: "Quicksand", var(--font-display);
+  font-weight: 500;
+  font-size: calc(19 * var(--u));
+  line-height: 1.7;
+  color: var(--hb-ink-soft) !important;
+}
+
+.hb-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(20 * var(--u));
+}
+
+.hb-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 * var(--u));
+}
+
+.hb-swatch > span {
+  width: calc(96 * var(--u));
+  height: calc(96 * var(--u));
+  border-radius: calc(16 * var(--u));
+  border: 1px solid var(--hb-rule);
+  display: block;
+}
+
+.hb-swatch code {
+  font-family: var(--font-mono);
+  font-size: calc(15 * var(--u));
+  color: var(--hb-ink-soft);
+}
+
+/* ---------- Identity & Stationery ---------- */
+
+.hb-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(32 * var(--u));
+  align-items: start;
+}
+
+.hb-cards img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(20 * var(--u));
+  box-shadow: 0 calc(16 * var(--u)) calc(40 * var(--u)) rgba(28, 23, 18, 0.14);
+}
+
+/* ---------- Packaging ---------- */
+
+.hb-packaging-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(32 * var(--u));
+}
+
+.hb-packaging-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(20 * var(--u));
+}
+
+/* ---------- Menu ---------- */
+
+.hb-menu-figure {
+  width: min(1416px, calc(100% - 48px));
+  margin: calc(48 * var(--u)) auto 0;
+}
+
+.hb-menu-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(20 * var(--u));
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] .hb {
+  --hb-bg: var(--bg);
+  --hb-ink: var(--ink);
+  --hb-ink-soft: #a89f8e;
+  --hb-card: #262019;
+  --hb-rule: #3d3624;
+}
+
+[data-theme="dark"] .hb-meta {
+  border-color: #5b5348;
+}
+
+/* ============================================================
+   Reflow
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .hb {
+    --u: 0.62px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hb-hero-media img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .hb-hero-tags {
+    padding-inline: 24px;
+    gap: calc(10 * var(--u));
+  }
+
+  .hb-hero-tags > span {
+    height: calc(56 * var(--u));
+  }
+
+  .hb-meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(40 * var(--u));
+  }
+
+  .hb-type {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(24 * var(--u));
+  }
+
+  .hb-cards,
+  .hb-packaging-grid {
+    grid-template-columns: 1fr;
+  }
+}
