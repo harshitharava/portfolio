@@ -15,12 +15,11 @@
    No dark-mode exports exist for this project, so every image is
    used as-is in both themes, matching every other case study.
 
-   Colours are sampled directly from the supplied assets (the "Home"
-   script, the "BAKERY"/tHB navy, and the heart-pattern pink), not
-   guessed or copied from the deck's own stray "#00953d #007d90"
-   typography-slide note — those two hex codes are a leftover from
-   the Phytives deck template and don't appear anywhere in this
-   project's actual artwork.
+   Colours are the deck's own 5-swatch palette (#fff6ee, #373d72,
+   #f8b1a5, #284d78, #f07d53), not the stray "#00953d #007d90"
+   typography-slide note elsewhere in the deck — those two hex codes
+   are a leftover from the Phytives deck template and don't appear
+   anywhere in this project's actual artwork.
    ============================================================ */
 
 .hb {
@@ -31,9 +30,9 @@
   --hb-ink: #1c1c1c;
   --hb-ink-soft: #5c5c5c;
   --hb-rule: #dcd6c8;
-  --hb-navy: #373c71;
-  --hb-orange: #f37c52;
-  --hb-pink: #f9b1a5;
+  --hb-navy: #373d72;
+  --hb-orange: #f07d53;
+  --hb-pink: #f8b1a5;
 
   background-color: var(--hb-bg);
   color: var(--hb-ink);

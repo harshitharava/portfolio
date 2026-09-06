@@ -161,16 +161,24 @@ function HomeBakeryPage() {
           <span className="hb-foundation-label">Color palette</span>
           <div className="hb-palette">
             <div className="hb-swatch">
-              <span style={{ background: "#373c71" }} />
-              <code>#373C71</code>
+              <span style={{ background: "#fff6ee" }} />
+              <code>#FFF6EE</code>
             </div>
             <div className="hb-swatch">
-              <span style={{ background: "#f37c52" }} />
-              <code>#F37C52</code>
+              <span style={{ background: "#373d72" }} />
+              <code>#373D72</code>
             </div>
             <div className="hb-swatch">
-              <span style={{ background: "#f9b1a5" }} />
-              <code>#F9B1A5</code>
+              <span style={{ background: "#f8b1a5" }} />
+              <code>#F8B1A5</code>
+            </div>
+            <div className="hb-swatch">
+              <span style={{ background: "#284d78" }} />
+              <code>#284D78</code>
+            </div>
+            <div className="hb-swatch">
+              <span style={{ background: "#f07d53" }} />
+              <code>#F07D53</code>
             </div>
           </div>
         </div>
