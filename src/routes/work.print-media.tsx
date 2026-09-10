@@ -93,6 +93,13 @@ function PrintMediaPage() {
               />
               <figcaption>Event poster — &ldquo;A Tasty Show&rdquo; with Jordan Antony</figcaption>
             </figure>
+          </div>
+
+          {/* Its own full-width pair rather than folded into .pm-grid —
+              two versions of the same poster read as a comparison, so
+              they need to sit level with each other edge to edge, not
+              wherever the auto-fit grid happens to place them. */}
+          <div className="pm-pair">
             <figure className="pm-card">
               <img
                 src={kariWeeklyB}

@@ -70,6 +70,16 @@
   align-items: start;
 }
 
+/* Exactly two columns, always — unlike .pm-grid's auto-fit, this is
+   a fixed pairing, not a reflowing set, so it stays edge to edge at
+   any width down to the mobile breakpoint below. */
+.pm-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
 .pm-card img {
   display: block;
   width: 100%;
@@ -89,4 +99,10 @@
   font-size: 0.85rem;
   color: var(--ink-2);
   line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  .pm-pair {
+    grid-template-columns: 1fr;
+  }
 }
