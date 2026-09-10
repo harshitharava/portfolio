@@ -55,19 +55,19 @@
   margin: 0 0 clamp(28px, 3.5vw, 40px);
 }
 
-/* CSS columns rather than a uniform grid — the source pieces are a
-   poster, a billboard photo, a brochure spread, and a t-shirt shot,
-   each a different natural aspect ratio, so a masonry flow reads
-   better than forcing them into equal-height cells or cropping any
-   of them to fit one. */
+/* A wrapping grid, not CSS-columns masonry — columns balance total
+   *height* across the whole set, which can leave two adjacent pieces
+   (e.g. the billboard and the kiosk ad, meant to sit side by side)
+   stacked in the same column instead, if the items after them are
+   tall enough to tip the balance. A grid keeps strict left-to-right,
+   top-to-bottom source order, at the cost of each row's height being
+   set by its tallest item — items still align to the top of their
+   own cell instead of stretching to fill it. */
 .pm-grid {
-  columns: 3 320px;
-  column-gap: 24px;
-}
-
-.pm-card {
-  break-inside: avoid;
-  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: start;
 }
 
 .pm-card img {
@@ -89,10 +89,4 @@
   font-size: 0.85rem;
   color: var(--ink-2);
   line-height: 1.4;
-}
-
-@media (max-width: 640px) {
-  .pm-grid {
-    columns: 1;
-  }
 }
