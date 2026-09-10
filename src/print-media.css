@@ -72,11 +72,20 @@
 
 /* Exactly two columns, always — unlike .pm-grid's auto-fit, this is
    a fixed pairing, not a reflowing set, so it stays edge to edge at
-   any width down to the mobile breakpoint below. */
+   any width down to the mobile breakpoint below. A group can mix
+   .pm-grid and .pm-pair blocks (e.g. Kari Theory: pair, then a
+   single-item grid, then another pair), so the gap between them is
+   an adjacent-sibling rule rather than a plain margin-top — that
+   keeps whichever block is first flush with the group heading. */
 .pm-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+}
+
+.pm-grid + .pm-pair,
+.pm-pair + .pm-grid,
+.pm-pair + .pm-pair {
   margin-top: 24px;
 }
 

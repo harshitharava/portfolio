@@ -71,7 +71,12 @@ function PrintMediaPage() {
           <p className="pm-group-note">
             Bar &amp; kitchen concept at Radisson Blu GRT Chennai.
           </p>
-          <div className="pm-grid">
+          {/* Full-width pair, not folded into .pm-grid — the billboard
+              and kiosk-ad photos are both wide outdoor context shots,
+              so they read best sitting level with each other edge to
+              edge rather than sharing columns with the portrait pieces
+              below. */}
+          <div className="pm-pair">
             <figure className="pm-card">
               <img
                 src={kariBillboard}
@@ -86,6 +91,9 @@ function PrintMediaPage() {
               />
               <figcaption>Outdoor kiosk ads — Brain Omelette &amp; Murukku Cheese Sandwich</figcaption>
             </figure>
+          </div>
+
+          <div className="pm-grid">
             <figure className="pm-card">
               <img
                 src={kariEvent}
@@ -95,10 +103,10 @@ function PrintMediaPage() {
             </figure>
           </div>
 
-          {/* Its own full-width pair rather than folded into .pm-grid —
-              two versions of the same poster read as a comparison, so
-              they need to sit level with each other edge to edge, not
-              wherever the auto-fit grid happens to place them. */}
+          {/* Its own full-width pair too — two versions of the same
+              poster read as a comparison, so they need to sit level
+              with each other edge to edge, not wherever the auto-fit
+              grid above happens to place them. */}
           <div className="pm-pair">
             <figure className="pm-card">
               <img
