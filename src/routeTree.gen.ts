@@ -20,6 +20,7 @@ import { Route as WorkInfosysRouteImport } from './routes/work.infosys'
 import { Route as WorkMytownRouteImport } from './routes/work.mytown'
 import { Route as WorkPhytivesRouteImport } from './routes/work.phytives'
 import { Route as WorkPlaypalRouteImport } from './routes/work.playpal'
+import { Route as WorkPrintMediaRouteImport } from './routes/work.print-media'
 import { Route as WorkTalosCareRouteImport } from './routes/work.talos-care'
 
 const IndexRoute = IndexRouteImport.update({
@@ -77,6 +78,11 @@ const WorkPlaypalRoute = WorkPlaypalRouteImport.update({
   path: '/work/playpal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkPrintMediaRoute = WorkPrintMediaRouteImport.update({
+  id: '/work/print-media',
+  path: '/work/print-media',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkTalosCareRoute = WorkTalosCareRouteImport.update({
   id: '/work/talos-care',
   path: '/work/talos-care',
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/work/mytown': typeof WorkMytownRoute
   '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
+  '/work/print-media': typeof WorkPrintMediaRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/work/mytown': typeof WorkMytownRoute
   '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
+  '/work/print-media': typeof WorkPrintMediaRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
 export interface FileRoutesById {
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/work/mytown': typeof WorkMytownRoute
   '/work/phytives': typeof WorkPhytivesRoute
   '/work/playpal': typeof WorkPlaypalRoute
+  '/work/print-media': typeof WorkPrintMediaRoute
   '/work/talos-care': typeof WorkTalosCareRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/work/mytown'
     | '/work/phytives'
     | '/work/playpal'
+    | '/work/print-media'
     | '/work/talos-care'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/work/mytown'
     | '/work/phytives'
     | '/work/playpal'
+    | '/work/print-media'
     | '/work/talos-care'
   id:
     | '__root__'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/work/mytown'
     | '/work/phytives'
     | '/work/playpal'
+    | '/work/print-media'
     | '/work/talos-care'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   WorkMytownRoute: typeof WorkMytownRoute
   WorkPhytivesRoute: typeof WorkPhytivesRoute
   WorkPlaypalRoute: typeof WorkPlaypalRoute
+  WorkPrintMediaRoute: typeof WorkPrintMediaRoute
   WorkTalosCareRoute: typeof WorkTalosCareRoute
 }
 
@@ -265,6 +278,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkPlaypalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/print-media': {
+      id: '/work/print-media'
+      path: '/work/print-media'
+      fullPath: '/work/print-media'
+      preLoaderRoute: typeof WorkPrintMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work/talos-care': {
       id: '/work/talos-care'
       path: '/work/talos-care'
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   WorkMytownRoute: WorkMytownRoute,
   WorkPhytivesRoute: WorkPhytivesRoute,
   WorkPlaypalRoute: WorkPlaypalRoute,
+  WorkPrintMediaRoute: WorkPrintMediaRoute,
   WorkTalosCareRoute: WorkTalosCareRoute,
 }
 export const routeTree = rootRouteImport

@@ -11,6 +11,7 @@
 @import "./equinox-case-study.css";
 @import "./phytives-case-study.css";
 @import "./home-bakery-case-study.css";
+@import "./print-media.css";
 
 @custom-variant dark (&:is(.dark *));
 

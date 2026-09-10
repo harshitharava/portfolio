@@ -1,0 +1,98 @@
+/* ============================================================
+   Print Media — gallery page
+   ------------------------------------------------------------
+   Not a case study: this is a loose collection of print/outdoor
+   pieces across at least four different projects (Kari Theory,
+   Ministry of Chutneys, Radisson Blu GRT Chennai's own brochure,
+   and one independent illustration), with no shared brief or
+   process to narrate — so unlike every other /work/ page, this one
+   doesn't use a --u scaling system or an About/Brief/Challenge
+   structure. It reuses the sitewide tokens and .wrap/.eyebrow/.lede
+   classes from portfolio.css directly, the same as the About page,
+   rather than inventing its own design system for a single gallery.
+
+   Kari Theory and Ministry of Chutneys are both restaurant concepts
+   at the same hotel (Radisson Blu GRT Chennai) — grouped as separate
+   headings here because each has its own distinct logo/visual
+   identity in the source artwork, not because they're unrelated
+   clients.
+   ============================================================ */
+
+.pm-hero {
+  padding-bottom: clamp(32px, 4vw, 48px);
+}
+
+.pm-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.9rem + 2.4vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.pm-hero .lede {
+  max-width: 62ch;
+}
+
+.pm-group {
+  padding-block: clamp(40px, 5vw, 64px);
+  border-top: 1.5px solid var(--line);
+}
+
+.pm-group h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 1.35rem + 1.2vw, 2.2rem);
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+
+.pm-group-note {
+  color: var(--ink-2);
+  font-size: 1rem;
+  margin: 0 0 clamp(28px, 3.5vw, 40px);
+}
+
+/* CSS columns rather than a uniform grid — the source pieces are a
+   poster, a billboard photo, a brochure spread, and a t-shirt shot,
+   each a different natural aspect ratio, so a masonry flow reads
+   better than forcing them into equal-height cells or cropping any
+   of them to fit one. */
+.pm-grid {
+  columns: 3 320px;
+  column-gap: 24px;
+}
+
+.pm-card {
+  break-inside: avoid;
+  margin: 0 0 24px;
+}
+
+.pm-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1.5px solid var(--line);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.pm-card:hover img {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.pm-card figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .pm-grid {
+    columns: 1;
+  }
+}

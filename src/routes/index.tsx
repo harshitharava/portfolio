@@ -10,6 +10,7 @@ import phytivesCard from "@/assets/cards/phytives-card.webp";
 import homeBakeryCard from "@/assets/cards/home-bakery-card.webp";
 import infosysCard from "@/assets/cards/infosys-card.webp";
 import boschBcwCard from "@/assets/cards/bosch-bcw-card.webp";
+import printMediaCard from "@/assets/cards/print-media-card.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -814,7 +815,7 @@ function Index() {
             </p>
           </div>
           {/* Free-running marquee: the track below renders this same set of
-              five cards twice back-to-back and loops via CSS transform, so
+              six cards twice back-to-back and loops via CSS transform, so
               it always scrolls on its own instead of needing a manual drag.
               Only the first copy is reachable by keyboard/screen reader —
               the second exists purely for the seamless visual loop. */}
@@ -960,6 +961,33 @@ function Index() {
                 </div>
               </Link>
 
+              <Link
+                className={"mini-card reveal"}
+                to={"/work/print-media"}
+                aria-label={"Print media gallery"}
+                data-delay={"5"}
+              >
+                <div className={"mini-thumb"}>
+                  <img
+                    src={printMediaCard}
+                    alt="A Kari Theory billboard on a city street"
+                  />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Print Design · Outdoor · Art Direction
+                  </span>
+                  <h3>Print Media</h3>
+                  <p>
+                    Restaurant posters, a billboard, print ads, and a brochure
+                    across a few different projects.
+                  </p>
+                  <span className={"text-link"} aria-hidden={"true"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
               {/* ---- duplicate copy, decorative only ---- */}
               <Link
                 className={"mini-card"}
@@ -1074,6 +1102,30 @@ function Index() {
                   <p>
                     An interactive infographic for Bosch's BCW 2024 global
                     hybrid event, built under a two-day deadline.
+                  </p>
+                  <span className={"text-link"}>
+                    Read the case study <span aria-hidden={"true"}>→</span>
+                  </span>
+                </div>
+              </Link>
+
+              <Link
+                className={"mini-card"}
+                to={"/work/print-media"}
+                aria-hidden={"true"}
+                tabIndex={-1}
+              >
+                <div className={"mini-thumb"}>
+                  <img src={printMediaCard} alt="" />
+                </div>
+                <div className={"mini-body"}>
+                  <span className={"cat"}>
+                    Print Design · Outdoor · Art Direction
+                  </span>
+                  <h3>Print Media</h3>
+                  <p>
+                    Restaurant posters, a billboard, print ads, and a brochure
+                    across a few different projects.
                   </p>
                   <span className={"text-link"}>
                     Read the case study <span aria-hidden={"true"}>→</span>

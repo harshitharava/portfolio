@@ -66,6 +66,15 @@ web-embeddable license for their live specimen — Montserrat and Quicksand
 stand in respectively (see the Google Fonts link comments in
 `src/routes/__root.tsx`).
 
+**Print Media** (`/work/print-media`, `src/print-media.css`) is not a case
+study at all — it's a masonry gallery of print/outdoor pieces spanning four
+different unrelated projects (Kari Theory, Ministry of Chutneys, Radisson
+Blu GRT Chennai's own brochure, and one independent T-shirt illustration),
+each labeled with its own project heading rather than forced into a single
+brief/challenge narrative that doesn't exist. It reuses sitewide
+`.wrap`/`.eyebrow`/`.lede` from `portfolio.css` instead of a `--u` system.
+Also appears in "A Few More Things I've Made."
+
 ## Conventions worth knowing before editing a case-study page
 
 - **`--u` scaling unit.** Every case study defines `--u` as one point of its
