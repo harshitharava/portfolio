@@ -2,14 +2,14 @@
    Print Media — gallery page
    ------------------------------------------------------------
    Not a case study: this is a loose collection of print/outdoor
-   pieces across at least four different projects (Kari Theory,
-   Ministry of Chutneys, Radisson Blu GRT Chennai's own brochure,
-   and one independent illustration), with no shared brief or
-   process to narrate — so unlike every other /work/ page, this one
-   doesn't use a --u scaling system or an About/Brief/Challenge
-   structure. It reuses the sitewide tokens and .wrap/.eyebrow/.lede
-   classes from portfolio.css directly, the same as the About page,
-   rather than inventing its own design system for a single gallery.
+   pieces across three different projects (Kari Theory, Ministry of
+   Chutneys, and Radisson Blu GRT Chennai's own brochure), with no
+   shared brief or process to narrate — so unlike every other /work/
+   page, this one doesn't use a --u scaling system or an
+   About/Brief/Challenge structure. It reuses the sitewide tokens and
+   .wrap/.eyebrow/.lede classes from portfolio.css directly, the same
+   as the About page, rather than inventing its own design system for
+   a single gallery.
 
    Kari Theory and Ministry of Chutneys are both restaurant concepts
    at the same hotel (Radisson Blu GRT Chennai) — grouped as separate

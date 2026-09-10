@@ -10,7 +10,6 @@ import mocBuffet from "@/assets/print-media/ministry-of-chutneys-buffet-ad.webp"
 import moBrunch from "@/assets/print-media/ministry-brunch-ad.webp";
 
 import brochure from "@/assets/print-media/radisson-brochure.webp";
-
 import tshirt from "@/assets/print-media/masster-chef-tshirt.webp";
 
 export const Route = createFileRoute("/work/print-media")({
@@ -57,8 +56,8 @@ function PrintMediaPage() {
           <p className="lede">
             A handful of print and outdoor pieces made outside the usual
             product-design work — restaurant posters, a citylight billboard,
-            print ads, a hotel brochure, and one illustration project. Not
-            one client, so each piece below is labeled with the project it
+            print ads, a hotel brochure, and a merch illustration. Not one
+            client, so each piece below is labeled with the project it
             belongs to.
           </p>
         </div>
@@ -112,6 +111,16 @@ function PrintMediaPage() {
               <figcaption>Weekly offers poster — alternate layout</figcaption>
             </figure>
           </div>
+
+          <div className="pm-grid">
+            <figure className="pm-card">
+              <img
+                src={tshirt}
+                alt="A white T-shirt printed with a Mass-ter Chef illustration of a chef pouring filter coffee"
+              />
+              <figcaption>T-shirt illustration — &ldquo;Mass-ter Chef&rdquo;</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -151,22 +160,6 @@ function PrintMediaPage() {
                 alt="A tri-fold Radisson Blu GRT Chennai hotel brochure mockup on a desk"
               />
               <figcaption>Tri-fold brochure — &ldquo;Come Experience GReaT&rdquo;</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="pm-group">
-        <div className="wrap">
-          <h2>Independent work</h2>
-          <p className="pm-group-note">Not client work — an illustration project.</p>
-          <div className="pm-grid">
-            <figure className="pm-card">
-              <img
-                src={tshirt}
-                alt="A white T-shirt printed with a Mass-ter Chef illustration of a chef pouring filter coffee"
-              />
-              <figcaption>T-shirt illustration — &ldquo;Mass-ter Chef&rdquo;</figcaption>
             </figure>
           </div>
         </div>

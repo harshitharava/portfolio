@@ -67,13 +67,19 @@ stand in respectively (see the Google Fonts link comments in
 `src/routes/__root.tsx`).
 
 **Print Media** (`/work/print-media`, `src/print-media.css`) is not a case
-study at all — it's a masonry gallery of print/outdoor pieces spanning four
-different unrelated projects (Kari Theory, Ministry of Chutneys, Radisson
-Blu GRT Chennai's own brochure, and one independent T-shirt illustration),
-each labeled with its own project heading rather than forced into a single
-brief/challenge narrative that doesn't exist. It reuses sitewide
-`.wrap`/`.eyebrow`/`.lede` from `portfolio.css` instead of a `--u` system.
-Also appears in "A Few More Things I've Made."
+study at all — it's a gallery of print/outdoor pieces spanning three
+different projects (Kari Theory, Ministry of Chutneys, and Radisson Blu GRT
+Chennai's own brochure), each labeled with its own project heading rather
+than forced into a single brief/challenge narrative that doesn't exist. Uses
+a wrapping CSS grid (`.pm-grid`, auto-fit columns) rather than CSS-columns
+masonry — masonry balances total column height, not left-to-right pairing,
+which left adjacent pieces meant to sit side by side landing stacked in the
+same column instead. A few pairs (the billboard/kiosk-ad shots, the two
+weekly-poster layout variants) are pinned to their own full-width `.pm-pair`
+row instead, so they stay level with each other edge to edge regardless of
+what else is in the grid. Reuses sitewide `.wrap`/`.eyebrow`/`.lede` from
+`portfolio.css` instead of a `--u` system. Also appears in "A Few More
+Things I've Made."
 
 ## Conventions worth knowing before editing a case-study page
 
