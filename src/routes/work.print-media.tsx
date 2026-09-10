@@ -4,7 +4,6 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 import kariWeeklyA from "@/assets/print-media/kari-theory-weekly-poster-a.webp";
 import kariWeeklyB from "@/assets/print-media/kari-theory-weekly-poster-b.webp";
 import kariKiosk from "@/assets/print-media/kari-theory-kiosk-ads.webp";
-import kariEvent from "@/assets/print-media/kari-theory-event-poster.webp";
 import kariBillboard from "@/assets/print-media/kari-theory-billboard.webp";
 
 import mocBuffet from "@/assets/print-media/ministry-of-chutneys-buffet-ad.webp";
@@ -90,16 +89,6 @@ function PrintMediaPage() {
                 alt="An outdoor kiosk with two Kari Theory ads: Brain Omelette and Murukku Cheese Sandwich"
               />
               <figcaption>Outdoor kiosk ads — Brain Omelette &amp; Murukku Cheese Sandwich</figcaption>
-            </figure>
-          </div>
-
-          <div className="pm-grid">
-            <figure className="pm-card">
-              <img
-                src={kariEvent}
-                alt="A Tasty Show event poster for a comedy night at Kari Theory featuring Jordan Antony"
-              />
-              <figcaption>Event poster — &ldquo;A Tasty Show&rdquo; with Jordan Antony</figcaption>
             </figure>
           </div>
 
