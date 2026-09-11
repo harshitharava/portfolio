@@ -30,6 +30,7 @@ export function SiteFooter() {
             rel="noopener"
           >
             Behance <span aria-hidden="true">↗</span>
+            <span className="sr-only">(opens in a new tab)</span>
           </a>
           <a
             className="fpill"
@@ -38,6 +39,7 @@ export function SiteFooter() {
             rel="noopener"
           >
             LinkedIn <span aria-hidden="true">↗</span>
+            <span className="sr-only">(opens in a new tab)</span>
           </a>
         </div>
 

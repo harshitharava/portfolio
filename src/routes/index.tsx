@@ -192,7 +192,11 @@ function Index() {
                 patients disclose sensitive health information before meeting a
                 healthcare professional.
               </p>
-              <Link className={"text-link"} to={"/work/talos-care"}>
+              <Link
+                className={"text-link"}
+                to={"/work/talos-care"}
+                aria-label={"Read the Talos Care case study"}
+              >
                 Read the case study <span aria-hidden={"true"}>→</span>
               </Link>
             </div>
@@ -363,7 +367,11 @@ function Index() {
                 PlayPal brings people together around the sports they enjoy,
                 with a straightforward way to discover and organise games.
               </p>
-              <Link className={"text-link"} to={"/work/playpal"}>
+              <Link
+                className={"text-link"}
+                to={"/work/playpal"}
+                aria-label={"Read the PlayPal case study"}
+              >
                 Read the case study <span aria-hidden={"true"}>→</span>
               </Link>
             </div>
@@ -565,7 +573,11 @@ function Index() {
                 CityLoop is a city discovery experience for exploring local
                 food, events, and things to do around you.
               </p>
-              <Link className={"text-link"} to={"/work/cityloop"}>
+              <Link
+                className={"text-link"}
+                to={"/work/cityloop"}
+                aria-label={"Read the CityLoop case study"}
+              >
                 Read the case study <span aria-hidden={"true"}>→</span>
               </Link>
             </div>
@@ -797,7 +809,11 @@ function Index() {
                 Rethinking how people discover and connect with their local
                 community.
               </p>
-              <Link className={"text-link"} to={"/work/mytown"}>
+              <Link
+                className={"text-link"}
+                to={"/work/mytown"}
+                aria-label={"Read the MyTown case study"}
+              >
                 Read the case study <span aria-hidden={"true"}>→</span>
               </Link>
             </div>
@@ -1232,7 +1248,7 @@ function Index() {
                   className={"channel"}
                   href={"mailto:aravaharshith@gmail.com"}
                 >
-                  <span className={"ch-icon"}>
+                  <span className={"ch-icon"} aria-hidden={"true"}>
                     <svg
                       width={"17"}
                       height={"17"}
@@ -1254,7 +1270,7 @@ function Index() {
                     </svg>
                   </span>
                   <div>
-                    <b>Email</b>
+                    <strong>Email</strong>
                     <span>aravaharshith@gmail.com</span>
                   </div>
                 </a>
@@ -1264,7 +1280,7 @@ function Index() {
                   target={"_blank"}
                   rel={"noopener"}
                 >
-                  <span className={"ch-icon"}>
+                  <span className={"ch-icon"} aria-hidden={"true"}>
                     <svg
                       width={"17"}
                       height={"17"}
@@ -1279,16 +1295,17 @@ function Index() {
                     </svg>
                   </span>
                   <div>
-                    <b>LinkedIn</b>
+                    <strong>LinkedIn</strong>
                     <span>linkedin.com/in/harshitharava</span>
                   </div>
+                  <span className={"sr-only"}>(opens in a new tab)</span>
                 </a>
                 <a
                   className={"channel"}
                   href={`${import.meta.env.BASE_URL}harshith-arava-resume.pdf`}
                   download={"Harshith-Arava-Resume.pdf"}
                 >
-                  <span className={"ch-icon"}>
+                  <span className={"ch-icon"} aria-hidden={"true"}>
                     <svg
                       width={"17"}
                       height={"17"}
@@ -1307,7 +1324,7 @@ function Index() {
                     </svg>
                   </span>
                   <div>
-                    <b>Resume</b>
+                    <strong>Resume</strong>
                     <span>Download PDF</span>
                   </div>
                 </a>
@@ -1317,7 +1334,7 @@ function Index() {
                   target={"_blank"}
                   rel={"noopener"}
                 >
-                  <span className={"ch-icon"}>
+                  <span className={"ch-icon"} aria-hidden={"true"}>
                     <svg
                       width={"17"}
                       height={"17"}
@@ -1332,9 +1349,10 @@ function Index() {
                     </svg>
                   </span>
                   <div>
-                    <b>Behance</b>
+                    <strong>Behance</strong>
                     <span>behance.net/aravaharshith3</span>
                   </div>
+                  <span className={"sr-only"}>(opens in a new tab)</span>
                 </a>
               </div>
             </div>
