@@ -53,13 +53,6 @@ function PrintMediaPage() {
         <div className="wrap">
           <p className="eyebrow">Print &amp; outdoor</p>
           <h1>Print media.</h1>
-          <p className="lede">
-            A handful of print and outdoor pieces made outside the usual
-            product-design work - restaurant posters, a citylight billboard,
-            print ads, a hotel brochure, and a merch illustration. Not one
-            client, so each piece below is labeled with the project it
-            belongs to.
-          </p>
         </div>
       </section>
 
