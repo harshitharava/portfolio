@@ -1318,7 +1318,7 @@ section {
   flex: none;
 }
 
-.channel b {
+.channel strong {
   display: block;
   font-size: 0.95rem;
 }
