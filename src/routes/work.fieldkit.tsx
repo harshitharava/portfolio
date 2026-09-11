@@ -4,9 +4,9 @@ import { usePortfolioEffects } from "@/components/site/usePortfolioEffects";
 export const Route = createFileRoute("/work/fieldkit")({
   head: () => ({
     meta: [
-      { title: 'FieldKit case study — Harshith Arava' },
+      { title: 'FieldKit case study - Harshith Arava' },
       { name: "description", content: "UX case study: an exception-first fleet operations dashboard that took a dispatcher's morning from 40 tabs to one screen. 62% faster to find at-risk trailers." },
-      { property: "og:title", content: 'FieldKit case study — Harshith Arava' },
+      { property: "og:title", content: 'FieldKit case study - Harshith Arava' },
       { property: "og:description", content: "UX case study: an exception-first fleet operations dashboard that took a dispatcher's morning from 40 tabs to one screen. 62% faster to find at-risk trailers." },
       { property: "og:type", content: 'article' },
       { property: "og:url", content: 'https://harshitharava.github.io/portfolio/work/fieldkit' },
@@ -27,7 +27,7 @@ function FieldkitPage() {
       <div className={"wrap"}>
         <p className={"eyebrow"}>FieldKit · Logistics · Web · Dashboard · 2023</p>
         <h1>A dispatcher's morning, down from 40 tabs to one screen.</h1>
-        <p className={"lede"}>A fleet operations dashboard for a logistics company —
+        <p className={"lede"}>A fleet operations dashboard for a logistics company -
           built from mornings spent beside 8 dispatchers across 3 depots, and
           designed to show the 12 trailers that need action, not all 400.</p>
 
@@ -91,8 +91,8 @@ function FieldkitPage() {
         <section className={"cs-section"} id={"overview"}>
           <h2>Overview</h2>
           <p>FieldKit's client runs a trailer fleet of around 400 units across three
-            depots. Every morning, dispatchers answered one question — "where are my
-            trailers and which ones need attention?" — by stitching together
+            depots. Every morning, dispatchers answered one question - "where are my
+            trailers and which ones need attention?" - by stitching together
             spreadsheets, a GPS portal, and a phone that never stopped ringing.</p>
           <p>I was the sole designer on a team of four engineers, owning research,
             interaction design, and the shipped UI over a three-month engagement.</p>
@@ -100,11 +100,11 @@ function FieldkitPage() {
 
         <section className={"cs-section"} id={"problem"}>
           <h2>Problem</h2>
-          <div className={"highlight"}>Dispatchers weren't short on data — they were
+          <div className={"highlight"}>Dispatchers weren't short on data - they were
             drowning in it. Forty browser tabs, three systems, and zero answers
             to "which trailers actually need me right now?"</div>
-          <p>The cost was concrete: at-risk trailers — idle too long, off-route, or
-            overdue for a depot check — were found by accident or by phone call, not
+          <p>The cost was concrete: at-risk trailers - idle too long, off-route, or
+            overdue for a depot check - were found by accident or by phone call, not
             by the tools. Each miss meant a late load, an unhappy customer, or a
             trailer sitting unbilled in a yard.</p>
         </section>
@@ -114,7 +114,7 @@ function FieldkitPage() {
           <p>I shadowed 8 dispatchers across all 3 depots, sitting beside them
             through full morning shifts. The pattern was unmistakable: their day is
             interruption-driven, and every interruption cost them their place across
-            dozens of tabs. They didn't need a map of everything — they needed a
+            dozens of tabs. They didn't need a map of everything - they needed a
             short, trustworthy list of what's wrong.</p>
           <ul className={"cs-list"}>
             <li><strong>Exceptions first.</strong> Show the 12 trailers that need
@@ -127,7 +127,7 @@ function FieldkitPage() {
           <figure className={"cs-figure"}>
             <svg viewBox={"0 0 720 300"} fill={"none"} xmlns={"http://www.w3.org/2000/svg"} aria-hidden={"true"}>
               <rect width={"720"} height={"300"} fill={"var(--surface)"} />
-              <text x={"40"} y={"48"} fontFamily={"JetBrains Mono, monospace"} fontSize={"12"} fill={"var(--ink-3)"}>PROGRESSIVE DISCLOSURE — ALERT → TRAILER → HISTORY</text>
+              <text x={"40"} y={"48"} fontFamily={"JetBrains Mono, monospace"} fontSize={"12"} fill={"var(--ink-3)"}>PROGRESSIVE DISCLOSURE - ALERT → TRAILER → HISTORY</text>
               <rect x={"40"} y={"80"} width={"180"} height={"170"} rx={"12"} fill={"var(--surface-2)"} stroke={"var(--line)"} />
               <circle cx={"68"} cy={"112"} r={"8"} fill={"#d97706"} />
               <rect x={"86"} y={"106"} width={"110"} height={"12"} rx={"6"} fill={"var(--ink)"} opacity={"0.7"} />
@@ -145,7 +145,7 @@ function FieldkitPage() {
               <text x={"304"} y={"278"} fontFamily={"JetBrains Mono, monospace"} fontSize={"10"} fill={"var(--ink-3)"}>2 · trailer</text>
               <text x={"556"} y={"278"} fontFamily={"JetBrains Mono, monospace"} fontSize={"10"} fill={"var(--ink-3)"}>3 · history</text>
             </svg>
-            <figcaption>fig 01 — each level answers one question before offering the next</figcaption>
+            <figcaption>fig 01 - each level answers one question before offering the next</figcaption>
           </figure>
         </section>
 
@@ -155,7 +155,7 @@ function FieldkitPage() {
             needs action, ranked by urgency, each with the reason stated in plain
             language ("idle 3 days at Pune yard"). One click expands the trailer's
             live status; one more reveals its full movement history. The map is
-            still there — but as evidence on demand, not the starting point.</p>
+            still there - but as evidence on demand, not the starting point.</p>
           <p>Crucially, we didn't fight the spreadsheets. Every queue exports to CSV
             in the exact column order dispatchers already used, which is what earned
             us the first week of honest adoption from experts who loved their
@@ -170,7 +170,7 @@ function FieldkitPage() {
             <div className={"metric-tile"}><b>96%</b><span>weekly active dispatchers</span></div>
           </div>
           <p>Within two months, FieldKit was the first tab open at every depot each
-            morning — and for most dispatchers, the only one. The GPS portal and
+            morning - and for most dispatchers, the only one. The GPS portal and
             the morning spreadsheet ritual quietly fell out of the routine.</p>
         </section>
 
@@ -180,7 +180,7 @@ function FieldkitPage() {
             <li><strong>Design for the interruption, not the flow.</strong>
               Dispatch work is a series of resumptions. Preserving context across
               phone calls did more for adoption than any visual polish.</li>
-            <li><strong>Expert users don't resist change — they resist loss.</strong>
+            <li><strong>Expert users don't resist change - they resist loss.</strong>
               The spreadsheet wasn't the enemy; it was their safety net. Matching
               its export format cost us a day and bought us their trust.</li>
             <li><strong>Fewer things, honestly ranked, beats everything on a map.</strong>

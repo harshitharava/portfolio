@@ -112,7 +112,7 @@ function PhytivesPage() {
               <strong>modernize</strong> the look while retaining the original
               logo. The goal was a style that visually reflects the{" "}
               <strong>brand&rsquo;s commitment</strong> to natural, safe, and
-              effective plant-based products &mdash; conveying purity, trust,
+              effective plant-based products - conveying purity, trust,
               and alignment with the{" "}
               <strong>wellness-focused mission</strong> of Phytives.
             </p>
@@ -122,7 +122,7 @@ function PhytivesPage() {
             <p>
               The primary challenge was transforming the old, clinical-looking
               design into a more approachable, wellness-oriented style that
-              aligns with Phytives&rsquo; natural brand values &mdash; moving
+              aligns with Phytives&rsquo; natural brand values - moving
               away from <strong>anatomical visuals</strong> while ensuring the
               new design still conveyed <strong>trust</strong> and{" "}
               <strong>efficacy</strong>.
@@ -208,18 +208,18 @@ function PhytivesPage() {
           <div className="phy-ads">
             <img
               src={adRhiniphyt}
-              alt="Rhiniphyt Capsules ad: The Gateway to Effortless Breathing — combats seasonal allergies, boosts respiratory health, improves immunity"
+              alt="Rhiniphyt Capsules ad: The Gateway to Effortless Breathing - combats seasonal allergies, boosts respiratory health, improves immunity"
             />
             <img
               src={adGlucophyt}
-              alt="Glucophyt Tablets ad: A capsule a day regulates blood sugar all the way — manages weight, regulates blood sugar, boosts metabolism"
+              alt="Glucophyt Tablets ad: A capsule a day regulates blood sugar all the way - manages weight, regulates blood sugar, boosts metabolism"
             />
           </div>
         </div>
         <figure className="phy-range-figure">
           <img
             src={productRange}
-            alt="The full Phytives product range — Psoraphyt Oil, Psoraphyt Cream, Arthrophyt Cream, Psoraphyt Tablets, Arthrophyt Capsules, Rhiniphyt Capsules, and Glucophyt Capsules — displayed on stone podiums"
+            alt="The full Phytives product range - Psoraphyt Oil, Psoraphyt Cream, Arthrophyt Cream, Psoraphyt Tablets, Arthrophyt Capsules, Rhiniphyt Capsules, and Glucophyt Capsules - displayed on stone podiums"
           />
         </figure>
       </section>

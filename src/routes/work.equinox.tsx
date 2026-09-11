@@ -20,13 +20,13 @@ export const Route = createFileRoute("/work/equinox")({
       {
         name: "description",
         content:
-          "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch — a brand language built to feel human, flexible, and distinctly its own.",
+          "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch - a brand language built to feel human, flexible, and distinctly its own.",
       },
       { property: "og:title", content: "Infosys Equinox | Harshith Arava" },
       {
         property: "og:description",
         content:
-          "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch — a brand language built to feel human, flexible, and distinctly its own.",
+          "A campaign identity for Infosys Equinox's 'Make Commerce Great Again' launch - a brand language built to feel human, flexible, and distinctly its own.",
       },
       { property: "og:type", content: "article" },
       {
@@ -174,7 +174,7 @@ function EquinoxPage() {
             <ThemedImage
               light={arrivalLight}
               dark={arrivalDark}
-              alt="Diagram: Human Centric, Adaptability, and Efficiency icons combine with a repeated row of the same three plus the Equinox gradient, converging through a bracket into the ring illustration — an abstract ring made of dozens of overlapping elliptical lines, gradiating from pink to blue"
+              alt="Diagram: Human Centric, Adaptability, and Efficiency icons combine with a repeated row of the same three plus the Equinox gradient, converging through a bracket into the ring illustration - an abstract ring made of dozens of overlapping elliptical lines, gradiating from pink to blue"
             />
           </figure>
 
@@ -230,13 +230,13 @@ function EquinoxPage() {
             <figure>
               <img
                 src={socialFitness}
-                alt="Instagram post: When commerce is this flexible, there will always be a choice — Make Commerce Human with Infosys Equinox, 125 likes"
+                alt="Instagram post: When commerce is this flexible, there will always be a choice - Make Commerce Human with Infosys Equinox, 125 likes"
               />
             </figure>
             <figure>
               <img
                 src={socialFashion}
-                alt="Instagram post: Commerce at the speed of fashion and apparel trends — why miss out, get agile and ahead for the fashion-forward, 452 likes"
+                alt="Instagram post: Commerce at the speed of fashion and apparel trends - why miss out, get agile and ahead for the fashion-forward, 452 likes"
               />
             </figure>
           </div>

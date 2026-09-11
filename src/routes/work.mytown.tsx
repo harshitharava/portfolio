@@ -7,7 +7,7 @@ import heroMobile from "@/assets/mytown/hero/mytown-hero-mobile.webp";
 import logoLight from "@/assets/mytown/hero/mytown-logo.webp";
 import logoDark from "@/assets/mytown/hero/mytown-logo-dark.webp";
 /* the hero photo's sky is genuinely semi-transparent (confirmed by
-   sampling — not a fixed light colour), so it blends with the page's own
+   sampling - not a fixed light colour), so it blends with the page's own
    background and really does read darker in dark mode, the same way the
    headline text does. The navy logo that works against the light-blended
    sky loses almost all contrast against the darker one, so it swaps to
@@ -41,14 +41,14 @@ import exp04Light from "@/assets/mytown/experience/mytown-experience-04.webp";
 import exp04Dark from "@/assets/mytown/experience/mytown-experience-04-dark.webp";
 
 const DESCRIPTION =
-  "UX case study: MyTown, a service concept helping international students settle into a new city — guided first-week tasks, consolidated support, local discovery, and community.";
+  "UX case study: MyTown, a service concept helping international students settle into a new city - guided first-week tasks, consolidated support, local discovery, and community.";
 
 export const Route = createFileRoute("/work/mytown")({
   head: () => ({
     meta: [
-      { title: "MyTown case study — Harshith Arava" },
+      { title: "MyTown case study - Harshith Arava" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "MyTown case study — Harshith Arava" },
+      { property: "og:title", content: "MyTown case study - Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/mytown" },
@@ -103,7 +103,7 @@ function MyTownPage() {
           <ThemedImage
             light={heroFullLight}
             dark={heroFullDark}
-            alt="Four MyTown screens — the splash screen, the home screen with a first-week checklist, a step-by-step SIM card guide, and the Support Hub — captioned Arrival, Orientation, Essential Tasks, and Support & Community"
+            alt="Four MyTown screens - the splash screen, the home screen with a first-week checklist, a step-by-step SIM card guide, and the Support Hub - captioned Arrival, Orientation, Essential Tasks, and Support & Community"
           />
           {/* Mobile-only export: the four-phone composition above doesn't
               leave enough room to stay legible once squeezed into a narrow
@@ -113,7 +113,7 @@ function MyTownPage() {
               stay separate, rendered in normal flow below it. Only a
               light-mode export exists so far; it's used for both themes
               at this breakpoint until a dark counterpart is supplied. */}
-          <img className="mt-hero-mobile" src={heroMobile} alt="MyTown — Helping students feel at home, sooner. Making every new beginning a little easier." />
+          <img className="mt-hero-mobile" src={heroMobile} alt="MyTown - Helping students feel at home, sooner. Making every new beginning a little easier." />
           <div className="mt-hero-overlay">
             {/* the tags sit in the page's normal-width wrap (matching the
                 nav above), in one row like before; the logo/headline/sub
@@ -223,7 +223,7 @@ function MyTownPage() {
             <ThemedImage
               light={problemLight}
               dark={problemDark}
-              alt="Diagram of the tasks facing a newly arrived student — registering an address with DVV, applying for a Poliisi card, banking, housing, transport, university services, healthcare, events and shopping — surrounded by the questions they ask along the way"
+              alt="Diagram of the tasks facing a newly arrived student - registering an address with DVV, applying for a Poliisi card, banking, housing, transport, university services, healthcare, events and shopping - surrounded by the questions they ask along the way"
             />
           </figure>
 
@@ -282,7 +282,7 @@ function MyTownPage() {
               <h3>Workshop Activities</h3>
               <p>
                 A collaborative session to validate insights, share experiences,
-                and co-create ideas for features — structured around challenges
+                and co-create ideas for features - structured around challenges
                 and successes, what participants wished they'd had, and their
                 feature preferences and reactions.
               </p>
@@ -293,7 +293,7 @@ function MyTownPage() {
             <ThemedImage
               light={researchMethodsLight}
               dark={researchMethodsDark}
-              alt="The research methods in detail — an excerpt of the interview script, the workshop boards and focus areas, and the participant invitation email"
+              alt="The research methods in detail - an excerpt of the interview script, the workshop boards and focus areas, and the participant invitation email"
             />
           </figure>
 
@@ -330,7 +330,7 @@ function MyTownPage() {
             <ThemedImage
               light={userJourneyLight}
               dark={userJourneyDark}
-              alt="User journey map across four stages — before arrival, arrival week, settling in, and long-term usage — tracking actions, thoughts, feelings, pain points and opportunities at each stage"
+              alt="User journey map across four stages - before arrival, arrival week, settling in, and long-term usage - tracking actions, thoughts, feelings, pain points and opportunities at each stage"
             />
             <figcaption>
               Mapping the emotional and practical journey of an international
@@ -540,7 +540,7 @@ function MyTownPage() {
               <ThemedImage
                 light={designSystemLight}
                 dark={designSystemDark}
-                alt="Two MyTown Discover screens shown against the brand's blue shapes — a map view with categorised pins and a place detail view"
+                alt="Two MyTown Discover screens shown against the brand's blue shapes - a map view with categorised pins and a place detail view"
               />
             </figure>
           </div>

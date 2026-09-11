@@ -42,9 +42,9 @@ const DESCRIPTION =
 export const Route = createFileRoute("/work/playpal")({
   head: () => ({
     meta: [
-      { title: "PlayPal case study — Harshith Arava" },
+      { title: "PlayPal case study - Harshith Arava" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "PlayPal case study — Harshith Arava" },
+      { property: "og:title", content: "PlayPal case study - Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/playpal" },
@@ -785,7 +785,7 @@ function PlayPalPage() {
             This project reinforced the value of grounding design decisions in
             user research rather than assumptions. While it was tempting to
             focus on adding features, the interviews consistently showed that
-            the real challenge wasn't motivating people to play sports—it was
+            the real challenge wasn't motivating people to play sports - it was
             reducing the effort required to organize them. Throughout the
             project, I learned to prioritize simplicity, usability, and clear
             user flows over unnecessary complexity.

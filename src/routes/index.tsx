@@ -1174,7 +1174,7 @@ function Index() {
               <span className={"num"}>03</span>
               <h3>Ideate</h3>
               <p>
-                Divergent exploration — sketches, crazy-8s, competitive
+                Divergent exploration - sketches, crazy-8s, competitive
                 teardowns.
               </p>
             </div>
@@ -1194,7 +1194,7 @@ function Index() {
               <span className={"num"}>06</span>
               <h3>Test</h3>
               <p>
-                Usability sessions with real users — five people, brutal
+                Usability sessions with real users - five people, brutal
                 clarity.
               </p>
             </div>
@@ -1224,7 +1224,7 @@ function Index() {
               <h2 className={"reveal"}>Let's make something people love.</h2>
               <p className={"lede reveal"}>
                 Hiring for a UX role, or have a product that needs untangling?
-                Tell me what you're working on — I reply to every serious
+                Tell me what you're working on - I reply to every serious
                 message within 48 hours.
               </p>
               <div className={"contact-channels reveal"}>
@@ -1413,7 +1413,7 @@ function Index() {
               <div aria-live={"polite"}>
                 {formStatus === "success" && (
                   <p className={"form-status form-status-success"}>
-                    Thanks — your message is on its way. I reply to every
+                    Thanks - your message is on its way. I reply to every
                     serious message within 48 hours.
                   </p>
                 )}
@@ -1429,7 +1429,7 @@ function Index() {
                 )}
               </div>
               <p className={"form-note"}>
-                Straight to my inbox. No newsletters, no spam — just a reply.
+                Straight to my inbox. No newsletters, no spam - just a reply.
               </p>
             </form>
           </div>

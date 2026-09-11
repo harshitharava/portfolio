@@ -7,9 +7,9 @@ import aboutPhoto2 from "@/assets/about/about-harshith-alley.webp";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Harshith Arava — UX Designer" },
+      { title: "About Harshith Arava - UX Designer" },
       { name: "description", content: "From graphic design to Human-Technology Interaction: Harshith Arava brings visual craft, research, and product thinking together." },
-      { property: "og:title", content: "About Harshith Arava — UX Designer" },
+      { property: "og:title", content: "About Harshith Arava - UX Designer" },
       { property: "og:description", content: "From graphic design to Human-Technology Interaction: craft, research, and product thinking." },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://harshitharava.github.io/portfolio/about" },

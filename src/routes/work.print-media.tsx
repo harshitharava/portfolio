@@ -19,13 +19,13 @@ export const Route = createFileRoute("/work/print-media")({
       {
         name: "description",
         content:
-          "A collection of print and outdoor design work — restaurant posters, billboards, print ads, a hotel brochure, and merch illustration across a few different projects.",
+          "A collection of print and outdoor design work - restaurant posters, billboards, print ads, a hotel brochure, and merch illustration across a few different projects.",
       },
       { property: "og:title", content: "Print Media | Harshith Arava" },
       {
         property: "og:description",
         content:
-          "A collection of print and outdoor design work — restaurant posters, billboards, print ads, a hotel brochure, and merch illustration across a few different projects.",
+          "A collection of print and outdoor design work - restaurant posters, billboards, print ads, a hotel brochure, and merch illustration across a few different projects.",
       },
       { property: "og:type", content: "article" },
       {
@@ -55,7 +55,7 @@ function PrintMediaPage() {
           <h1>Print media.</h1>
           <p className="lede">
             A handful of print and outdoor pieces made outside the usual
-            product-design work — restaurant posters, a citylight billboard,
+            product-design work - restaurant posters, a citylight billboard,
             print ads, a hotel brochure, and a merch illustration. Not one
             client, so each piece below is labeled with the project it
             belongs to.
@@ -80,14 +80,14 @@ function PrintMediaPage() {
                 src={kariBillboard}
                 alt="A Kari Theory citylight billboard on a city street, advertising the Kari Konar Kadai Dosa"
               />
-              <figcaption>Citylight billboard — Kari Konar Kadai Dosa</figcaption>
+              <figcaption>Citylight billboard - Kari Konar Kadai Dosa</figcaption>
             </figure>
             <figure className="pm-card">
               <img
                 src={kariKiosk}
                 alt="An outdoor kiosk with two Kari Theory ads: Brain Omelette and Murukku Cheese Sandwich"
               />
-              <figcaption>Outdoor kiosk ads — Brain Omelette &amp; Murukku Cheese Sandwich</figcaption>
+              <figcaption>Outdoor kiosk ads - Brain Omelette &amp; Murukku Cheese Sandwich</figcaption>
             </figure>
           </div>
 
@@ -101,14 +101,14 @@ function PrintMediaPage() {
                 src={kariWeeklyB}
                 alt="Kari Theory weekly happy-hour offers poster, yellow and pink, laid out as a calendar grid"
               />
-              <figcaption>Weekly offers poster — calendar layout</figcaption>
+              <figcaption>Weekly offers poster - calendar layout</figcaption>
             </figure>
             <figure className="pm-card">
               <img
                 src={kariWeeklyA}
                 alt="Kari Theory weekly happy-hour offers poster, blue, laid out with a photo for each day"
               />
-              <figcaption>Weekly offers poster — alternate layout</figcaption>
+              <figcaption>Weekly offers poster - alternate layout</figcaption>
             </figure>
           </div>
 
@@ -118,7 +118,7 @@ function PrintMediaPage() {
                 src={tshirt}
                 alt="A white T-shirt printed with a Mass-ter Chef illustration of a chef pouring filter coffee"
               />
-              <figcaption>T-shirt illustration — &ldquo;Mass-ter Chef&rdquo;</figcaption>
+              <figcaption>T-shirt illustration - &ldquo;Mass-ter Chef&rdquo;</figcaption>
             </figure>
           </div>
         </div>
@@ -136,14 +136,14 @@ function PrintMediaPage() {
                 src={moBrunch}
                 alt="A hand holding a folded newspaper mockup showing The Ministry Brunch print ad at a breakfast table"
               />
-              <figcaption>Print ad — &ldquo;The Ministry Brunch&rdquo;</figcaption>
+              <figcaption>Print ad - &ldquo;The Ministry Brunch&rdquo;</figcaption>
             </figure>
             <figure className="pm-card">
               <img
                 src={mocBuffet}
                 alt="Make Your Dish Come True print ad for the Market Style Buffet at Ministry of Chutneys"
               />
-              <figcaption>Print ad — &ldquo;Make Your Dish Come True&rdquo;</figcaption>
+              <figcaption>Print ad - &ldquo;Make Your Dish Come True&rdquo;</figcaption>
             </figure>
           </div>
         </div>
@@ -159,7 +159,7 @@ function PrintMediaPage() {
                 src={brochure}
                 alt="A tri-fold Radisson Blu GRT Chennai hotel brochure mockup on a desk"
               />
-              <figcaption>Tri-fold brochure — &ldquo;Come Experience GReaT&rdquo;</figcaption>
+              <figcaption>Tri-fold brochure - &ldquo;Come Experience GReaT&rdquo;</figcaption>
             </figure>
           </div>
         </div>

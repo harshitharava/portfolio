@@ -53,9 +53,9 @@ const DESCRIPTION =
 export const Route = createFileRoute("/work/cityloop")({
   head: () => ({
     meta: [
-      { title: "CityLoop case study — Harshith Arava" },
+      { title: "CityLoop case study - Harshith Arava" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "CityLoop case study — Harshith Arava" },
+      { property: "og:title", content: "CityLoop case study - Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/cityloop" },

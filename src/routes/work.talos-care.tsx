@@ -17,9 +17,9 @@ const DESCRIPTION =
 export const Route = createFileRoute("/work/talos-care")({
   head: () => ({
     meta: [
-      { title: "Talos Care case study — Harshith Arava" },
+      { title: "Talos Care case study - Harshith Arava" },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: "Talos Care case study — Harshith Arava" },
+      { property: "og:title", content: "Talos Care case study - Harshith Arava" },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "https://harshitharava.github.io/portfolio/work/talos-care" },
