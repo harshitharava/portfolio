@@ -571,13 +571,13 @@ section {
    intermittently painted the text underneath the yellow instead of
    on top of it during/after the dark-mode toggle — a paint-order
    glitch this rules out structurally rather than chasing case by
-   case. The yellow fill is fixed (doesn't flip with theme, like the
-   on-photo case-study tag pills elsewhere), so the text sitting on
-   it needs a fixed dark color too — --ink itself flips to a light
-   tone in dark mode, which would go light-on-light against this
-   fill. */
+   case. Text color is intentionally left to inherit var(--ink) same
+   as the rest of the headline — in dark mode that's a light cream on
+   the still-fixed yellow fill, ~1.4:1 contrast, confirmed and wanted
+   (low-contrast "ghosted" look) rather than a legibility bug; light
+   mode is unaffected since --ink's light-mode value already matches
+   the fixed color this replaced. */
 .hero-highlight {
-  color: #1c1712;
   background-image: linear-gradient(#f5c344, #f5c344);
   background-repeat: no-repeat;
   background-position: 0 88%;
