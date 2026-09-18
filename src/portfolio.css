@@ -560,30 +560,32 @@ section {
 }
 
 /* Marker-style highlight on the headline's payoff word — a strip
-   sitting behind the lower two-thirds of the letterforms, not a full
-   box behind the whole line, so it reads as a highlighter stroke
-   rather than a button/badge. The yellow fill is fixed (doesn't flip
-   with theme, like the on-photo case-study tag pills elsewhere), so
-   the text sitting on it needs a fixed dark color too — --ink itself
-   flips to a light tone in dark mode, which would go light-on-light
-   against this fill. */
+   sitting behind the lower ~40% of the letterforms, not a full box
+   behind the whole line, so it reads as a highlighter stroke rather
+   than a button/badge. Painted as the element's own background
+   (a flat-color gradient, not an image) rather than an absolutely
+   positioned ::before with a negative z-index — backgrounds always
+   paint before an element's own text in CSS's painting order, so
+   there's no stacking context to get wrong. The earlier ::before
+   version was verified correct in computed styles every time but
+   intermittently painted the text underneath the yellow instead of
+   on top of it during/after the dark-mode toggle — a paint-order
+   glitch this rules out structurally rather than chasing case by
+   case. The yellow fill is fixed (doesn't flip with theme, like the
+   on-photo case-study tag pills elsewhere), so the text sitting on
+   it needs a fixed dark color too — --ink itself flips to a light
+   tone in dark mode, which would go light-on-light against this
+   fill. */
 .hero-highlight {
-  position: relative;
-  z-index: 0;
   color: #1c1712;
-}
-
-.hero-highlight::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -0.06em;
-  right: -0.1em;
-  bottom: 0.08em;
-  height: 0.42em;
-  background: #f5c344;
-  border-radius: 2px;
-  transform: rotate(-1.5deg);
+  background-image: linear-gradient(#f5c344, #f5c344);
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 42%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
 }
 
 .hero-support {
