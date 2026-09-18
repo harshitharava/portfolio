@@ -123,20 +123,16 @@ function Index() {
             />
           </svg>
 
-          <p className={"hero-role"} data-stagger={"1"}>
-            UX Designer
-          </p>
-
-          <h1 data-stagger={"2"}>
+          <h1 data-stagger={"1"}>
             Making technology make{" "}
             <span className={"hero-highlight"}>sense.</span>
           </h1>
 
-          <p className={"hero-support"} data-stagger={"3"}>
+          <p className={"hero-support"} data-stagger={"2"}>
             Human-Technology Interaction · UX Research · AI
           </p>
 
-          <div className={"hero-ctas"} data-stagger={"4"}>
+          <div className={"hero-ctas"} data-stagger={"3"}>
             <Link className={"btn btn-primary"} to={"/"} hash={"work"}>
               View my work{" "}
               <span className={"arrow"} aria-hidden={"true"}>
