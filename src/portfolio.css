@@ -1369,6 +1369,28 @@ section {
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 
+/* The native select arrow sat flush against the box's own border with
+   only the field's shared 16px side padding to work with — nowhere
+   near enough clearance once rendered at Chrome's own icon size. Swap
+   it for a custom chevron with real breathing room on the right, sized
+   and positioned independently of the text padding. Color is baked
+   into the SVG (encoded --ink-3) rather than referenced, since
+   background-image can't read currentColor/custom properties — hence
+   the separate dark-mode override below with the dark value inlined. */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23978d7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px;
+}
+
+[data-theme="dark"] .field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237d7263' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
 .field textarea {
   resize: vertical;
   min-height: 130px;
@@ -2047,14 +2069,6 @@ section {
   font-family: var(--font-mono);
   font-size: 12.5px;
   color: var(--footer-mono);
-}
-
-.footer-mark {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, #0b1d4d 0 34%, #2f6bff 36% 62%, #f1ece1 64% 100%);
-  display: inline-block;
 }
 
 /* About page header — folded into #about's own .section-head so the

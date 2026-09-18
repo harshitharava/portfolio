@@ -46,7 +46,6 @@ export function SiteFooter() {
         <div className="footer-rule" />
 
         <div className="footer-bottom">
-          <span className="footer-mark" aria-hidden="true" />
           <span>No templates were harmed</span>
         </div>
       </div>
