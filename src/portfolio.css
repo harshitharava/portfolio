@@ -563,22 +563,33 @@ section {
    sitting behind the lower ~40% of the letterforms, not a full box
    behind the whole line, so it reads as a highlighter stroke rather
    than a button/badge. Painted as the element's own background
-   (a flat-color gradient, not an image) rather than an absolutely
-   positioned ::before with a negative z-index — backgrounds always
-   paint before an element's own text in CSS's painting order, so
-   there's no stacking context to get wrong. The earlier ::before
-   version was verified correct in computed styles every time but
-   intermittently painted the text underneath the yellow instead of
-   on top of it during/after the dark-mode toggle — a paint-order
-   glitch this rules out structurally rather than chasing case by
-   case. Text color is intentionally left to inherit var(--ink) same
-   as the rest of the headline — in dark mode that's a light cream on
-   the still-fixed yellow fill, ~1.4:1 contrast, confirmed and wanted
-   (low-contrast "ghosted" look) rather than a legibility bug; light
-   mode is unaffected since --ink's light-mode value already matches
-   the fixed color this replaced. */
+   rather than an absolutely positioned ::before with a negative
+   z-index — backgrounds always paint before an element's own text in
+   CSS's painting order, so there's no stacking context to get wrong.
+   The earlier ::before version was verified correct in computed
+   styles every time but intermittently painted the text underneath
+   the yellow instead of on top of it during/after the dark-mode
+   toggle — a paint-order glitch this rules out structurally rather
+   than chasing case by case.
+
+   The slight hand-marked tilt is baked into the background SVG's own
+   coordinate space (an oversized rect rotated inside a fixed
+   viewBox), not applied as a CSS transform on an element — a
+   transform here would rotate the text along with the strip, and a
+   transform on a separate element is exactly the stacking-context
+   trick this was rebuilt to avoid. background-size stretches that
+   fixed viewBox to the span's own box, so the tilt holds regardless
+   of "sense."'s actual rendered width.
+
+   Text color is intentionally left to inherit var(--ink) same as the
+   rest of the headline — in dark mode that's a light cream on a
+   fixed (not theme-flipping) strip fill, confirmed and wanted (a
+   low-contrast "ghosted" look) rather than a legibility bug. The
+   strip's own fill color does still flip once, to a darker yellow in
+   dark mode specifically so it doesn't compete with the surrounding
+   page's own dark surfaces. */
 .hero-highlight {
-  background-image: linear-gradient(#f5c344, #f5c344);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 50'%3E%3Crect x='-20' y='5' width='340' height='40' rx='3' fill='%23f5c344' transform='rotate(-2 150 25)'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: 0 88%;
   background-size: 100% 42%;
@@ -586,6 +597,10 @@ section {
   -webkit-box-decoration-break: clone;
   padding: 0 0.08em;
   margin: 0 -0.08em;
+}
+
+[data-theme="dark"] .hero-highlight {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 50'%3E%3Crect x='-20' y='5' width='340' height='40' rx='3' fill='%23927324' transform='rotate(-2 150 25)'/%3E%3C/svg%3E");
 }
 
 .hero-support {
