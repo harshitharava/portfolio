@@ -127,7 +127,10 @@ function Index() {
             UX Designer
           </p>
 
-          <h1 data-stagger={"2"}>Making technology make sense.</h1>
+          <h1 data-stagger={"2"}>
+            Making technology make{" "}
+            <span className={"hero-highlight"}>sense.</span>
+          </h1>
 
           <p className={"hero-support"} data-stagger={"3"}>
             Human-Technology Interaction · UX Research · AI
